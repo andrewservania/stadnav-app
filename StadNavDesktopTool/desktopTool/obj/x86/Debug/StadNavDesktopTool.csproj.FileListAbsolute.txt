@@ -1,0 +1,11 @@
+C:\Users\Tim\Desktop\desktopTool2.0\desktopTool\desktopTool\bin\Debug\Resources\ISETool.exe
+C:\Users\Tim\Desktop\desktopTool2.0\desktopTool\desktopTool\bin\Debug\StadNavDesktopTool.exe
+C:\Users\Tim\Desktop\desktopTool2.0\desktopTool\desktopTool\bin\Debug\StadNavDesktopTool.pdb
+C:\Users\Tim\Desktop\desktopTool2.0\desktopTool\desktopTool\obj\x86\Debug\StadNavDesktopTool.Main_Tool.resources
+C:\Users\Tim\Desktop\desktopTool2.0\desktopTool\desktopTool\obj\x86\Debug\StadNavDesktopTool.Manage_Language.resources
+C:\Users\Tim\Desktop\desktopTool2.0\desktopTool\desktopTool\obj\x86\Debug\StadNavDesktopTool.Manage_Route.resources
+C:\Users\Tim\Desktop\desktopTool2.0\desktopTool\desktopTool\obj\x86\Debug\StadNavDesktopTool.Manage_Waypoint.resources
+C:\Users\Tim\Desktop\desktopTool2.0\desktopTool\desktopTool\obj\x86\Debug\StadNavDesktopTool.Properties.Resources.resources
+C:\Users\Tim\Desktop\desktopTool2.0\desktopTool\desktopTool\obj\x86\Debug\StadNavDesktopTool.csproj.GenerateResource.Cache
+C:\Users\Tim\Desktop\desktopTool2.0\desktopTool\desktopTool\obj\x86\Debug\StadNavDesktopTool.exe
+C:\Users\Tim\Desktop\desktopTool2.0\desktopTool\desktopTool\obj\x86\Debug\StadNavDesktopTool.pdb
