@@ -37,15 +37,16 @@
             this.tbNaamToevoegen = new System.Windows.Forms.TextBox();
             this.lblNaamToevoegen = new System.Windows.Forms.Label();
             this.gbToevoegen = new System.Windows.Forms.GroupBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.lblBeschikbaarToevoegen = new System.Windows.Forms.ListBox();
-            this.tbIndexToevoegen = new System.Windows.Forms.TextBox();
-            this.lblIndexToevoegen = new System.Windows.Forms.Label();
-            this.lblBevatToevoegen = new System.Windows.Forms.ListBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnWaypointToevoegenToevoegen = new System.Windows.Forms.Button();
             this.btnWaypointVerwijderenToevoegen = new System.Windows.Forms.Button();
+            this.btnWaypointToevoegenToevoegen = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblBevatToevoegen = new System.Windows.Forms.ListBox();
+            this.tbIndexToevoegen = new System.Windows.Forms.TextBox();
+            this.lblBeschikbaarToevoegen = new System.Windows.Forms.ListBox();
+            this.lblIndexToevoegen = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbBewerken = new System.Windows.Forms.GroupBox();
             this.btnWaypointVerwijderenBewerken = new System.Windows.Forms.Button();
             this.btnWaypointToevoegenBewerken = new System.Windows.Forms.Button();
@@ -155,43 +156,41 @@
             this.gbToevoegen.TabStop = false;
             this.gbToevoegen.Text = "Toevoegen";
             // 
-            // menuStrip1
+            // btnWaypointVerwijderenToevoegen
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.afsluitenToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(967, 24);
-            this.menuStrip1.TabIndex = 14;
-            this.menuStrip1.Text = "menuStrip1";
+            this.btnWaypointVerwijderenToevoegen.Location = new System.Drawing.Point(411, 100);
+            this.btnWaypointVerwijderenToevoegen.Name = "btnWaypointVerwijderenToevoegen";
+            this.btnWaypointVerwijderenToevoegen.Size = new System.Drawing.Size(75, 23);
+            this.btnWaypointVerwijderenToevoegen.TabIndex = 16;
+            this.btnWaypointVerwijderenToevoegen.Text = "<<";
+            this.btnWaypointVerwijderenToevoegen.UseVisualStyleBackColor = true;
             // 
-            // lblBeschikbaarToevoegen
+            // btnWaypointToevoegenToevoegen
             // 
-            this.lblBeschikbaarToevoegen.FormattingEnabled = true;
-            this.lblBeschikbaarToevoegen.Items.AddRange(new object[] {
-            "Waypoint",
-            "Waypoint",
-            "Waypoint"});
-            this.lblBeschikbaarToevoegen.Location = new System.Drawing.Point(206, 29);
-            this.lblBeschikbaarToevoegen.Name = "lblBeschikbaarToevoegen";
-            this.lblBeschikbaarToevoegen.Size = new System.Drawing.Size(198, 134);
-            this.lblBeschikbaarToevoegen.TabIndex = 5;
+            this.btnWaypointToevoegenToevoegen.Location = new System.Drawing.Point(411, 71);
+            this.btnWaypointToevoegenToevoegen.Name = "btnWaypointToevoegenToevoegen";
+            this.btnWaypointToevoegenToevoegen.Size = new System.Drawing.Size(75, 23);
+            this.btnWaypointToevoegenToevoegen.TabIndex = 15;
+            this.btnWaypointToevoegenToevoegen.Text = ">>";
+            this.btnWaypointToevoegenToevoegen.UseVisualStyleBackColor = true;
             // 
-            // tbIndexToevoegen
+            // label4
             // 
-            this.tbIndexToevoegen.Location = new System.Drawing.Point(82, 108);
-            this.tbIndexToevoegen.Name = "tbIndexToevoegen";
-            this.tbIndexToevoegen.Size = new System.Drawing.Size(118, 20);
-            this.tbIndexToevoegen.TabIndex = 7;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(489, 13);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Bevat";
             // 
-            // lblIndexToevoegen
+            // label3
             // 
-            this.lblIndexToevoegen.AutoSize = true;
-            this.lblIndexToevoegen.Location = new System.Drawing.Point(8, 111);
-            this.lblIndexToevoegen.Name = "lblIndexToevoegen";
-            this.lblIndexToevoegen.Size = new System.Drawing.Size(36, 13);
-            this.lblIndexToevoegen.TabIndex = 6;
-            this.lblIndexToevoegen.Text = "Index:";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(203, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(66, 13);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Beschikbaar";
             // 
             // lblBevatToevoegen
             // 
@@ -205,41 +204,51 @@
             this.lblBevatToevoegen.Size = new System.Drawing.Size(198, 134);
             this.lblBevatToevoegen.TabIndex = 12;
             // 
-            // label3
+            // tbIndexToevoegen
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(203, 13);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 13);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Beschikbaar";
+            this.tbIndexToevoegen.Location = new System.Drawing.Point(82, 108);
+            this.tbIndexToevoegen.Name = "tbIndexToevoegen";
+            this.tbIndexToevoegen.Size = new System.Drawing.Size(118, 20);
+            this.tbIndexToevoegen.TabIndex = 7;
             // 
-            // label4
+            // lblBeschikbaarToevoegen
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(489, 13);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Bevat";
+            this.lblBeschikbaarToevoegen.FormattingEnabled = true;
+            this.lblBeschikbaarToevoegen.Items.AddRange(new object[] {
+            "Waypoint",
+            "Waypoint",
+            "Waypoint"});
+            this.lblBeschikbaarToevoegen.Location = new System.Drawing.Point(206, 29);
+            this.lblBeschikbaarToevoegen.Name = "lblBeschikbaarToevoegen";
+            this.lblBeschikbaarToevoegen.Size = new System.Drawing.Size(198, 134);
+            this.lblBeschikbaarToevoegen.TabIndex = 5;
             // 
-            // btnWaypointToevoegenToevoegen
+            // lblIndexToevoegen
             // 
-            this.btnWaypointToevoegenToevoegen.Location = new System.Drawing.Point(411, 71);
-            this.btnWaypointToevoegenToevoegen.Name = "btnWaypointToevoegenToevoegen";
-            this.btnWaypointToevoegenToevoegen.Size = new System.Drawing.Size(75, 23);
-            this.btnWaypointToevoegenToevoegen.TabIndex = 15;
-            this.btnWaypointToevoegenToevoegen.Text = ">>";
-            this.btnWaypointToevoegenToevoegen.UseVisualStyleBackColor = true;
+            this.lblIndexToevoegen.AutoSize = true;
+            this.lblIndexToevoegen.Location = new System.Drawing.Point(8, 111);
+            this.lblIndexToevoegen.Name = "lblIndexToevoegen";
+            this.lblIndexToevoegen.Size = new System.Drawing.Size(36, 13);
+            this.lblIndexToevoegen.TabIndex = 6;
+            this.lblIndexToevoegen.Text = "Index:";
             // 
-            // btnWaypointVerwijderenToevoegen
+            // menuStrip1
             // 
-            this.btnWaypointVerwijderenToevoegen.Location = new System.Drawing.Point(411, 100);
-            this.btnWaypointVerwijderenToevoegen.Name = "btnWaypointVerwijderenToevoegen";
-            this.btnWaypointVerwijderenToevoegen.Size = new System.Drawing.Size(75, 23);
-            this.btnWaypointVerwijderenToevoegen.TabIndex = 16;
-            this.btnWaypointVerwijderenToevoegen.Text = "<<";
-            this.btnWaypointVerwijderenToevoegen.UseVisualStyleBackColor = true;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.afsluitenToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(967, 24);
+            this.menuStrip1.TabIndex = 14;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // gbBewerken
             // 
@@ -437,5 +446,6 @@
         private System.Windows.Forms.Label lblNaamBewerken;
         private System.Windows.Forms.Label lblIDBewerken;
         private System.Windows.Forms.TextBox tbIDBewerken;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
     }
 }
