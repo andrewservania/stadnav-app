@@ -12,7 +12,10 @@ namespace StadNavDesktopTool
 {
     public partial class Main_Tool : Form
     {
-        string path = ";";
+        private string path = ";";
+        private bool hulp = false;
+        private Help_Tool help;
+        
 
         public Main_Tool()
         {
@@ -45,6 +48,7 @@ namespace StadNavDesktopTool
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
         }
 
         private void textBox1_Enter(object sender, EventArgs e)
@@ -155,19 +159,19 @@ namespace StadNavDesktopTool
 
         private void aanpassenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form manageRoute = new Manage_Route();
+            Form manageRoute = new Manage_Route(this);
             manageRoute.ShowDialog(this);
         }
 
         private void bewerkenToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Form manageLanguage = new Manage_Language();
+            Form manageLanguage = new Manage_Language(this);
             manageLanguage.ShowDialog(this);
         }
 
         private void bewerkenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form manageWaypoints = new Manage_Waypoint();
+            Form manageWaypoints = new Manage_Waypoint(this);
             manageWaypoints.ShowDialog(this);
         }
 
@@ -179,6 +183,52 @@ namespace StadNavDesktopTool
         private void afsluitenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Environment.Exit(1);
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!hulp)
+            {
+                hulp = true;
+                createHulp(0);
+                
+            }
+            else
+            {
+                setTabHulp(0);
+            }
+        }
+
+        public void setHulp(bool hulp)
+        {
+            this.hulp = hulp;
+        }
+
+        public bool getHulp()
+        {
+            return hulp;
+        }
+
+        public void createHulp(int type)
+        {
+            help = new Help_Tool(this, type);
+            help.Show();
+            help.Location = new Point(Screen.PrimaryScreen.Bounds.Right - help.Width, Screen.PrimaryScreen.Bounds.Top);
+        }
+
+        public void setTabHulp(int tab)
+        {
+            help.setTab(tab);
+        }
+        public Help_Tool getHelpPage()
+        {
+            help.Visible = false;
+            return help;
+        }
+
+        public void deleteHelpPage()
+        {
+            help.Dispose();
         }
     }
 }

@@ -37,6 +37,8 @@
             this.BrowseText = new System.Windows.Forms.TextBox();
             this.BrowseBT = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.beherenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.routeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aanpassenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,8 +50,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.lblAlert = new System.Windows.Forms.Label();
-            this.beherenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -143,6 +143,22 @@
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // beherenToolStripMenuItem
+            // 
+            this.beherenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.afsluitenToolStripMenuItem});
+            this.beherenToolStripMenuItem.Name = "beherenToolStripMenuItem";
+            this.beherenToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.beherenToolStripMenuItem.Text = "File";
+            // 
+            // afsluitenToolStripMenuItem
+            // 
+            this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
+            this.afsluitenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.afsluitenToolStripMenuItem.Text = "Afsluiten";
+            this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.afsluitenToolStripMenuItem_Click);
+            // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -159,7 +175,7 @@
             this.routeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aanpassenToolStripMenuItem});
             this.routeToolStripMenuItem.Name = "routeToolStripMenuItem";
-            this.routeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.routeToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.routeToolStripMenuItem.Text = "Route\'s";
             // 
             // aanpassenToolStripMenuItem
@@ -174,13 +190,13 @@
             this.talenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bewerkenToolStripMenuItem1});
             this.talenToolStripMenuItem.Name = "talenToolStripMenuItem";
-            this.talenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.talenToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.talenToolStripMenuItem.Text = "Talen";
             // 
             // bewerkenToolStripMenuItem1
             // 
             this.bewerkenToolStripMenuItem1.Name = "bewerkenToolStripMenuItem1";
-            this.bewerkenToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.bewerkenToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
             this.bewerkenToolStripMenuItem1.Text = "Beheren..";
             this.bewerkenToolStripMenuItem1.Click += new System.EventHandler(this.bewerkenToolStripMenuItem1_Click);
             // 
@@ -189,13 +205,13 @@
             this.waypointsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bewerkenToolStripMenuItem});
             this.waypointsToolStripMenuItem.Name = "waypointsToolStripMenuItem";
-            this.waypointsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.waypointsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.waypointsToolStripMenuItem.Text = "Waypoints";
             // 
             // bewerkenToolStripMenuItem
             // 
             this.bewerkenToolStripMenuItem.Name = "bewerkenToolStripMenuItem";
-            this.bewerkenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.bewerkenToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.bewerkenToolStripMenuItem.Text = "Beheren..";
             this.bewerkenToolStripMenuItem.Click += new System.EventHandler(this.bewerkenToolStripMenuItem_Click);
             // 
@@ -204,6 +220,7 @@
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
@@ -239,22 +256,6 @@
             this.lblAlert.TabIndex = 12;
             this.lblAlert.Text = "Pas op! Dit overschrijft de gehele isolated storage!";
             this.lblAlert.Visible = false;
-            // 
-            // beherenToolStripMenuItem
-            // 
-            this.beherenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.afsluitenToolStripMenuItem});
-            this.beherenToolStripMenuItem.Name = "beherenToolStripMenuItem";
-            this.beherenToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.beherenToolStripMenuItem.Text = "File";
-            // 
-            // afsluitenToolStripMenuItem
-            // 
-            this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
-            this.afsluitenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.afsluitenToolStripMenuItem.Text = "Afsluiten";
-            this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.afsluitenToolStripMenuItem_Click);
             // 
             // Main_Tool
             // 
