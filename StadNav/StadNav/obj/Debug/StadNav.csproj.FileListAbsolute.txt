@@ -1,0 +1,12 @@
+C:\Users\Remco\Documents\StadNav\StadNav\StadNav\Bin\Debug\ApplicationIcon.png
+C:\Users\Remco\Documents\StadNav\StadNav\StadNav\Bin\Debug\Background.png
+C:\Users\Remco\Documents\StadNav\StadNav\StadNav\Bin\Debug\StadNav.dll
+C:\Users\Remco\Documents\StadNav\StadNav\StadNav\Bin\Debug\StadNav.pdb
+C:\Users\Remco\Documents\StadNav\StadNav\StadNav\Bin\Debug\AppManifest.xaml
+C:\Users\Remco\Documents\StadNav\StadNav\StadNav\Bin\Debug\StadNav.xap
+C:\Users\Remco\Documents\StadNav\StadNav\StadNav\obj\Debug\App.g.i.cs
+C:\Users\Remco\Documents\StadNav\StadNav\StadNav\obj\Debug\MainPage.g.i.cs
+C:\Users\Remco\Documents\StadNav\StadNav\StadNav\obj\Debug\StadNav.g.resources
+C:\Users\Remco\Documents\StadNav\StadNav\StadNav\obj\Debug\StadNav.dll
+C:\Users\Remco\Documents\StadNav\StadNav\StadNav\obj\Debug\StadNav.pdb
+C:\Users\Remco\Documents\StadNav\StadNav\StadNav\obj\Debug\XapCacheFile.xml
