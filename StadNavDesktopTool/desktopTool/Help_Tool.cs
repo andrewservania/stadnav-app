@@ -229,7 +229,7 @@ namespace StadNavDesktopTool
 
         private void fileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            this.Close();
         }
 
         private void Help_Tool_FormClosing(object sender, FormClosingEventArgs e)
