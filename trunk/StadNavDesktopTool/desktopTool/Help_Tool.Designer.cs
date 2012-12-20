@@ -37,10 +37,10 @@ namespace StadNavDesktopTool
             this.lblInfoInfo = new System.Windows.Forms.Label();
             this.lblTitelInfo = new System.Windows.Forms.Label();
             this.UitlegGroupBox = new System.Windows.Forms.GroupBox();
-            this.lblUitleg = new System.Windows.Forms.Label();
             this.lblUitlegTitel = new System.Windows.Forms.Label();
             this.FotoGroupBox = new System.Windows.Forms.GroupBox();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.MenuBarMainclick = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.LogClick = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.EmulatorClick = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.ActiesClick = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
@@ -48,7 +48,6 @@ namespace StadNavDesktopTool
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.RouteTab = new System.Windows.Forms.TabPage();
             this.RoutesUitlegGroupBox = new System.Windows.Forms.GroupBox();
-            this.lblUileg = new System.Windows.Forms.Label();
             this.lblTitelRoutes = new System.Windows.Forms.Label();
             this.RoutesInfoGroupBox = new System.Windows.Forms.GroupBox();
             this.lblInfoInfoRoutes = new System.Windows.Forms.Label();
@@ -72,7 +71,6 @@ namespace StadNavDesktopTool
             this.MenuBarTalenClick = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.TalenPic = new System.Windows.Forms.PictureBox();
             this.TalenUitlegGroupBox = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.WayPointsTab = new System.Windows.Forms.TabPage();
             this.TalenInfoGroupBox = new System.Windows.Forms.GroupBox();
@@ -88,7 +86,9 @@ namespace StadNavDesktopTool
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.Label6 = new System.Windows.Forms.Label();
-            this.MenuBarMainclick = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
+            this.lblUitleg = new System.Windows.Forms.Label();
+            this.lblUileg = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.MainTab.SuspendLayout();
@@ -203,16 +203,6 @@ namespace StadNavDesktopTool
             this.UitlegGroupBox.TabStop = false;
             this.UitlegGroupBox.Text = "Uitleg";
             // 
-            // lblUitleg
-            // 
-            this.lblUitleg.AutoSize = true;
-            this.lblUitleg.Location = new System.Drawing.Point(6, 53);
-            this.lblUitleg.MaximumSize = new System.Drawing.Size(200, 0);
-            this.lblUitleg.Name = "lblUitleg";
-            this.lblUitleg.Size = new System.Drawing.Size(192, 30);
-            this.lblUitleg.TabIndex = 1;
-            this.lblUitleg.Text = "Klik op een gekleurd vak om daar extra informatie over te krijgen.";
-            // 
             // lblUitlegTitel
             // 
             this.lblUitlegTitel.AutoSize = true;
@@ -249,9 +239,20 @@ namespace StadNavDesktopTool
             this.shapeContainer1.TabIndex = 1;
             this.shapeContainer1.TabStop = false;
             // 
+            // MenuBarMainclick
+            // 
+            this.MenuBarMainclick.BorderColor = System.Drawing.Color.Red;
+            this.MenuBarMainclick.BorderWidth = 4;
+            this.MenuBarMainclick.Cursor = System.Windows.Forms.Cursors.Help;
+            this.MenuBarMainclick.Location = new System.Drawing.Point(14, 26);
+            this.MenuBarMainclick.Name = "MenuBarMainclick";
+            this.MenuBarMainclick.Size = new System.Drawing.Size(148, 25);
+            this.MenuBarMainclick.MouseEnter += new System.EventHandler(this.MenuBarClick_Click);
+            // 
             // LogClick
             // 
-            this.LogClick.BorderColor = System.Drawing.Color.Transparent;
+            this.LogClick.BorderColor = System.Drawing.Color.DeepPink;
+            this.LogClick.BorderWidth = 4;
             this.LogClick.Cursor = System.Windows.Forms.Cursors.Help;
             this.LogClick.Location = new System.Drawing.Point(288, 65);
             this.LogClick.Name = "LogClick";
@@ -260,29 +261,33 @@ namespace StadNavDesktopTool
             // 
             // EmulatorClick
             // 
-            this.EmulatorClick.BorderColor = System.Drawing.Color.Transparent;
+            this.EmulatorClick.BorderColor = System.Drawing.Color.Orange;
+            this.EmulatorClick.BorderWidth = 4;
             this.EmulatorClick.Cursor = System.Windows.Forms.Cursors.Help;
-            this.EmulatorClick.Location = new System.Drawing.Point(17, 247);
+            this.EmulatorClick.Location = new System.Drawing.Point(15, 245);
             this.EmulatorClick.Name = "EmulatorClick";
-            this.EmulatorClick.Size = new System.Drawing.Size(186, 19);
+            this.EmulatorClick.Size = new System.Drawing.Size(75, 20);
             this.EmulatorClick.MouseEnter += new System.EventHandler(this.EmulatorClick_Click);
             // 
             // ActiesClick
             // 
-            this.ActiesClick.BorderColor = System.Drawing.Color.Transparent;
+            this.ActiesClick.BorderColor = System.Drawing.Color.Lime;
+            this.ActiesClick.BorderWidth = 4;
             this.ActiesClick.Cursor = System.Windows.Forms.Cursors.Help;
-            this.ActiesClick.Location = new System.Drawing.Point(17, 112);
+            this.ActiesClick.Location = new System.Drawing.Point(15, 113);
             this.ActiesClick.Name = "ActiesClick";
             this.ActiesClick.Size = new System.Drawing.Size(267, 129);
             this.ActiesClick.MouseEnter += new System.EventHandler(this.ActiesClick_Click);
             // 
             // ProductIDClick
             // 
-            this.ProductIDClick.BorderColor = System.Drawing.Color.Transparent;
+            this.ProductIDClick.BackStyle = Microsoft.VisualBasic.PowerPacks.BackStyle.Opaque;
+            this.ProductIDClick.BorderColor = System.Drawing.Color.Blue;
+            this.ProductIDClick.BorderWidth = 4;
             this.ProductIDClick.Cursor = System.Windows.Forms.Cursors.Help;
-            this.ProductIDClick.Location = new System.Drawing.Point(18, 58);
+            this.ProductIDClick.Location = new System.Drawing.Point(15, 59);
             this.ProductIDClick.Name = "ProductIDClick";
-            this.ProductIDClick.Size = new System.Drawing.Size(265, 49);
+            this.ProductIDClick.Size = new System.Drawing.Size(268, 49);
             this.ProductIDClick.MouseEnter += new System.EventHandler(this.ProductIDClick_Click);
             // 
             // pictureBox1
@@ -318,16 +323,6 @@ namespace StadNavDesktopTool
             this.RoutesUitlegGroupBox.TabIndex = 5;
             this.RoutesUitlegGroupBox.TabStop = false;
             this.RoutesUitlegGroupBox.Text = "Uitleg";
-            // 
-            // lblUileg
-            // 
-            this.lblUileg.AutoSize = true;
-            this.lblUileg.Location = new System.Drawing.Point(6, 53);
-            this.lblUileg.MaximumSize = new System.Drawing.Size(200, 0);
-            this.lblUileg.Name = "lblUileg";
-            this.lblUileg.Size = new System.Drawing.Size(192, 30);
-            this.lblUileg.TabIndex = 1;
-            this.lblUileg.Text = "Klik op een gekleurd vak om daar extra informatie over te krijgen.";
             // 
             // lblTitelRoutes
             // 
@@ -401,7 +396,8 @@ namespace StadNavDesktopTool
             // 
             // RoutesClickRoute
             // 
-            this.RoutesClickRoute.BorderColor = System.Drawing.Color.Transparent;
+            this.RoutesClickRoute.BorderColor = System.Drawing.Color.DeepPink;
+            this.RoutesClickRoute.BorderWidth = 4;
             this.RoutesClickRoute.Cursor = System.Windows.Forms.Cursors.Help;
             this.RoutesClickRoute.Location = new System.Drawing.Point(446, 43);
             this.RoutesClickRoute.Name = "RoutesClickRoute";
@@ -410,16 +406,18 @@ namespace StadNavDesktopTool
             // 
             // BewerkenClickRoute
             // 
-            this.BewerkenClickRoute.BorderColor = System.Drawing.Color.Transparent;
+            this.BewerkenClickRoute.BorderColor = System.Drawing.Color.Lime;
+            this.BewerkenClickRoute.BorderWidth = 4;
             this.BewerkenClickRoute.Cursor = System.Windows.Forms.Cursors.Help;
-            this.BewerkenClickRoute.Location = new System.Drawing.Point(13, 159);
+            this.BewerkenClickRoute.Location = new System.Drawing.Point(13, 155);
             this.BewerkenClickRoute.Name = "BewerkenClickRoute";
-            this.BewerkenClickRoute.Size = new System.Drawing.Size(430, 104);
+            this.BewerkenClickRoute.Size = new System.Drawing.Size(430, 108);
             this.BewerkenClickRoute.MouseEnter += new System.EventHandler(this.BewerkenClickRoute_Click);
             // 
             // ToevoegenClickRoute
             // 
-            this.ToevoegenClickRoute.BorderColor = System.Drawing.Color.Transparent;
+            this.ToevoegenClickRoute.BorderColor = System.Drawing.Color.Blue;
+            this.ToevoegenClickRoute.BorderWidth = 4;
             this.ToevoegenClickRoute.Cursor = System.Windows.Forms.Cursors.Help;
             this.ToevoegenClickRoute.Location = new System.Drawing.Point(13, 43);
             this.ToevoegenClickRoute.Name = "ToevoegenClickRoute";
@@ -428,11 +426,12 @@ namespace StadNavDesktopTool
             // 
             // MenuBarClickRoute
             // 
-            this.MenuBarClickRoute.BorderColor = System.Drawing.Color.Transparent;
+            this.MenuBarClickRoute.BorderColor = System.Drawing.Color.Red;
+            this.MenuBarClickRoute.BorderWidth = 4;
             this.MenuBarClickRoute.Cursor = System.Windows.Forms.Cursors.Help;
             this.MenuBarClickRoute.Location = new System.Drawing.Point(13, 25);
             this.MenuBarClickRoute.Name = "MenuBarClickRoute";
-            this.MenuBarClickRoute.Size = new System.Drawing.Size(101, 11);
+            this.MenuBarClickRoute.Size = new System.Drawing.Size(67, 13);
             this.MenuBarClickRoute.MouseEnter += new System.EventHandler(this.MenuBarClickRoute_Click);
             // 
             // pictureBox2
@@ -519,25 +518,28 @@ namespace StadNavDesktopTool
             // 
             // TalenTalenClick
             // 
-            this.TalenTalenClick.BorderColor = System.Drawing.Color.Transparent;
+            this.TalenTalenClick.BorderColor = System.Drawing.Color.DeepPink;
+            this.TalenTalenClick.BorderWidth = 4;
             this.TalenTalenClick.Cursor = System.Windows.Forms.Cursors.Help;
-            this.TalenTalenClick.Location = new System.Drawing.Point(317, 67);
+            this.TalenTalenClick.Location = new System.Drawing.Point(320, 66);
             this.TalenTalenClick.Name = "TalenTalenClick";
-            this.TalenTalenClick.Size = new System.Drawing.Size(280, 171);
+            this.TalenTalenClick.Size = new System.Drawing.Size(272, 171);
             this.TalenTalenClick.MouseEnter += new System.EventHandler(this.TalenTalenClick_Click);
             // 
             // BewerkenTalenClick
             // 
-            this.BewerkenTalenClick.BorderColor = System.Drawing.Color.Transparent;
+            this.BewerkenTalenClick.BorderColor = System.Drawing.Color.Lime;
+            this.BewerkenTalenClick.BorderWidth = 4;
             this.BewerkenTalenClick.Cursor = System.Windows.Forms.Cursors.Help;
-            this.BewerkenTalenClick.Location = new System.Drawing.Point(25, 164);
+            this.BewerkenTalenClick.Location = new System.Drawing.Point(27, 163);
             this.BewerkenTalenClick.Name = "BewerkenTalenClick";
-            this.BewerkenTalenClick.Size = new System.Drawing.Size(292, 99);
+            this.BewerkenTalenClick.Size = new System.Drawing.Size(289, 102);
             this.BewerkenTalenClick.MouseEnter += new System.EventHandler(this.BewerkenTalenClick_Click);
             // 
             // ToevoegenTalenClick
             // 
-            this.ToevoegenTalenClick.BorderColor = System.Drawing.Color.Transparent;
+            this.ToevoegenTalenClick.BorderColor = System.Drawing.Color.Blue;
+            this.ToevoegenTalenClick.BorderWidth = 4;
             this.ToevoegenTalenClick.Cursor = System.Windows.Forms.Cursors.Help;
             this.ToevoegenTalenClick.Location = new System.Drawing.Point(28, 57);
             this.ToevoegenTalenClick.Name = "ToevoegenTalenClick";
@@ -546,11 +548,12 @@ namespace StadNavDesktopTool
             // 
             // MenuBarTalenClick
             // 
-            this.MenuBarTalenClick.BorderColor = System.Drawing.Color.Transparent;
+            this.MenuBarTalenClick.BorderColor = System.Drawing.Color.Red;
+            this.MenuBarTalenClick.BorderWidth = 4;
             this.MenuBarTalenClick.Cursor = System.Windows.Forms.Cursors.Help;
-            this.MenuBarTalenClick.Location = new System.Drawing.Point(21, 33);
+            this.MenuBarTalenClick.Location = new System.Drawing.Point(27, 34);
             this.MenuBarTalenClick.Name = "MenuBarTalenClick";
-            this.MenuBarTalenClick.Size = new System.Drawing.Size(181, 19);
+            this.MenuBarTalenClick.Size = new System.Drawing.Size(74, 19);
             this.MenuBarTalenClick.MouseEnter += new System.EventHandler(this.MenuBarTalenClick_Click);
             // 
             // TalenPic
@@ -573,16 +576,6 @@ namespace StadNavDesktopTool
             this.TalenUitlegGroupBox.TabIndex = 3;
             this.TalenUitlegGroupBox.TabStop = false;
             this.TalenUitlegGroupBox.Text = "Uitleg";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 53);
-            this.label3.MaximumSize = new System.Drawing.Size(200, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(192, 30);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Klik op een gekleurd vak om daar extra informatie over te krijgen.";
             // 
             // label4
             // 
@@ -668,7 +661,8 @@ namespace StadNavDesktopTool
             // 
             // WaypointsWaypointsClick
             // 
-            this.WaypointsWaypointsClick.BorderColor = System.Drawing.Color.Transparent;
+            this.WaypointsWaypointsClick.BorderColor = System.Drawing.Color.DeepPink;
+            this.WaypointsWaypointsClick.BorderWidth = 4;
             this.WaypointsWaypointsClick.Cursor = System.Windows.Forms.Cursors.Help;
             this.WaypointsWaypointsClick.Location = new System.Drawing.Point(451, 53);
             this.WaypointsWaypointsClick.Name = "WaypointsWaypointsClick";
@@ -677,29 +671,32 @@ namespace StadNavDesktopTool
             // 
             // WaypointsBewerkenClick
             // 
-            this.WaypointsBewerkenClick.BorderColor = System.Drawing.Color.Transparent;
+            this.WaypointsBewerkenClick.BorderColor = System.Drawing.Color.Lime;
+            this.WaypointsBewerkenClick.BorderWidth = 4;
             this.WaypointsBewerkenClick.Cursor = System.Windows.Forms.Cursors.Help;
-            this.WaypointsBewerkenClick.Location = new System.Drawing.Point(10, 162);
+            this.WaypointsBewerkenClick.Location = new System.Drawing.Point(12, 157);
             this.WaypointsBewerkenClick.Name = "WaypointsBewerkenClick";
-            this.WaypointsBewerkenClick.Size = new System.Drawing.Size(441, 103);
+            this.WaypointsBewerkenClick.Size = new System.Drawing.Size(435, 110);
             this.WaypointsBewerkenClick.MouseEnter += new System.EventHandler(this.WaypointsBewerkenClick_Click);
             // 
             // WaypointsToevoegenClick
             // 
-            this.WaypointsToevoegenClick.BorderColor = System.Drawing.Color.Transparent;
+            this.WaypointsToevoegenClick.BorderColor = System.Drawing.Color.Blue;
+            this.WaypointsToevoegenClick.BorderWidth = 4;
             this.WaypointsToevoegenClick.Cursor = System.Windows.Forms.Cursors.Help;
-            this.WaypointsToevoegenClick.Location = new System.Drawing.Point(10, 46);
+            this.WaypointsToevoegenClick.Location = new System.Drawing.Point(13, 45);
             this.WaypointsToevoegenClick.Name = "WaypointsToevoegenClick";
-            this.WaypointsToevoegenClick.Size = new System.Drawing.Size(436, 103);
+            this.WaypointsToevoegenClick.Size = new System.Drawing.Size(435, 108);
             this.WaypointsToevoegenClick.MouseEnter += new System.EventHandler(this.WaypointsToevoegenClick_Click);
             // 
             // WaypointsMenuBarClick
             // 
-            this.WaypointsMenuBarClick.BorderColor = System.Drawing.Color.Transparent;
+            this.WaypointsMenuBarClick.BorderColor = System.Drawing.Color.Red;
+            this.WaypointsMenuBarClick.BorderWidth = 4;
             this.WaypointsMenuBarClick.Cursor = System.Windows.Forms.Cursors.Help;
-            this.WaypointsMenuBarClick.Location = new System.Drawing.Point(16, 29);
+            this.WaypointsMenuBarClick.Location = new System.Drawing.Point(13, 26);
             this.WaypointsMenuBarClick.Name = "WaypointsMenuBarClick";
-            this.WaypointsMenuBarClick.Size = new System.Drawing.Size(95, 9);
+            this.WaypointsMenuBarClick.Size = new System.Drawing.Size(79, 14);
             this.WaypointsMenuBarClick.MouseEnter += new System.EventHandler(this.WaypointsMenuBarClick_Click);
             // 
             // pictureBox3
@@ -729,9 +726,9 @@ namespace StadNavDesktopTool
             this.label5.Location = new System.Drawing.Point(6, 53);
             this.label5.MaximumSize = new System.Drawing.Size(200, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(192, 30);
+            this.label5.Size = new System.Drawing.Size(194, 30);
             this.label5.TabIndex = 1;
-            this.label5.Text = "ga met je muis over een vak waar \r\nu informatie over wilt";
+            this.label5.Text = "Ga met je muis over een vak waar \r\nu informatie over wilt";
             // 
             // Label6
             // 
@@ -743,15 +740,35 @@ namespace StadNavDesktopTool
             this.Label6.TabIndex = 0;
             this.Label6.Text = "Waypoints";
             // 
-            // MenuBarMainclick
+            // lblUitleg
             // 
-            this.MenuBarMainclick.BorderColor = System.Drawing.Color.Transparent;
-            this.MenuBarMainclick.BorderStyle = System.Drawing.Drawing2D.DashStyle.Custom;
-            this.MenuBarMainclick.Cursor = System.Windows.Forms.Cursors.Help;
-            this.MenuBarMainclick.Location = new System.Drawing.Point(12, 24);
-            this.MenuBarMainclick.Name = "MenuBarMainclick";
-            this.MenuBarMainclick.Size = new System.Drawing.Size(254, 25);
-            this.MenuBarMainclick.MouseEnter += new System.EventHandler(this.MenuBarClick_Click);
+            this.lblUitleg.AutoSize = true;
+            this.lblUitleg.Location = new System.Drawing.Point(6, 53);
+            this.lblUitleg.MaximumSize = new System.Drawing.Size(200, 0);
+            this.lblUitleg.Name = "lblUitleg";
+            this.lblUitleg.Size = new System.Drawing.Size(194, 30);
+            this.lblUitleg.TabIndex = 1;
+            this.lblUitleg.Text = "Ga met je muis over een vak waar \r\nu informatie over wilt";
+            // 
+            // lblUileg
+            // 
+            this.lblUileg.AutoSize = true;
+            this.lblUileg.Location = new System.Drawing.Point(6, 53);
+            this.lblUileg.MaximumSize = new System.Drawing.Size(200, 0);
+            this.lblUileg.Name = "lblUileg";
+            this.lblUileg.Size = new System.Drawing.Size(194, 30);
+            this.lblUileg.TabIndex = 1;
+            this.lblUileg.Text = "Ga met je muis over een vak waar \r\nu informatie over wilt";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 53);
+            this.label3.MaximumSize = new System.Drawing.Size(200, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(194, 30);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Ga met je muis over een vak waar \r\nu informatie over wilt";
             // 
             // Help_Tool
             // 
@@ -813,7 +830,6 @@ namespace StadNavDesktopTool
         private System.Windows.Forms.TabPage MainTab;
         private System.Windows.Forms.GroupBox FotoGroupBox;
         private System.Windows.Forms.GroupBox UitlegGroupBox;
-        private System.Windows.Forms.Label lblUitleg;
         private System.Windows.Forms.Label lblUitlegTitel;
         private System.Windows.Forms.TabPage RouteTab;
         private System.Windows.Forms.TabPage TalenTab;
@@ -827,7 +843,6 @@ namespace StadNavDesktopTool
         private Microsoft.VisualBasic.PowerPacks.RectangleShape EmulatorClick;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape LogClick;
         private System.Windows.Forms.GroupBox RoutesUitlegGroupBox;
-        private System.Windows.Forms.Label lblUileg;
         private System.Windows.Forms.Label lblTitelRoutes;
         private System.Windows.Forms.GroupBox RoutesInfoGroupBox;
         private System.Windows.Forms.Label lblInfoInfoRoutes;
@@ -847,7 +862,6 @@ namespace StadNavDesktopTool
         private Microsoft.VisualBasic.PowerPacks.RectangleShape MenuBarTalenClick;
         private System.Windows.Forms.PictureBox TalenPic;
         private System.Windows.Forms.GroupBox TalenUitlegGroupBox;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape TalenTalenClick;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape BewerkenTalenClick;
@@ -867,5 +881,8 @@ namespace StadNavDesktopTool
         private System.Windows.Forms.Label Label6;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Microsoft.VisualBasic.PowerPacks.RectangleShape MenuBarMainclick;
+        private System.Windows.Forms.Label lblUitleg;
+        private System.Windows.Forms.Label lblUileg;
+        private System.Windows.Forms.Label label3;
     }
 }
