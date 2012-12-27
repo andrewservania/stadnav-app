@@ -27,21 +27,26 @@ namespace StadNav
         private void button5_Click(object sender, RoutedEventArgs e)
         {
             //Changes language
-            /*Button button = sender as Button;
-            Image content = button.Content as Image;
-            if (content != null)
-            {*/
-                if (dutch)
-                {
-                    ((Image) button5.Content).Source = new BitmapImage(new Uri("images/eng.jpg", UriKind.Relative));
-                    dutch = false;
-                }
-                else
-                {
-                    ((Image)button5.Content).Source = new BitmapImage(new Uri("images/ned.jpg", UriKind.Relative));
-                    dutch = true;
-                }
-           // }
+            if (dutch)
+            {
+                ((Image)button5.Content).Source = new BitmapImage(new Uri("images/eng.jpg", UriKind.Relative));
+                dutch = false;
+            }
+            else
+            {
+                ((Image)button5.Content).Source = new BitmapImage(new Uri("images/ned.jpg", UriKind.Relative));
+                dutch = true;
+            }
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri(string.Format("/RouteSelectionPage.xaml"), UriKind.Relative));
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri(string.Format("/HelpPage.xaml"), UriKind.Relative));
         }
     }
 }
