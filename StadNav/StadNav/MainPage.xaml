@@ -11,7 +11,7 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True" xmlns:my="clr-namespace:Microsoft.Phone.Controls.Maps;assembly=Microsoft.Phone.Controls.Maps">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -20,20 +20,26 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="StadNav" Style="{StaticResource PhoneTextNormalStyle}"/>
+        </StackPanel>
+
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0"></Grid>
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120*" />
+                <RowDefinition Height="576*" />
+            </Grid.RowDefinitions>
+            <my:Map Height="477" HorizontalAlignment="Left" Margin="25,34,0,0" Name="map1" VerticalAlignment="Top" Width="408" Grid.Row="1" />
+            <Button Content="Button" Height="72" HorizontalAlignment="Left" Margin="6,6,0,0" Name="button1" VerticalAlignment="Top" Width="210" />
+            <Button Content="Help" Height="72" HorizontalAlignment="Left" Margin="223,6,0,0" Name="button2" VerticalAlignment="Top" Width="210" />
+            <Button Content="Button" Height="72" HorizontalAlignment="Left" Margin="6,76,0,0" Name="button3" VerticalAlignment="Top" Width="210" Grid.RowSpan="2" />
+            <Button Content="Button" Height="72" HorizontalAlignment="Left" Margin="223,76,0,0" Name="button4" VerticalAlignment="Top" Width="210" Grid.RowSpan="2" />
+            <Button Grid.Row="1" Height="59" HorizontalAlignment="Right" Margin="0,517,23,0" Name="button5" VerticalAlignment="Top" Width="82" Click="button5_Click">
+                 <Image Source="images\ned.jpg"/>                                    
+            </Button>
+        </Grid>
     </Grid>
- 
-    <!--Sample code showing usage of ApplicationBar-->
-    <!--<phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
-            <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
-                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
-            </shell:ApplicationBar.MenuItems>
-        </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>-->
 
 </phone:PhoneApplicationPage>
