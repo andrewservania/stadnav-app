@@ -245,6 +245,6 @@ namespace StadNavDesktopTool
 
         private void Help_Tool_Load(object sender, EventArgs e)
         {
-        }        
+        }    
     }
 }
