@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lbAlleTalen = new System.Windows.Forms.ListBox();
             this.btnVerwijderen = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnBewerken = new System.Windows.Forms.Button();
@@ -45,21 +45,26 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.opslaanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.afsluitenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listBox1
+            // lbAlleTalen
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Items.AddRange(new object[] {
+            this.lbAlleTalen.FormattingEnabled = true;
+            this.lbAlleTalen.Items.AddRange(new object[] {
             "Nederlands",
             "English"});
-            this.listBox1.Location = new System.Drawing.Point(279, 37);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(241, 186);
-            this.listBox1.TabIndex = 0;
+            this.lbAlleTalen.Location = new System.Drawing.Point(279, 37);
+            this.lbAlleTalen.Name = "lbAlleTalen";
+            this.lbAlleTalen.Size = new System.Drawing.Size(241, 186);
+            this.lbAlleTalen.TabIndex = 0;
+            this.lbAlleTalen.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // btnVerwijderen
             // 
@@ -92,6 +97,7 @@
             this.btnBewerken.TabIndex = 9;
             this.btnBewerken.Text = "Bewerken";
             this.btnBewerken.UseVisualStyleBackColor = true;
+            this.btnBewerken.Click += new System.EventHandler(this.btnBewerken_Click);
             // 
             // tbIDBewerken
             // 
@@ -194,9 +200,14 @@
             // 
             // afsluitenToolStripMenuItem
             // 
+            this.afsluitenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.opslaanToolStripMenuItem,
+            this.openenToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.afsluitenToolStripMenuItem1});
             this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
-            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.afsluitenToolStripMenuItem.Text = "Afsluiten";
+            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.afsluitenToolStripMenuItem.Text = "Bestand";
             this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.afsluitenToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
@@ -206,6 +217,32 @@
             this.helpToolStripMenuItem.Text = "Help";
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
+            // opslaanToolStripMenuItem
+            // 
+            this.opslaanToolStripMenuItem.Name = "opslaanToolStripMenuItem";
+            this.opslaanToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.opslaanToolStripMenuItem.Text = "Opslaan..";
+            this.opslaanToolStripMenuItem.Click += new System.EventHandler(this.opslaanToolStripMenuItem_Click);
+            // 
+            // openenToolStripMenuItem
+            // 
+            this.openenToolStripMenuItem.Name = "openenToolStripMenuItem";
+            this.openenToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.openenToolStripMenuItem.Text = "Openen..";
+            this.openenToolStripMenuItem.Click += new System.EventHandler(this.openenToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(160, 6);
+            // 
+            // afsluitenToolStripMenuItem1
+            // 
+            this.afsluitenToolStripMenuItem1.Name = "afsluitenToolStripMenuItem1";
+            this.afsluitenToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.afsluitenToolStripMenuItem1.Size = new System.Drawing.Size(163, 22);
+            this.afsluitenToolStripMenuItem1.Text = "Afsluiten";
+            // 
             // Manage_Language
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -214,7 +251,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnVerwijderen);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lbAlleTalen);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Manage_Language";
@@ -233,7 +270,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lbAlleTalen;
         private System.Windows.Forms.Button btnVerwijderen;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnBewerken;
@@ -250,5 +287,9 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem afsluitenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem opslaanToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem afsluitenToolStripMenuItem1;
     }
 }

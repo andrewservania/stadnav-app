@@ -37,6 +37,7 @@ namespace StadNavDesktopTool
             this.lblInfoInfo = new System.Windows.Forms.Label();
             this.lblTitelInfo = new System.Windows.Forms.Label();
             this.UitlegGroupBox = new System.Windows.Forms.GroupBox();
+            this.lblUitleg = new System.Windows.Forms.Label();
             this.lblUitlegTitel = new System.Windows.Forms.Label();
             this.FotoGroupBox = new System.Windows.Forms.GroupBox();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
@@ -48,6 +49,7 @@ namespace StadNavDesktopTool
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.RouteTab = new System.Windows.Forms.TabPage();
             this.RoutesUitlegGroupBox = new System.Windows.Forms.GroupBox();
+            this.lblUileg = new System.Windows.Forms.Label();
             this.lblTitelRoutes = new System.Windows.Forms.Label();
             this.RoutesInfoGroupBox = new System.Windows.Forms.GroupBox();
             this.lblInfoInfoRoutes = new System.Windows.Forms.Label();
@@ -71,6 +73,7 @@ namespace StadNavDesktopTool
             this.MenuBarTalenClick = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.TalenPic = new System.Windows.Forms.PictureBox();
             this.TalenUitlegGroupBox = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.WayPointsTab = new System.Windows.Forms.TabPage();
             this.TalenInfoGroupBox = new System.Windows.Forms.GroupBox();
@@ -86,9 +89,6 @@ namespace StadNavDesktopTool
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.Label6 = new System.Windows.Forms.Label();
-            this.lblUitleg = new System.Windows.Forms.Label();
-            this.lblUileg = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.MainTab.SuspendLayout();
@@ -203,6 +203,16 @@ namespace StadNavDesktopTool
             this.UitlegGroupBox.TabStop = false;
             this.UitlegGroupBox.Text = "Uitleg";
             // 
+            // lblUitleg
+            // 
+            this.lblUitleg.AutoSize = true;
+            this.lblUitleg.Location = new System.Drawing.Point(6, 53);
+            this.lblUitleg.MaximumSize = new System.Drawing.Size(200, 0);
+            this.lblUitleg.Name = "lblUitleg";
+            this.lblUitleg.Size = new System.Drawing.Size(194, 30);
+            this.lblUitleg.TabIndex = 1;
+            this.lblUitleg.Text = "Ga met je muis over een vak waar \r\nu informatie over wilt";
+            // 
             // lblUitlegTitel
             // 
             this.lblUitlegTitel.AutoSize = true;
@@ -247,7 +257,6 @@ namespace StadNavDesktopTool
             this.MenuBarMainclick.Location = new System.Drawing.Point(14, 26);
             this.MenuBarMainclick.Name = "MenuBarMainclick";
             this.MenuBarMainclick.Size = new System.Drawing.Size(148, 25);
-            this.MenuBarMainclick.MouseEnter += new System.EventHandler(this.MenuBarClick_Click);
             // 
             // LogClick
             // 
@@ -323,6 +332,16 @@ namespace StadNavDesktopTool
             this.RoutesUitlegGroupBox.TabIndex = 5;
             this.RoutesUitlegGroupBox.TabStop = false;
             this.RoutesUitlegGroupBox.Text = "Uitleg";
+            // 
+            // lblUileg
+            // 
+            this.lblUileg.AutoSize = true;
+            this.lblUileg.Location = new System.Drawing.Point(6, 53);
+            this.lblUileg.MaximumSize = new System.Drawing.Size(200, 0);
+            this.lblUileg.Name = "lblUileg";
+            this.lblUileg.Size = new System.Drawing.Size(194, 30);
+            this.lblUileg.TabIndex = 1;
+            this.lblUileg.Text = "Ga met je muis over een vak waar \r\nu informatie over wilt";
             // 
             // lblTitelRoutes
             // 
@@ -577,6 +596,16 @@ namespace StadNavDesktopTool
             this.TalenUitlegGroupBox.TabStop = false;
             this.TalenUitlegGroupBox.Text = "Uitleg";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 53);
+            this.label3.MaximumSize = new System.Drawing.Size(200, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(194, 30);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Ga met je muis over een vak waar \r\nu informatie over wilt";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -739,36 +768,6 @@ namespace StadNavDesktopTool
             this.Label6.Size = new System.Drawing.Size(92, 20);
             this.Label6.TabIndex = 0;
             this.Label6.Text = "Waypoints";
-            // 
-            // lblUitleg
-            // 
-            this.lblUitleg.AutoSize = true;
-            this.lblUitleg.Location = new System.Drawing.Point(6, 53);
-            this.lblUitleg.MaximumSize = new System.Drawing.Size(200, 0);
-            this.lblUitleg.Name = "lblUitleg";
-            this.lblUitleg.Size = new System.Drawing.Size(194, 30);
-            this.lblUitleg.TabIndex = 1;
-            this.lblUitleg.Text = "Ga met je muis over een vak waar \r\nu informatie over wilt";
-            // 
-            // lblUileg
-            // 
-            this.lblUileg.AutoSize = true;
-            this.lblUileg.Location = new System.Drawing.Point(6, 53);
-            this.lblUileg.MaximumSize = new System.Drawing.Size(200, 0);
-            this.lblUileg.Name = "lblUileg";
-            this.lblUileg.Size = new System.Drawing.Size(194, 30);
-            this.lblUileg.TabIndex = 1;
-            this.lblUileg.Text = "Ga met je muis over een vak waar \r\nu informatie over wilt";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 53);
-            this.label3.MaximumSize = new System.Drawing.Size(200, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(194, 30);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Ga met je muis over een vak waar \r\nu informatie over wilt";
             // 
             // Help_Tool
             // 
