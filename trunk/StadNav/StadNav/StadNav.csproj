@@ -74,6 +74,7 @@
     <Compile Include="InformationPage.xaml.cs">
       <DependentUpon>InformationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Route.cs" />
     <Compile Include="RouteSelectionPage.xaml.cs">
       <DependentUpon>RouteSelectionPage.xaml</DependentUpon>
     </Compile>
@@ -81,6 +82,7 @@
       <DependentUpon>StadNavPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WayPoint.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
