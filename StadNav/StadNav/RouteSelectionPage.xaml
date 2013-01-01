@@ -23,12 +23,24 @@
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="StadNav" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="Kies een route" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="Kies een route" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Name="title" />
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <ListBox Height="561" HorizontalAlignment="Left" Margin="24,24,0,0" Name="listBox1" VerticalAlignment="Top" Width="409" />
+            <Button Height="72" HorizontalAlignment="Right" Margin="0,6,6,0" Name="button5" VerticalAlignment="Top" Width="82" Click="button5_Click">
+                <Image Source="images\ned.jpg" />
+            </Button>
+            <ListBox Height="503" HorizontalAlignment="Left" Margin="19,85,0,0" Name="listBox1" VerticalAlignment="Top" Width="419" SelectionChanged="listBox1_SelectionChanged">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding name}" 
+                                       Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </Grid>
     </Grid>
 
