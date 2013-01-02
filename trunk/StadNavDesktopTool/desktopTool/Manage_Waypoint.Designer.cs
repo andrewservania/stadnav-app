@@ -69,12 +69,11 @@
             this.tbLatBewerken = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.afsluitenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cbTaalToevoegen = new System.Windows.Forms.ComboBox();
+            this.cbTaalBewerken = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.lblMediaBewerken.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -84,6 +83,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.cbTaalToevoegen);
             this.groupBox2.Controls.Add(this.btnVerwijderenMediaToevoegen);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.lblBeschrijvingToevoegen);
@@ -285,6 +285,7 @@
             // 
             // lblMediaBewerken
             // 
+            this.lblMediaBewerken.Controls.Add(this.cbTaalBewerken);
             this.lblMediaBewerken.Controls.Add(this.label1);
             this.lblMediaBewerken.Controls.Add(this.btnVerwijderenMediaBewerken);
             this.lblMediaBewerken.Controls.Add(this.btnToevoegenMediaBewerken);
@@ -472,34 +473,12 @@
             // afsluitenToolStripMenuItem
             // 
             this.afsluitenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveToolStripMenuItem,
-            this.openToolStripMenuItem,
-            this.toolStripSeparator1,
             this.afsluitenToolStripMenuItem1});
             this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
             this.afsluitenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
             this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.afsluitenToolStripMenuItem.Text = "File";
             this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.afsluitenToolStripMenuItem_Click);
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.saveToolStripMenuItem.Text = "Opslaan..";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
-            // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.openToolStripMenuItem.Text = "Openen..";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(160, 6);
             // 
             // afsluitenToolStripMenuItem1
             // 
@@ -525,6 +504,24 @@
             this.panel2.Size = new System.Drawing.Size(455, 39);
             this.panel2.TabIndex = 22;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // cbTaalToevoegen
+            // 
+            this.cbTaalToevoegen.FormattingEnabled = true;
+            this.cbTaalToevoegen.Location = new System.Drawing.Point(324, 8);
+            this.cbTaalToevoegen.Name = "cbTaalToevoegen";
+            this.cbTaalToevoegen.Size = new System.Drawing.Size(121, 21);
+            this.cbTaalToevoegen.TabIndex = 22;
+            this.cbTaalToevoegen.SelectedIndexChanged += new System.EventHandler(this.cbTaalToevoegen_SelectedIndexChanged);
+            // 
+            // cbTaalBewerken
+            // 
+            this.cbTaalBewerken.FormattingEnabled = true;
+            this.cbTaalBewerken.Location = new System.Drawing.Point(324, 8);
+            this.cbTaalBewerken.Name = "cbTaalBewerken";
+            this.cbTaalBewerken.Size = new System.Drawing.Size(121, 21);
+            this.cbTaalBewerken.TabIndex = 23;
+            this.cbTaalBewerken.SelectedIndexChanged += new System.EventHandler(this.cbTaalBewerken_SelectedIndexChanged);
             // 
             // Manage_Waypoint
             // 
@@ -599,9 +596,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem afsluitenToolStripMenuItem1;
+        private System.Windows.Forms.ComboBox cbTaalToevoegen;
+        private System.Windows.Forms.ComboBox cbTaalBewerken;
     }
 }

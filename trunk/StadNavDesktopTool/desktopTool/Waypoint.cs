@@ -12,17 +12,32 @@ namespace StadNavDesktopTool
     {
         int idValue;
         string nameValue;
-        string descriptionValue;
         double latitudeValue;
         double longitudeValue;
-        BindingList<Image> imagesValue;
+        BindingList<string> imagesValue;
+        Dictionary<int, string> descriptionsValue;
 
         public Waypoint()
         {
-            imagesValue = new BindingList<Image>();
+            imagesValue = new BindingList<string>();
+            descriptionsValue = new Dictionary<int, string>();
         }
 
-        public BindingList<Image> Images
+        /// <summary>
+        /// IMPORTANT: 
+        /// int -> language ID
+        /// string -> description
+        /// </summary>
+        public Dictionary<int, string> Descriptions
+        {
+            get { return descriptionsValue; }
+            set { descriptionsValue = value; } 
+        }
+
+        /// <summary>
+        /// IMPORTANT: THIS LIST USES 'PATHS' or 'FILENAMES'
+        /// </summary>
+        public BindingList<string> Images
         {
             get { return imagesValue; }
             set { imagesValue = value; } 
@@ -40,12 +55,6 @@ namespace StadNavDesktopTool
             set { nameValue = value; }
         }
 
-        public string Description
-        {
-            get { return descriptionValue; }
-            set { descriptionValue = value; }
-        }
-
         public double Longitude
         {
             get { return longitudeValue; }
@@ -60,10 +69,7 @@ namespace StadNavDesktopTool
 
         public override string ToString()
         {
-            if (Description.Length > 50)
-                return "[" + ID + "] " + Name + ": " + Description.Substring(0, 50);
-            else
-                return "[" + ID + "] " + Name + ": " + Description;
+                return "[" + ID + "] " + Name;
         }
     }
 }

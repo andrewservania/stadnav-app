@@ -48,8 +48,11 @@
             this.bewerkenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.lblAlert = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.routeDataOpslaanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.routeDataOpenenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetRouteDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -142,11 +145,15 @@
             this.menuStrip1.Size = new System.Drawing.Size(654, 24);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // beherenToolStripMenuItem
             // 
             this.beherenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.afsluitenToolStripMenuItem});
+            this.afsluitenToolStripMenuItem,
+            this.routeDataOpslaanToolStripMenuItem,
+            this.routeDataOpenenToolStripMenuItem,
+            this.resetRouteDataToolStripMenuItem});
             this.beherenToolStripMenuItem.Name = "beherenToolStripMenuItem";
             this.beherenToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.beherenToolStripMenuItem.Text = "File";
@@ -155,7 +162,7 @@
             // 
             this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
             this.afsluitenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.afsluitenToolStripMenuItem.Text = "Afsluiten";
             this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.afsluitenToolStripMenuItem_Click);
             // 
@@ -236,15 +243,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Actie\'s";
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(194, 307);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(68, 23);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "Uitvoeren";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // lblAlert
             // 
             this.lblAlert.AutoSize = true;
@@ -255,6 +253,36 @@
             this.lblAlert.TabIndex = 12;
             this.lblAlert.Text = "Pas op! Dit overschrijft de gehele isolated storage!";
             this.lblAlert.Visible = false;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(194, 307);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(68, 23);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "Uitvoeren";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // routeDataOpslaanToolStripMenuItem
+            // 
+            this.routeDataOpslaanToolStripMenuItem.Name = "routeDataOpslaanToolStripMenuItem";
+            this.routeDataOpslaanToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.routeDataOpslaanToolStripMenuItem.Text = "Route Data Opslaan..";
+            this.routeDataOpslaanToolStripMenuItem.Click += new System.EventHandler(this.routeDataOpslaanToolStripMenuItem_Click);
+            // 
+            // routeDataOpenenToolStripMenuItem
+            // 
+            this.routeDataOpenenToolStripMenuItem.Name = "routeDataOpenenToolStripMenuItem";
+            this.routeDataOpenenToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.routeDataOpenenToolStripMenuItem.Text = "Route Data Openen..";
+            this.routeDataOpenenToolStripMenuItem.Click += new System.EventHandler(this.routeDataOpenenToolStripMenuItem_Click);
+            // 
+            // resetRouteDataToolStripMenuItem
+            // 
+            this.resetRouteDataToolStripMenuItem.Name = "resetRouteDataToolStripMenuItem";
+            this.resetRouteDataToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.resetRouteDataToolStripMenuItem.Text = "Reset Route Data";
+            this.resetRouteDataToolStripMenuItem.Click += new System.EventHandler(this.resetRouteDataToolStripMenuItem_Click);
             // 
             // Main_Tool
             // 
@@ -306,6 +334,9 @@
         private System.Windows.Forms.ToolStripMenuItem bewerkenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem beherenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem afsluitenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem routeDataOpslaanToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem routeDataOpenenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem resetRouteDataToolStripMenuItem;
     }
 }
 

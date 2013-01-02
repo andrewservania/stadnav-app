@@ -21,7 +21,12 @@ namespace StadNavDesktopTool
             stream.Close();
         }
 
-        public static void Clear()
+        public static void SetAllRoutes(BindingList<Route> newRoutes)
+        {
+            routes = newRoutes;
+        }
+
+        public static void ClearRoutes()
         {
             routes.Clear();
         }

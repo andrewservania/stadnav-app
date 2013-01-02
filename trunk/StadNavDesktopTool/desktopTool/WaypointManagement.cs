@@ -22,12 +22,17 @@ namespace StadNavDesktopTool
             stream.Close();
         }
 
-        public static void Clear()
+        public static void ClearWaypoints()
         {
             waypoints.Clear();
         }
 
-        public static void AddWaypointImage(Waypoint waypoint, Image image)
+        public static void AddWaypointDescription(Waypoint waypoint, int languageID, string description)
+        {
+            waypoint.Descriptions.Add(languageID, description);
+        }
+
+        public static void AddWaypointImage(Waypoint waypoint, string image)
         {
             waypoint.Images.Add(image);
         }
@@ -85,7 +90,12 @@ namespace StadNavDesktopTool
             waypoints.Add(Waypoint);
         }
 
-        public static bool AddWaypoint(int id, string name, string description, double latitude, double longitude)
+        public static void SetAllWaypoints(BindingList<Waypoint> newWaypoints)
+        {
+            waypoints = newWaypoints;
+        }
+
+        public static bool AddWaypoint(int id, string name, double latitude, double longitude)
         {
             Waypoint newWaypoint;
 
@@ -94,7 +104,6 @@ namespace StadNavDesktopTool
                 newWaypoint = new Waypoint();
                 newWaypoint.ID = id;
                 newWaypoint.Name = name;
-                newWaypoint.Description = description;
                 newWaypoint.Latitude = latitude;
                 newWaypoint.Longitude = longitude;
 
