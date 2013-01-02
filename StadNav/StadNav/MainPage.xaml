@@ -37,6 +37,7 @@
             <Button Height="72" HorizontalAlignment="Right" Margin="0,19,6,0" Name="button5" VerticalAlignment="Top" Width="82" Click="button5_Click">
                  <Image Source="images\ned.jpg" />                                    
             </Button>
+            <Button Content="Refresh" Grid.Row="1" Height="72" HorizontalAlignment="Left" Margin="153,508,0,0" Name="button3" VerticalAlignment="Top" Width="158" Click="button3_Click_1" />
         </Grid>
     </Grid>
 

@@ -8,18 +8,43 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
-using System.Collections.Generic;
+using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace StadNav
 {
     public class Route
     {
-        public List<Waypoint> WayPoints { get; set; }
-        public String name { get; set; }
+        int idValue;
+        string nameValue;
+        ObservableCollection<Waypoint> waypointsValue;
 
-        public Route(String name)
+        public Route()
         {
-            this.name = name;
+            waypointsValue = new ObservableCollection<Waypoint>();
+        }
+
+        public ObservableCollection<Waypoint> Waypoints
+        {
+            get { return waypointsValue; }
+            set { waypointsValue = value; }
+        }
+
+        public int ID
+        {
+            get { return idValue; }
+            set { idValue = value; }
+        }
+
+        public string Name
+        {
+            get { return nameValue; }
+            set { nameValue = value; }
+        }
+
+        public override string ToString()
+        {
+            return "[" + ID + "] " + Name;
         }
     }
 }
