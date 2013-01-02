@@ -116,7 +116,10 @@ namespace StadNav
                 routePolyLine.Locations.Add(new GeoCoordinate(wp.Latitude, wp.Longitude));
                 Pushpin pin = new Pushpin();
                 pin.Content = wp.ID + "";
+                pin.Name = wp.ID.ToString();
                 pin.Background = new SolidColorBrush(Colors.Orange);
+                pin.MouseEnter += OnMouseEnter;
+                pin.MouseLeave += OnMouseLeave;
                 pushPinLayer.AddChild(pin, new GeoCoordinate(wp.Latitude, wp.Longitude));
                 System.Diagnostics.Debug.WriteLine("Coordinates added");
             }
@@ -124,8 +127,45 @@ namespace StadNav
             map1.ZoomLevel = 15;
               checker = true;
             }
+
             
         }
+
+        private void OnMouseEnter(object sender, MouseEventArgs e)
+        {
+            Pushpin pushpin = sender as Pushpin;
+            ScaleTransform st = new ScaleTransform();
+            
+            st.ScaleX = 1.2;
+            st.ScaleY = 1.2;
+
+            st.CenterX = (pushpin as FrameworkElement).Height / 2;
+            st.CenterY = (pushpin as FrameworkElement).Height / 2;
+            pushpin.Background = new SolidColorBrush(Colors.Purple);
+            pushpin.RenderTransform = st; 
+        }
+
+        private void OnMouseLeave(object sender, MouseEventArgs e)
+        {
+     
+            Pushpin pushpin = sender as Pushpin;
+            ScaleTransform st = new ScaleTransform();
+            string inputString = pushpin.Name;
+            int numValue;
+            bool parsed = Int32.TryParse(inputString, out numValue);
+            MessageBox.Show("Waypoint " + pushpin.Name + " has been is selected" + 
+                "\n" + Database.getWaypointByID(numValue).Name + 
+                "\n" + Database.getWaypointByID(numValue).Description);
+            
+            st.ScaleX = 1.0;
+            st.ScaleY = 1.0;
+
+            st.CenterX = (pushpin as FrameworkElement).Height / 2;
+            st.CenterY = (pushpin as FrameworkElement).Height / 2;
+            pushpin.Background = new SolidColorBrush(Colors.Orange);
+            pushpin.RenderTransform = st;
+        }
+
 
 
     }
