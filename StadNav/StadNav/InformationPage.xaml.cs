@@ -18,8 +18,14 @@ namespace StadNav
         {
             InitializeComponent();
             selectedWaypoint = (Waypoint)PhoneApplicationService.Current.State["selectedWaypoint"];
-            image1.Source = selectedWaypoint.Images[0] as BitmapImage;
+            addWaypointImage();
             updateLanguage();
+        }
+
+        private void addWaypointImage()
+        {
+            if(selectedWaypoint.Images.Count >= 1)
+            image1.Source = selectedWaypoint.Images.First() as BitmapImage;
         }
 
         private void button5_Click(object sender, RoutedEventArgs e)
