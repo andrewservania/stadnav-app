@@ -14,15 +14,15 @@ namespace StadNav
 {
     public partial class RouteSelectionPage : PhoneApplicationPage
     {
-        private ObservableCollection<Route> routeNames { get; set; }
+        //private ObservableCollection<Route> routeNames;
  
         public RouteSelectionPage()
         {
             InitializeComponent();
-            routeNames = new ObservableCollection<Route>();
-            routeNames.Add(new Route("Test"));
-            listBox1.ItemsSource = routeNames;
-            this.Loaded += new RoutedEventHandler(RouteSelectionPage_Loaded);
+            //routeNames = new ObservableCollection<Route>();
+            //routeNames.Add(new Route("Test"));
+            listBox1.ItemsSource = Database.GetAllRoutes();
+            //this.Loaded += new RoutedEventHandler(RouteSelectionPage_Loaded);
         }
 
         public void RouteSelectionPage_Loaded(object sender, RoutedEventArgs e)
@@ -56,10 +56,18 @@ namespace StadNav
             }
         }
 
-        private void listBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void listBox1_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-            PhoneApplicationService.Current.State["selectedRoute"] = listBox1.SelectedItem;
-            NavigationService.Navigate(new Uri(string.Format("/MainPage.xaml"), UriKind.Relative));
+            Route selectedRoute = listBox1.SelectedItem as Route;
+            MessageBox.Show(selectedRoute.Name + " is selected");
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.RelativeOrAbsolute));
+            MainPage.setRoute(selectedRoute);
         }
+
+        //private void listBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    PhoneApplicationService.Current.State["selectedRoute"] = listBox1.SelectedItem;
+        //    NavigationService.Navigate(new Uri(string.Format("/MainPage.xaml"), UriKind.Relative));
+        //}
     }
 }
