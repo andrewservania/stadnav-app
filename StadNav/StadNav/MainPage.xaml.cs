@@ -26,6 +26,8 @@ namespace StadNav
         MapLayer pushPinLayer;
         Database db = new Database();
         bool checker = false;
+        static bool trigger = false;
+
         // Constructor
         public MainPage()
         {
@@ -51,6 +53,9 @@ namespace StadNav
             map1.Children.Add(routePolyLine);
             pushPinLayer = new MapLayer();
             map1.Children.Add(pushPinLayer);
+            if (trigger == true)
+            {refreshMap();}
+           
         }
 
         public void MainPage_Loaded(object sender, RoutedEventArgs e)
@@ -88,9 +93,7 @@ namespace StadNav
             //button1.Content = route.name;
         }
         public static void setRoute(Route selectedRoute)
-        {
-            currentRoute = selectedRoute;
-        }
+        { currentRoute = selectedRoute; }
 
         private void updateLanguage()
         {
@@ -104,50 +107,41 @@ namespace StadNav
             }
         }
 
-        //Temporary Refresh Button
-        private void button3_Click_1(object sender, RoutedEventArgs e)
+        public void refreshMap()
         {
-      
-            if(checker == false) // To avoid redrawing the routeline and for performance improvement
+            if (checker == false) // To avoid redrawing the routeline and for performance improvement
             {
-               
-            foreach (Waypoint wp in currentRoute.Waypoints)
-            {
-                routePolyLine.Locations.Add(new GeoCoordinate(wp.Latitude, wp.Longitude));
-                Pushpin pin = new Pushpin();
-                pin.Content = wp.ID + "";
-                pin.Name = wp.ID.ToString();
-                pin.Background = new SolidColorBrush(Colors.Orange);
-                pin.MouseEnter += OnMouseEnter;
-                pin.MouseLeave += OnMouseLeave;
-                pushPinLayer.AddChild(pin, new GeoCoordinate(wp.Latitude, wp.Longitude));
-                System.Diagnostics.Debug.WriteLine("Coordinates added");
-            }
-            map1.Center = new GeoCoordinate(currentRoute.Waypoints.First().Latitude, currentRoute.Waypoints.First().Longitude);
-            map1.ZoomLevel = 15;
-              checker = true;
-            }
 
-            
+                foreach (Waypoint wp in currentRoute.Waypoints)
+                {
+                    routePolyLine.Locations.Add(new GeoCoordinate(wp.Latitude, wp.Longitude));
+                    Pushpin pin = new Pushpin();
+                    pin.Content = wp.ID + "";
+                    pin.Name = wp.ID.ToString();
+                    pin.Background = new SolidColorBrush(Colors.Orange);
+                    pin.MouseEnter += OnTapEnter;
+                    pin.MouseLeave += OnTapLeave;
+                    pushPinLayer.AddChild(pin, new GeoCoordinate(wp.Latitude, wp.Longitude));
+                }
+                map1.Center = new GeoCoordinate(currentRoute.Waypoints.First().Latitude, currentRoute.Waypoints.First().Longitude);
+                map1.ZoomLevel = 15;
+                checker = true;
+            }           
         }
-
-        private void OnMouseEnter(object sender, MouseEventArgs e)
+        private void OnTapEnter(object sender, MouseEventArgs e)
         {
             Pushpin pushpin = sender as Pushpin;
             ScaleTransform st = new ScaleTransform();
-            
             st.ScaleX = 1.2;
             st.ScaleY = 1.2;
-
             st.CenterX = (pushpin as FrameworkElement).Height / 2;
             st.CenterY = (pushpin as FrameworkElement).Height / 2;
             pushpin.Background = new SolidColorBrush(Colors.Purple);
             pushpin.RenderTransform = st; 
         }
 
-        private void OnMouseLeave(object sender, MouseEventArgs e)
+        private void OnTapLeave(object sender, MouseEventArgs e)
         {
-     
             Pushpin pushpin = sender as Pushpin;
             ScaleTransform st = new ScaleTransform();
             string inputString = pushpin.Name;
@@ -159,14 +153,13 @@ namespace StadNav
             
             st.ScaleX = 1.0;
             st.ScaleY = 1.0;
-
             st.CenterX = (pushpin as FrameworkElement).Height / 2;
             st.CenterY = (pushpin as FrameworkElement).Height / 2;
             pushpin.Background = new SolidColorBrush(Colors.Orange);
             pushpin.RenderTransform = st;
         }
 
-
-
+        internal static void triggerMapRefresh()
+        { trigger = true; }
     }
 }

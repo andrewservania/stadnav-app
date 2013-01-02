@@ -62,6 +62,7 @@ namespace StadNav
             MessageBox.Show(selectedRoute.Name + " is selected");
             NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.RelativeOrAbsolute));
             MainPage.setRoute(selectedRoute);
+            MainPage.triggerMapRefresh();
         }
 
         //private void listBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
