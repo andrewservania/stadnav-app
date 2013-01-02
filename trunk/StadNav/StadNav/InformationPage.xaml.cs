@@ -48,7 +48,7 @@ namespace StadNav
                 title.Text = "Informatie";
                 textBlock1.Text = "Naam: " + selectedWaypoint.Name + "\n" +
                                   "Toelichting: " + selectedWaypoint.Description + "\n" +
-                                  "Informatie: " + selectedWaypoint.Information + " \n";                            
+                                  "Informatie: " + selectedWaypoint.InformationNL + " \n";                            
             }
             else
             {
@@ -56,9 +56,14 @@ namespace StadNav
                 title.Text = "Information";
                 textBlock1.Text = "Name: " + selectedWaypoint.Name + "\n" +
                                   "Description: " + selectedWaypoint.Description + "\n" +
-                                  "Information: " + selectedWaypoint.Information + "\n";
+                                  "Information: " + selectedWaypoint.InformationNL + "\n";
                                    
             }            
+        }
+
+        private void image1_ImageFailed(object sender, ExceptionRoutedEventArgs e)
+        {
+
         }
     }
 }
