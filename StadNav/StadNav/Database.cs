@@ -15,6 +15,7 @@ using System.Data.Linq.Mapping;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Device.Location;
+using System.Windows.Media.Imaging;
 
 namespace StadNav
 {
@@ -93,24 +94,24 @@ namespace StadNav
             #region Waypoints
             w1.ID = 1;
             w1.Name = "VVV Breda";
-            // w1.Images.Add(new BitmapImage(new Uri("images/eng.jpg", UriKind.Relative))); good, works
             w1.Latitude = 51.59380;
             w1.Longitude = 4.77963;
-            w1.Images.Add(null);
+            w1.Images.Add(new BitmapImage(new Uri("images/Image1.jpg", UriKind.Relative)));
+            w1.Images.Add(new BitmapImage(new Uri("images/Image2.jpg", UriKind.Relative)));
             w1.Description = "Beginpunt";
 
             w2.ID = 2;
             w2.Name = "Liefdeszuster";
             w2.Latitude = 51.59307;
             w2.Longitude = 4.77969;
-            w2.Images.Add(null);
+            w2.Images.Add(new BitmapImage(new Uri("images/Image3.jpg", UriKind.Relative)));
             w2.Description = "";
 
             w3.ID = 3;
             w3.Name = "Valkenberg";
             w3.Latitude = 51.59250;
             w3.Longitude = 4.77969;
-            w3.Images.Add(null);
+            w3.Images.Add(new BitmapImage(new Uri("images/Image4.jpg", UriKind.Relative)));
             w3.Description = "";
 
             w4.ID = 4;
@@ -124,7 +125,7 @@ namespace StadNav
             w5.Name = "The Light House";
             w5.Latitude = 51.59256;
             w5.Longitude = 4.77889;
-            w5.Images.Add(null);
+            w5.Images.Add(new BitmapImage(new Uri("images/Image5.jpg", UriKind.Relative)));
             w5.Description = "";
 
             w6.ID = 6;
@@ -145,56 +146,59 @@ namespace StadNav
             w8.Name = "";
             w8.Latitude = 51.59059;
             w8.Longitude = 4.77707;
-            w8.Images.Add(null);
+            w8.Images.Add(new BitmapImage(new Uri("images/Image9.jpg", UriKind.Relative)));
             w8.Description = "Einde Park";
 
             w9.ID = 9;
             w9.Name = "Kasteel van Breda";
             w9.Latitude = 51.59061;
             w9.Longitude = 4.77624;
-            w9.Images.Add(null);
+            w9.Images.Add(new BitmapImage(new Uri("images/Image11.jpg", UriKind.Relative)));
             w9.Description = "";
 
             w10.ID = 10;
             w10.Name = "Stadhouderspoort";
             w10.Latitude = 51.58992;
             w10.Longitude = 4.77634;
-            w10.Images.Add(null);
+            w10.Images.Add(new BitmapImage(new Uri("images/Image12.jpg", UriKind.Relative)));
             w10.Description = "";
 
             w11.ID = 11;
             w11.Name = "";
             w11.Latitude = 51.59033;
             w11.Longitude = 4.77623;
-            w11.Images.Add(null);
+            w11.Images.Add(new BitmapImage(new Uri("images/Image8.jpg", UriKind.Relative)));
             w11.Description = "Kruising Kasteelplein/Cingelstraat";
 
             w12.ID = 12;
             w12.Name = "Huis van Brecht (rechter zijde)";
             w12.Latitude = 51.59043;
             w12.Longitude = 4.77518;
-            w12.Images.Add(null);
+            w12.Images.Add(new BitmapImage(new Uri("images/Image7.jpg", UriKind.Relative)));
             w12.Description = "1e bocht Cingelstraat";
 
             w13.ID = 13;
             w13.Name = "";
             w13.Latitude = 51.59000;
             w13.Longitude = 4.77429;
-            w13.Images.Add(null);
+            w12.Images.Add(new BitmapImage(new Uri("images/Image6.jpg", UriKind.Relative)));
+            w12.Images.Add(new BitmapImage(new Uri("images/Image14.jpg", UriKind.Relative)));
+            w12.Images.Add(new BitmapImage(new Uri("images/Image22.jpg", UriKind.Relative)));
+            w12.Images.Add(new BitmapImage(new Uri("images/Image21.jpg", UriKind.Relative)));
             w13.Description = "2e bocht Cingelstraat";
 
             w14.ID = 14;
             w14.Name = "Spanjaardsgat (rechter zijde)";
             w14.Latitude = 51.59010;
             w14.Longitude = 4.77336;
-            w14.Images.Add(null);
+            w12.Images.Add(new BitmapImage(new Uri("images/Image20.jpg", UriKind.Relative)));
             w14.Description = "";
 
             w15.ID = 15;
             w15.Name = "Begin Vismarkt";
             w15.Latitude = 51.58982;
             w15.Longitude = 4.77321;
-            w15.Images.Add(null);
+            w12.Images.Add(new BitmapImage(new Uri("images/Image19.jpg", UriKind.Relative)));
             w15.Description = "";
 
             w16.ID = 16;
@@ -208,7 +212,7 @@ namespace StadNav
             w17.Name = "";
             w17.Latitude = 51.58872;
             w17.Longitude = 4.77501;
-            w17.Images.Add(null);
+            w12.Images.Add(new BitmapImage(new Uri("images/Image10.jpg", UriKind.Relative)));
             w17.Description = "Driehoek Kerkplein 1";
 
             w18.ID = 18;
@@ -236,14 +240,15 @@ namespace StadNav
             w21.Name = "Ridderstraat";
             w21.Latitude = 51.58716;
             w21.Longitude = 4.77582;
-            w21.Images.Add(null);
+            w12.Images.Add(new BitmapImage(new Uri("images/Image17.jpg", UriKind.Relative)));
             w21.Description = "";
 
             w22.ID = 22;
             w22.Name = "Grote Markt";
             w22.Latitude = 51.58747;
             w22.Longitude = 4.77662;
-            w22.Images.Add(null);
+            w12.Images.Add(new BitmapImage(new Uri("images/Image24.jpg", UriKind.Relative)));
+            w12.Images.Add(new BitmapImage(new Uri("images/Image25.jpg", UriKind.Relative)));
             w12.Description = "";
 
             w23.ID = 23;
@@ -576,7 +581,6 @@ namespace StadNav
             #endregion
 
             routeDB.Add(standardVVVRoute);
-            System.Diagnostics.Debug.WriteLine("standard route added to Database");
         }
 
         public static Route getRouteByID(int routeID)
@@ -616,7 +620,6 @@ namespace StadNav
             foreach (Route route in routeDB)
             { routeNames.Add(route.Name); }
 
-            System.Diagnostics.Debug.WriteLine("Executed");
             return routeNames;
         }
 
