@@ -31,8 +31,7 @@ namespace StadNav
         // Constructor
         public MainPage()
         {
-            InitializeComponent();
-            this.Loaded += new RoutedEventHandler(MainPage_Loaded);
+            InitializeComponent();          
 
             //Voorkomt dat de taal weer op nederlands wordt gezet na terug navigeren naar deze pagina.
             try
@@ -44,6 +43,8 @@ namespace StadNav
             {
                 PhoneApplicationService.Current.State["language"] = true;
             }
+            updateLanguage();
+
             // Draw  route line using its waypoints
             routePolyLine = new MapPolyline();
             routePolyLine.Stroke = new SolidColorBrush(Colors.Blue);
@@ -54,20 +55,8 @@ namespace StadNav
             pushPinLayer = new MapLayer();
             map1.Children.Add(pushPinLayer);
             if (trigger == true)
-            {refreshMap();}
+                refreshMap();
            
-        }
-
-        public void MainPage_Loaded(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-              //  loadRoute((Route)PhoneApplicationService.Current.State["selectedRoute"]);
-            }
-            catch(Exception) 
-            { 
-            }
-            updateLanguage();
         }
 
         private void button5_Click(object sender, RoutedEventArgs e)
@@ -87,13 +76,10 @@ namespace StadNav
             NavigationService.Navigate(new Uri(string.Format("/HelpPage.xaml"), UriKind.Relative));
         }
 
-        private void loadRoute(Route route)
-        {
-            //Hier moet de code komen om de geselecteerde route op de map te zetten.
-            //button1.Content = route.name;
-        }
         public static void setRoute(Route selectedRoute)
-        { currentRoute = selectedRoute; }
+        { 
+            currentRoute = selectedRoute;
+        }
 
         private void updateLanguage()
         {
@@ -147,9 +133,30 @@ namespace StadNav
             string inputString = pushpin.Name;
             int numValue;
             bool parsed = Int32.TryParse(inputString, out numValue);
-            MessageBox.Show("Waypoint " + pushpin.Name + " has been is selected" + 
-                "\n" + Database.getWaypointByID(numValue).Name + 
-                "\n" + Database.getWaypointByID(numValue).Description);
+            Waypoint w = Database.getWaypointByID(numValue);
+            if ((bool)PhoneApplicationService.Current.State["language"])
+            {
+
+                MessageBoxResult m = MessageBox.Show("Bestemmingspunt " + pushpin.Name + " is geselecteerd." +
+                    "\n" + w.Name + "\n" + w.Description + "\nInformatie over dit bestemmingspunt tonen?",
+                    "Bestemmingspunt", MessageBoxButton.OKCancel);
+                if (m == MessageBoxResult.OK)
+                {
+                    NavigationService.Navigate(new Uri("/InformationPage.xaml", UriKind.Relative));
+                    PhoneApplicationService.Current.State["selectedWaypoint"] = w;
+                }
+            }
+            else
+            {
+                MessageBoxResult m = MessageBox.Show("Waypoint " + pushpin.Name + " has been selected." +
+                    "\n" + w.Name + "\n" + w.Description + "\nShow information about this waypoint?",
+                    "Waypoint", MessageBoxButton.OKCancel);
+                if (m == MessageBoxResult.OK)
+                {
+                    NavigationService.Navigate(new Uri("/InformationPage.xaml", UriKind.Relative));
+                    PhoneApplicationService.Current.State["selectedWaypoint"] = w;
+                }
+            }
             
             st.ScaleX = 1.0;
             st.ScaleY = 1.0;

@@ -20,6 +20,7 @@ namespace StadNav
         int idValue;
         string nameValue;
         string descriptionValue;
+        string informationValue;
         double latitudeValue;
         double longitudeValue;
 
@@ -52,6 +53,12 @@ namespace StadNav
         {
             get { return descriptionValue; }
             set { descriptionValue = value; }
+        }
+
+        public string Information
+        {
+            get { return informationValue; }
+            set { informationValue = value; }
         }
 
         public double Longitude

@@ -40,11 +40,6 @@ namespace StadNav
         {
             get { return nameValue; }
             set { nameValue = value; }
-        }
-
-        public override string ToString()
-        {
-            return "[" + ID + "] " + Name;
-        }
+        }     
     }
 }

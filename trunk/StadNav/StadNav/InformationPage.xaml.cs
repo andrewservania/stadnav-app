@@ -16,11 +16,8 @@ namespace StadNav
         public InformationPage()
         {
             InitializeComponent();
-            this.Loaded += new RoutedEventHandler(InformationPage_Loaded);
-        }
-
-        public void InformationPage_Loaded(object sender, RoutedEventArgs e)
-        {
+            Waypoint w = (Waypoint) PhoneApplicationService.Current.State["selectedWaypoint"];
+            textBlock1.Text = w.Description;
             updateLanguage();
         }
 
@@ -29,7 +26,7 @@ namespace StadNav
             //Changes language
             PhoneApplicationService.Current.State["language"] = !(bool)PhoneApplicationService.Current.State["language"];
             updateLanguage();
-        }
+        }    
 
         protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
         {

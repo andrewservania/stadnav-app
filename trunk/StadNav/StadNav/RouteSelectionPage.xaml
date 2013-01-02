@@ -31,7 +31,16 @@
             <Button Height="72" HorizontalAlignment="Right" Margin="0,6,6,0" Name="button5" VerticalAlignment="Top" Width="82" Click="button5_Click">
                 <Image Source="images\ned.jpg" />
             </Button>
-            <ListBox Height="494" HorizontalAlignment="Left" Margin="17,99,0,0" Name="listBox1" VerticalAlignment="Top" Width="419" SelectionChanged="listBox1_SelectionChanged_1" FontSize="30" />
+            <ListBox Height="494" HorizontalAlignment="Left" Margin="17,99,0,0" Name="listBox1" VerticalAlignment="Top" Width="419" SelectionChanged="listBox1_SelectionChanged_1" FontSize="30" >
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Name}" 
+                                       Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </Grid>
     </Grid>
 
