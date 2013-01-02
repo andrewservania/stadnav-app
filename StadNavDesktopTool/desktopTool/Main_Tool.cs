@@ -48,7 +48,20 @@ namespace StadNavDesktopTool
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+            string routes = JSON_Management.RoutesToJSON();
+            Console.WriteLine("Routes in json!");
+            Console.WriteLine(routes);
+            Console.WriteLine("@@@@@@@@@@@@EINDE ROUTES@@@@@@@@@@@@@@@@");
+
+            Console.WriteLine("Nu parsen:");
+            BindingList<Route> routelist = JSON_Management.RoutesFromJSON(routes);
+
+
+            foreach (Route route in routelist)
+            {
+                Console.WriteLine(route.ToString());
+            }
+            Console.WriteLine("@@@ EINDE PARSE ROUTES @@@");
         }
 
         private void textBox1_Enter(object sender, EventArgs e)
@@ -229,6 +242,75 @@ namespace StadNavDesktopTool
         public void deleteHelpPage()
         {
             help.Dispose();
+        }
+
+        private void routeDataOpslaanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog openFileDialog1 = new FolderBrowserDialog();
+
+            DialogResult userClickedOK = openFileDialog1.ShowDialog();
+
+            if (userClickedOK == System.Windows.Forms.DialogResult.OK)
+            {
+                string path = openFileDialog1.SelectedPath;
+
+                using (StreamWriter languagesWriter = new StreamWriter(path + @"\languages.json"))
+                {
+                    languagesWriter.WriteLine(JSON_Management.LanguagesToJSON());
+                }
+
+                using (StreamWriter waypointWriter = new StreamWriter(path + @"\waypoints.json"))
+                {
+                    waypointWriter.WriteLine(JSON_Management.WaypointsToJSON());
+                }
+
+                using (StreamWriter routesWriter = new StreamWriter(path + @"\routes.json"))
+                {
+                    routesWriter.WriteLine(JSON_Management.RoutesToJSON());
+                }
+            }   
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void routeDataOpenenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog openFileDialog1 = new FolderBrowserDialog();
+
+            DialogResult userClickedOK = openFileDialog1.ShowDialog();
+
+            if (userClickedOK == System.Windows.Forms.DialogResult.OK)
+            {
+                string path = openFileDialog1.SelectedPath;
+
+                using (StreamReader languagesReader = new StreamReader(path + @"\languages.json"))
+                {
+                    string jsonLanguages = languagesReader.ReadToEnd();
+                    LanguageManagement.SetAllLanguages(JSON_Management.LanguagesFromJSON(jsonLanguages));
+                }
+
+                using (StreamReader waypointReader = new StreamReader(path + @"\waypoints.json"))
+                {
+                    string jsonWaypoints = waypointReader.ReadToEnd();
+                    WaypointManagement.SetAllWaypoints(JSON_Management.WaypointsFromJSON(jsonWaypoints));
+                }
+
+                using (StreamReader routeReader = new StreamReader(path + @"\routes.json"))
+                {
+                    string jsonRoutes = routeReader.ReadToEnd();
+                    RouteManagement.SetAllRoutes(JSON_Management.RoutesFromJSON(jsonRoutes));
+                }
+            }   
+        }
+
+        private void resetRouteDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LanguageManagement.ClearLanguages();
+            RouteManagement.ClearRoutes();
+            WaypointManagement.ClearWaypoints();
         }
     }
 }

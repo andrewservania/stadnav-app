@@ -21,6 +21,16 @@ namespace StadNavDesktopTool
             stream.Close();
         }
 
+        public static void ClearLanguages()
+        {
+            languages.Clear();
+        }
+
+        public static void SetAllLanguages(BindingList<Language> newLanguages)
+        {
+            languages = newLanguages;
+        }
+
         public static bool RemoveLanguage(int iLanguageID)
         {
             foreach (Language language in languages)

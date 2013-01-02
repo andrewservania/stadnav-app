@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.opslaanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bewerkenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.afsluitenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.btnVerwijderen = new System.Windows.Forms.Button();
             this.lbAlleRoutes = new System.Windows.Forms.ListBox();
@@ -41,8 +38,6 @@
             this.tbNaamToevoegen = new System.Windows.Forms.TextBox();
             this.lblNaamToevoegen = new System.Windows.Forms.Label();
             this.gbToevoegen = new System.Windows.Forms.GroupBox();
-            this.btnOmlaagToevoegen = new System.Windows.Forms.Button();
-            this.btnOmhoogToevoegen = new System.Windows.Forms.Button();
             this.btnWaypointVerwijderenToevoegen = new System.Windows.Forms.Button();
             this.btnWaypointToevoegenToevoegen = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -52,8 +47,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gbBewerken = new System.Windows.Forms.GroupBox();
-            this.btnOmlaagBewerken = new System.Windows.Forms.Button();
-            this.btnOmhoogBewerken = new System.Windows.Forms.Button();
             this.btnWaypointVerwijderenBewerken = new System.Windows.Forms.Button();
             this.btnWaypointToevoegenBewerken = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -73,33 +66,11 @@
             // afsluitenToolStripMenuItem
             // 
             this.afsluitenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.opslaanToolStripMenuItem,
-            this.bewerkenToolStripMenuItem,
-            this.toolStripSeparator1,
             this.afsluitenToolStripMenuItem1});
             this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
             this.afsluitenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
             this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.afsluitenToolStripMenuItem.Text = "File";
-            // 
-            // opslaanToolStripMenuItem
-            // 
-            this.opslaanToolStripMenuItem.Name = "opslaanToolStripMenuItem";
-            this.opslaanToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.opslaanToolStripMenuItem.Text = "Opslaan..";
-            this.opslaanToolStripMenuItem.Click += new System.EventHandler(this.opslaanToolStripMenuItem_Click);
-            // 
-            // bewerkenToolStripMenuItem
-            // 
-            this.bewerkenToolStripMenuItem.Name = "bewerkenToolStripMenuItem";
-            this.bewerkenToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.bewerkenToolStripMenuItem.Text = "Openen..";
-            this.bewerkenToolStripMenuItem.Click += new System.EventHandler(this.bewerkenToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(160, 6);
             // 
             // afsluitenToolStripMenuItem1
             // 
@@ -171,8 +142,6 @@
             // 
             // gbToevoegen
             // 
-            this.gbToevoegen.Controls.Add(this.btnOmlaagToevoegen);
-            this.gbToevoegen.Controls.Add(this.btnOmhoogToevoegen);
             this.gbToevoegen.Controls.Add(this.btnWaypointVerwijderenToevoegen);
             this.gbToevoegen.Controls.Add(this.btnWaypointToevoegenToevoegen);
             this.gbToevoegen.Controls.Add(this.label4);
@@ -190,24 +159,6 @@
             this.gbToevoegen.TabIndex = 12;
             this.gbToevoegen.TabStop = false;
             this.gbToevoegen.Text = "Toevoegen";
-            // 
-            // btnOmlaagToevoegen
-            // 
-            this.btnOmlaagToevoegen.Location = new System.Drawing.Point(467, 137);
-            this.btnOmlaagToevoegen.Name = "btnOmlaagToevoegen";
-            this.btnOmlaagToevoegen.Size = new System.Drawing.Size(19, 23);
-            this.btnOmlaagToevoegen.TabIndex = 18;
-            this.btnOmlaagToevoegen.Text = "▼";
-            this.btnOmlaagToevoegen.UseVisualStyleBackColor = true;
-            // 
-            // btnOmhoogToevoegen
-            // 
-            this.btnOmhoogToevoegen.Location = new System.Drawing.Point(467, 111);
-            this.btnOmhoogToevoegen.Name = "btnOmhoogToevoegen";
-            this.btnOmhoogToevoegen.Size = new System.Drawing.Size(19, 23);
-            this.btnOmhoogToevoegen.TabIndex = 17;
-            this.btnOmhoogToevoegen.Text = "▲";
-            this.btnOmhoogToevoegen.UseVisualStyleBackColor = true;
             // 
             // btnWaypointVerwijderenToevoegen
             // 
@@ -284,8 +235,6 @@
             // 
             // gbBewerken
             // 
-            this.gbBewerken.Controls.Add(this.btnOmlaagBewerken);
-            this.gbBewerken.Controls.Add(this.btnOmhoogBewerken);
             this.gbBewerken.Controls.Add(this.btnWaypointVerwijderenBewerken);
             this.gbBewerken.Controls.Add(this.btnWaypointToevoegenBewerken);
             this.gbBewerken.Controls.Add(this.label2);
@@ -303,24 +252,6 @@
             this.gbBewerken.TabIndex = 15;
             this.gbBewerken.TabStop = false;
             this.gbBewerken.Text = "Bewerken";
-            // 
-            // btnOmlaagBewerken
-            // 
-            this.btnOmlaagBewerken.Location = new System.Drawing.Point(466, 138);
-            this.btnOmlaagBewerken.Name = "btnOmlaagBewerken";
-            this.btnOmlaagBewerken.Size = new System.Drawing.Size(19, 23);
-            this.btnOmlaagBewerken.TabIndex = 20;
-            this.btnOmlaagBewerken.Text = "▼";
-            this.btnOmlaagBewerken.UseVisualStyleBackColor = true;
-            // 
-            // btnOmhoogBewerken
-            // 
-            this.btnOmhoogBewerken.Location = new System.Drawing.Point(466, 112);
-            this.btnOmhoogBewerken.Name = "btnOmhoogBewerken";
-            this.btnOmhoogBewerken.Size = new System.Drawing.Size(19, 23);
-            this.btnOmhoogBewerken.TabIndex = 19;
-            this.btnOmhoogBewerken.Text = "▲";
-            this.btnOmhoogBewerken.UseVisualStyleBackColor = true;
             // 
             // btnWaypointVerwijderenBewerken
             // 
@@ -474,13 +405,6 @@
         private System.Windows.Forms.Label lblIDBewerken;
         private System.Windows.Forms.TextBox tbIDBewerken;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.Button btnOmlaagToevoegen;
-        private System.Windows.Forms.Button btnOmhoogToevoegen;
-        private System.Windows.Forms.Button btnOmlaagBewerken;
-        private System.Windows.Forms.Button btnOmhoogBewerken;
-        private System.Windows.Forms.ToolStripMenuItem opslaanToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bewerkenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem afsluitenToolStripMenuItem1;
     }
 }

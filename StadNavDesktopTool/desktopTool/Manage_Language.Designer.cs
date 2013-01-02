@@ -44,11 +44,8 @@
             this.lblNaamToevoegen = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.afsluitenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.opslaanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.afsluitenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -201,40 +198,11 @@
             // afsluitenToolStripMenuItem
             // 
             this.afsluitenToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.opslaanToolStripMenuItem,
-            this.openenToolStripMenuItem,
-            this.toolStripSeparator1,
             this.afsluitenToolStripMenuItem1});
             this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
             this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.afsluitenToolStripMenuItem.Text = "Bestand";
             this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.afsluitenToolStripMenuItem_Click);
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
-            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
-            // 
-            // opslaanToolStripMenuItem
-            // 
-            this.opslaanToolStripMenuItem.Name = "opslaanToolStripMenuItem";
-            this.opslaanToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.opslaanToolStripMenuItem.Text = "Opslaan..";
-            this.opslaanToolStripMenuItem.Click += new System.EventHandler(this.opslaanToolStripMenuItem_Click);
-            // 
-            // openenToolStripMenuItem
-            // 
-            this.openenToolStripMenuItem.Name = "openenToolStripMenuItem";
-            this.openenToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.openenToolStripMenuItem.Text = "Openen..";
-            this.openenToolStripMenuItem.Click += new System.EventHandler(this.openenToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(160, 6);
             // 
             // afsluitenToolStripMenuItem1
             // 
@@ -242,6 +210,13 @@
             this.afsluitenToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
             this.afsluitenToolStripMenuItem1.Size = new System.Drawing.Size(163, 22);
             this.afsluitenToolStripMenuItem1.Text = "Afsluiten";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // Manage_Language
             // 
@@ -253,6 +228,7 @@
             this.Controls.Add(this.btnVerwijderen);
             this.Controls.Add(this.lbAlleTalen);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Manage_Language";
             this.Text = "Talen beheren";
@@ -287,9 +263,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem afsluitenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem opslaanToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem afsluitenToolStripMenuItem1;
     }
 }

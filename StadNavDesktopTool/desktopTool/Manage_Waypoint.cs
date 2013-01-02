@@ -18,12 +18,12 @@ namespace StadNavDesktopTool
         Waypoint selectedWaypoint;
         Waypoint addingWaypoint;
 
-        BindingList<Image> selectedImages;
-        BindingList<Image> addingImages;
+        BindingList<string> selectedImages;
+        BindingList<string> addingImages;
 
         public Manage_Waypoint(Main_Tool main_Tool)
         {
-            addingImages = selectedImages =  new BindingList<Image>();
+            addingImages = selectedImages =  new BindingList<string>();
             selectedWaypoint = addingWaypoint = new Waypoint();
 
             this.main_Tool = main_Tool;
@@ -31,6 +31,8 @@ namespace StadNavDesktopTool
             InitializeComponent();
 
             lbWaypoints.DataSource = WaypointManagement.GetAllWaypoints();
+            cbTaalBewerken.DataSource = LanguageManagement.GetAllLanguages();
+            cbTaalToevoegen.DataSource = LanguageManagement.GetAllLanguages();
             lbMediaToevoegen.DataSource = addingImages;
             lbMediaBewerken.DataSource = selectedImages;
         }
@@ -50,7 +52,7 @@ namespace StadNavDesktopTool
             addingWaypoint = new Waypoint();
 
             addingWaypoint.Name = tbNaamToevoegen.Text;
-            addingWaypoint.Description = rtbBeschrijvingToevoegen.Text;
+            addingWaypoint.Descriptions[((Language) cbTaalToevoegen.SelectedItem).ID] = rtbBeschrijvingToevoegen.Text;
 
             try
             {
@@ -84,7 +86,7 @@ namespace StadNavDesktopTool
             }
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void updateDisplay()
         {
             if (lbWaypoints.Items.Count > 0 && lbWaypoints.SelectedItem != null)
             {
@@ -95,9 +97,17 @@ namespace StadNavDesktopTool
                 tbNaamBewerken.Text = selectedWaypoint.Name;
                 tbLatBewerken.Text = "" + selectedWaypoint.Latitude;
                 tbLongBewerken.Text = "" + selectedWaypoint.Longitude;
-                rtbBeschrijvingBewerken.Text = selectedWaypoint.Description;
+
+                if (cbTaalBewerken.SelectedItem != null && selectedWaypoint.Descriptions.ContainsKey(((Language)cbTaalBewerken.SelectedItem).ID) && selectedWaypoint.Descriptions[((Language)cbTaalBewerken.SelectedItem).ID] != null)
+                    rtbBeschrijvingBewerken.Text = selectedWaypoint.Descriptions[((Language)cbTaalBewerken.SelectedItem).ID];
+
                 lbMediaBewerken.DataSource = selectedImages;
             }
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updateDisplay();
         }
 
         private void lbMediaBewerken_SelectedIndexChanged(object sender, EventArgs e)
@@ -108,7 +118,7 @@ namespace StadNavDesktopTool
         private void tbBewerken_Click(object sender, EventArgs e)
         {
             selectedWaypoint.Name = tbNaamBewerken.Text;
-            selectedWaypoint.Description = rtbBeschrijvingBewerken.Text;
+            selectedWaypoint.Descriptions[((Language) cbTaalBewerken.SelectedItem).ID] = rtbBeschrijvingBewerken.Text;
 
             try
             {
@@ -141,7 +151,7 @@ namespace StadNavDesktopTool
         {
             try
             {
-                addingImages.Add(Image.FromFile(tbBrowseMediaToevoegen.Text));
+                addingImages.Add(tbBrowseMediaToevoegen.Text);
                 tbBrowseMediaToevoegen.Text = "";
             }
             catch (Exception) { MessageBox.Show("Er is een fout opgetreden tijdens het toevoegen van media"); }
@@ -155,13 +165,13 @@ namespace StadNavDesktopTool
         private void btnVerwijderenMediaToevoegen_Click(object sender, EventArgs e)
         {
             if(lbMediaToevoegen.SelectedItem != null && lbMediaToevoegen.Items.Count > 0)
-                addingImages.Remove((Image) lbMediaToevoegen.SelectedItem);
+                addingImages.Remove((string) lbMediaToevoegen.SelectedItem);
         }
 
         private void btnVerwijderenMediaBewerken_Click(object sender, EventArgs e)
         {
             if (lbMediaBewerken.SelectedItem != null && lbMediaBewerken.Items.Count > 0)
-                selectedImages.Remove((Image)lbMediaBewerken.SelectedItem);
+                selectedImages.Remove((string) lbMediaBewerken.SelectedItem);
         }
 
         private void btnBrowseMediaBewerken_Click(object sender, EventArgs e)
@@ -178,7 +188,7 @@ namespace StadNavDesktopTool
         {
             try
             {
-                selectedImages.Add(Image.FromFile(tbBrowseMediaBewerken.Text));
+                selectedImages.Add(tbBrowseMediaBewerken.Text);
                 tbBrowseMediaBewerken.Text = "";
             }
             catch (Exception) { MessageBox.Show("An error occured while loading the page"); }
@@ -215,7 +225,7 @@ namespace StadNavDesktopTool
 
         private void clearToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            WaypointManagement.Clear();
+            WaypointManagement.ClearWaypoints();
             lbWaypoints.DataSource = WaypointManagement.GetAllWaypoints();
         }
 
@@ -227,6 +237,16 @@ namespace StadNavDesktopTool
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void cbTaalToevoegen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updateDisplay();
+        }
+
+        private void cbTaalBewerken_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            updateDisplay();
         }
     }
 }
