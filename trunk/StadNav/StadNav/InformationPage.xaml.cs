@@ -13,11 +13,12 @@ namespace StadNav
 {
     public partial class InformationPage : PhoneApplicationPage
     {
+        Waypoint selectedWaypoint;
         public InformationPage()
         {
             InitializeComponent();
-            Waypoint w = (Waypoint) PhoneApplicationService.Current.State["selectedWaypoint"];
-            textBlock1.Text = w.Description;
+            selectedWaypoint = (Waypoint)PhoneApplicationService.Current.State["selectedWaypoint"];
+            image1.Source = selectedWaypoint.Images[0] as BitmapImage;
             updateLanguage();
         }
 
@@ -35,16 +36,23 @@ namespace StadNav
 
         private void updateLanguage()
         {
-            if (!(bool)PhoneApplicationService.Current.State["language"])
+            if ((bool)PhoneApplicationService.Current.State["language"])
             {
                 ((Image)button5.Content).Source = new BitmapImage(new Uri("images/eng.jpg", UriKind.Relative));
                 title.Text = "Informatie";
+                textBlock1.Text = "Naam: " + selectedWaypoint.Name + "\n" +
+                                  "Toelichting: " + selectedWaypoint.Description + "\n" +
+                                  "Informatie: " + selectedWaypoint.Information + " \n";                            
             }
             else
             {
                 ((Image)button5.Content).Source = new BitmapImage(new Uri("images/ned.jpg", UriKind.Relative));
                 title.Text = "Information";
-            }
+                textBlock1.Text = "Name: " + selectedWaypoint.Name + "\n" +
+                                  "Description: " + selectedWaypoint.Description + "\n" +
+                                  "Information: " + selectedWaypoint.Information + "\n";
+                                   
+            }            
         }
     }
 }

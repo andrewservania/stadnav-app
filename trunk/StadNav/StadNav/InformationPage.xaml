@@ -31,7 +31,8 @@
             <Button Height="72" HorizontalAlignment="Right" Margin="0,6,6,0" Name="button5" VerticalAlignment="Top" Width="82" Click="button5_Click">
                 <Image Source="images\ned.jpg" />
             </Button>
-            <TextBlock Height="506" HorizontalAlignment="Left" Margin="12,83,0,0" Name="textBlock1" Text="TextBlock" VerticalAlignment="Top" Width="438" />
+            <TextBlock Height="243" HorizontalAlignment="Left" Margin="12,83,0,0" Name="textBlock1" Text="TextBlock" VerticalAlignment="Top" Width="438" />
+            <Image Height="269" HorizontalAlignment="Left" Margin="12,332,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="438" />
         </Grid>
     </Grid>
 
