@@ -20,7 +20,9 @@ namespace StadNav
         int idValue;
         string nameValue;
         string descriptionValue;
-        string informationValue;
+        string informationNLValue;
+        string informationENValue;
+
         double latitudeValue;
         double longitudeValue;
 
@@ -55,11 +57,18 @@ namespace StadNav
             set { descriptionValue = value; }
         }
 
-        public string Information
+        public string InformationNL
         {
-            get { return informationValue; }
-            set { informationValue = value; }
+            get { return informationNLValue; }
+            set { informationNLValue = value; }
         }
+
+        public string InformationEN
+        {
+            get { return informationENValue; }
+            set { informationENValue = value; }
+        }
+
 
         public double Longitude
         {
