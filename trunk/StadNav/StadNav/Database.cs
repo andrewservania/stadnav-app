@@ -22,10 +22,13 @@ namespace StadNav
     public class Database : INotifyPropertyChanged, INotifyPropertyChanging
     {
         static ObservableCollection<Route> routeDB;
+        static ObservableCollection<Waypoint> waypointDB;
 
         static Database()
         {
             routeDB = new ObservableCollection<Route>();
+            waypointDB = new ObservableCollection<Waypoint>();
+
             Route standardVVVRoute = new Route();
 
             #region Waypoint variables
@@ -286,7 +289,7 @@ namespace StadNav
             w28.Description = "Kruising Grote Markt/Stadserf(je gaat weer terug)";
 
             w29.ID = 29;
-            w29.Name = "null";
+            w29.Name = "";
             w29.Latitude = 51.58747;
             w29.Longitude = 4.77662;
             w29.Images.Add(null);
@@ -503,6 +506,73 @@ namespace StadNav
             standardVVVRoute.Waypoints.Add(w49);
             standardVVVRoute.Waypoints.Add(w50);
 
+
+            waypointDB.Add(w1);
+            waypointDB.Add(w2);
+            waypointDB.Add(w3);
+            waypointDB.Add(w4);
+            waypointDB.Add(w5);
+            waypointDB.Add(w6);
+            waypointDB.Add(w7);
+            waypointDB.Add(w8);
+            waypointDB.Add(w9);
+            waypointDB.Add(w10);
+
+            waypointDB.Add(w1);
+            waypointDB.Add(w2);
+            waypointDB.Add(w3);
+            waypointDB.Add(w4);
+            waypointDB.Add(w5);
+            waypointDB.Add(w6);
+            waypointDB.Add(w7);
+            waypointDB.Add(w8);
+            waypointDB.Add(w9);
+            waypointDB.Add(w10);
+
+            waypointDB.Add(w11);
+            waypointDB.Add(w12);
+            waypointDB.Add(w13);
+            waypointDB.Add(w14);
+            waypointDB.Add(w15);
+            waypointDB.Add(w16);
+            waypointDB.Add(w17);
+            waypointDB.Add(w18);
+            waypointDB.Add(w19);
+            waypointDB.Add(w20);
+
+            waypointDB.Add(w21);
+            waypointDB.Add(w22);
+            waypointDB.Add(w23);
+            waypointDB.Add(w24);
+            waypointDB.Add(w25);
+            waypointDB.Add(w26);
+            waypointDB.Add(w27);
+            waypointDB.Add(w28);
+            waypointDB.Add(w29);
+            waypointDB.Add(w30);
+
+            waypointDB.Add(w31);
+            waypointDB.Add(w32);
+            waypointDB.Add(w33);
+            waypointDB.Add(w34);
+            waypointDB.Add(w35);
+            waypointDB.Add(w36);
+            waypointDB.Add(w37);
+            waypointDB.Add(w38);
+            waypointDB.Add(w39);
+            waypointDB.Add(w40);
+
+            waypointDB.Add(w41);
+            waypointDB.Add(w42);
+            waypointDB.Add(w43);
+            waypointDB.Add(w44);
+            waypointDB.Add(w45);
+            waypointDB.Add(w46);
+            waypointDB.Add(w47);
+            waypointDB.Add(w48);
+            waypointDB.Add(w49);
+            waypointDB.Add(w50);
+
             #endregion
 
             routeDB.Add(standardVVVRoute);
@@ -573,6 +643,18 @@ namespace StadNav
         {
             if (PropertyChanged != null)
             { PropertyChanged(this, new PropertyChangedEventArgs(propertyName)); }
+        }
+
+        public static Waypoint getWaypointByID(int waypointID)
+        {
+            Waypoint requestedWaypoint = new Waypoint();
+            foreach (Waypoint waypoint in waypointDB)
+            {
+                if (waypoint.ID == waypointID)
+                { requestedWaypoint = waypoint; }
+            }
+
+            return requestedWaypoint;
         }
 
         private void NotifyPropertyChanging(string propertyName)
