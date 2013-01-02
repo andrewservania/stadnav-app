@@ -14,19 +14,10 @@ namespace StadNav
 {
     public partial class RouteSelectionPage : PhoneApplicationPage
     {
-        //private ObservableCollection<Route> routeNames;
- 
         public RouteSelectionPage()
         {
             InitializeComponent();
-            //routeNames = new ObservableCollection<Route>();
-            //routeNames.Add(new Route("Test"));
             listBox1.ItemsSource = Database.GetAllRoutes();
-            //this.Loaded += new RoutedEventHandler(RouteSelectionPage_Loaded);
-        }
-
-        public void RouteSelectionPage_Loaded(object sender, RoutedEventArgs e)
-        {
             updateLanguage();
         }
 
@@ -39,7 +30,7 @@ namespace StadNav
 
         protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
         {
-            NavigationService.Navigate(new Uri(string.Format("/MainPage.xaml"), UriKind.Relative));
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
 
         private void updateLanguage()
@@ -58,17 +49,15 @@ namespace StadNav
 
         private void listBox1_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
+            //When a route has been selected, pop a Messagebox to confirm, return to the main page and load the route into the map.
             Route selectedRoute = listBox1.SelectedItem as Route;
-            MessageBox.Show(selectedRoute.Name + " is selected");
+            if ((bool)PhoneApplicationService.Current.State["language"])
+                MessageBox.Show(selectedRoute.Name + " is geselecteerd.");
+            else
+                MessageBox.Show(selectedRoute.Name + " has been selected.");
             NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.RelativeOrAbsolute));
             MainPage.setRoute(selectedRoute);
             MainPage.triggerMapRefresh();
         }
-
-        //private void listBox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
-        //    PhoneApplicationService.Current.State["selectedRoute"] = listBox1.SelectedItem;
-        //    NavigationService.Navigate(new Uri(string.Format("/MainPage.xaml"), UriKind.Relative));
-        //}
     }
 }

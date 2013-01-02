@@ -16,11 +16,6 @@ namespace StadNav
         public HelpPage()
         {
             InitializeComponent();
-            this.Loaded += new RoutedEventHandler(HelpPage_Loaded);
-        }
-
-        public void HelpPage_Loaded(object sender, RoutedEventArgs e)
-        {
             updateLanguage();
         }
 
@@ -33,7 +28,7 @@ namespace StadNav
 
         protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
         {
-            NavigationService.Navigate(new Uri(string.Format("/MainPage.xaml"), UriKind.Relative));
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
 
         private void updateLanguage()
