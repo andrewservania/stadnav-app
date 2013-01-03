@@ -1,0 +1,64 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="StadNav.RouteRatingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True"  xmlns:my2="clr-namespace:System.Windows.Controls;assembly=RatingControlSample" xmlns:my3="clr-namespace:System;assembly=mscorlib">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+    
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="StadNav" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="Rate Route" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Button Content="Rate!" Height="100" HorizontalAlignment="Left" Margin="102,402,0,0" Name="button1" VerticalAlignment="Top" Width="271" Click="button1_Click" />
+            <Button BorderBrush="Black" HorizontalAlignment="Right" Margin="0,126,351,373" Name="button2" Width="111" Click="button2_Click">
+                <Image ImageFailed="Image_ImageFailed" Source="images\RouteRatingStar.jpg" />
+            </Button>
+            <Button BorderBrush="Black" Height="107" HorizontalAlignment="Right" Margin="0,126,260,0" Name="button3" VerticalAlignment="Top" Width="109" Click="button3_Click">
+                <Image Source="images\RouteRatingStar.jpg" ImageFailed="Image_ImageFailed_1" />
+            </Button>
+            <Button BorderBrush="Black" Height="107" HorizontalAlignment="Right" Margin="0,126,170,0" Name="button4" VerticalAlignment="Top" Width="109" Click="button4_Click">
+                <Image Source="images\RouteRatingStar.jpg" ImageFailed="Image_ImageFailed_2" />
+            </Button>
+            <Button BorderBrush="Black" Height="106" HorizontalAlignment="Right" Margin="0,126,80,0" Name="button5" VerticalAlignment="Top" Width="109" Click="button5_Click">
+                <Image Source="images\RouteRatingStar.jpg" ImageFailed="Image_ImageFailed_3" />
+            </Button>
+            <Button BorderBrush="Black" Height="106" HorizontalAlignment="Right" Margin="0,126,-7,0" Name="button6" VerticalAlignment="Top" Width="108" Click="button6_Click">
+                <Image Source="images\RouteRatingStar.jpg" ImageFailed="Image_ImageFailed_4" />
+            </Button>
+            <TextBlock FontSize="25.333" FontWeight="Bold" Height="46" HorizontalAlignment="Left" Margin="176,297,0,0" Name="textBlock1" Text="Star route" VerticalAlignment="Top" Width="131" />
+            <TextBlock FontSize="25.333" FontWeight="Bold" Height="46" HorizontalAlignment="Left" Margin="153,297,0,0" Name="textBlock2" Text="" VerticalAlignment="Top" Width="20" />
+        </Grid>
+    </Grid>
+ 
+    <!--Sample code showing usage of ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
+                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+
+</phone:PhoneApplicationPage>
