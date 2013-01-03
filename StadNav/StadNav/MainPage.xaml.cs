@@ -34,9 +34,9 @@ namespace StadNav
         static bool trigger = false;
         Pushpin userPushpin = new Pushpin();
         int defaultZoom = 15;
-        List<GeoCoordinate> locations = new List<GeoCoordinate>();
 
-        internal GeocodeService.GeocodeResult[] geocodeResults;
+        //list of locations, locations[0] should always be your own location
+        List<GeoCoordinate> locations = new List<GeoCoordinate>();
 
         // Constructor
         public MainPage()
@@ -131,19 +131,27 @@ namespace StadNav
 
             // Set the waypoints of the route to be calculated using the Geocode Service results stored in the geocodeResults variable.
             routeRequest.Waypoints = new System.Collections.ObjectModel.ObservableCollection<RouteService.Waypoint>();
+            int i = 0;
             foreach (GeoCoordinate result in locations)
             {
-                StadNav.RouteService.Waypoint wp = new StadNav.RouteService.Waypoint();
-                GeoCoordinate loc = new GeoCoordinate(result.Latitude, result.Longitude);
-                wp.Location = loc;
+                if (i < 20)
+                {
+                    if (result.Latitude != 0 && result.Longitude != 0)
+                    {
+                        StadNav.RouteService.Waypoint wp = new StadNav.RouteService.Waypoint();
+                        GeoCoordinate loc = new GeoCoordinate(result.Latitude, result.Longitude);
+                        wp.Location = loc;
 
-                String db;
-                db = result.Latitude.ToString() + " " + result.Longitude.ToString();
-                System.Diagnostics.Debug.WriteLine(db);
-                
-                wp.Location.Latitude = result.Latitude;
-                wp.Location.Longitude = result.Longitude;
-                routeRequest.Waypoints.Add(wp);
+                        String db;
+                        db = result.Latitude.ToString() + " " + result.Longitude.ToString();
+                        System.Diagnostics.Debug.WriteLine(db);
+
+                        wp.Location.Latitude = result.Latitude;
+                        wp.Location.Longitude = result.Longitude;
+                        routeRequest.Waypoints.Add(wp);
+                    }
+                }
+                i++;
             }
 
             // Make the CalculateRoute asnychronous request.
@@ -218,12 +226,11 @@ namespace StadNav
         {
             if (checker == false) // To avoid redrawing the routeline and for performance improvement
             {
-                //locations.Add(userPushpin.Location);
-                int nextLocation = 0;
+                locations.Add(userPushpin.Location);
                 
                 foreach (Waypoint wp in currentRoute.Waypoints)
                 {
-                    routePolyLine.Locations.Add(new GeoCoordinate(wp.Latitude, wp.Longitude));
+                    //routePolyLine.Locations.Add(new GeoCoordinate(wp.Latitude, wp.Longitude));
                     Pushpin pin = new Pushpin();
                     pin.Content = wp.ID + "";
                     pin.Name = wp.ID.ToString();
@@ -232,13 +239,8 @@ namespace StadNav
                     pin.MouseLeave += OnTapLeave;
                     GeoCoordinate waypointCoords = new GeoCoordinate(wp.Latitude, wp.Longitude);
                     pushPinLayer.AddChild(pin, waypointCoords);
-                    if (nextLocation < 3)
-                    {
-                        locations.Add(waypointCoords);
-                    }
-                    nextLocation++;
+                    locations.Add(waypointCoords);
                 }
-                CalculateRoute(locations);
 
                 map1.SetView(LocationRect.CreateLocationRect(locations));
 
@@ -316,8 +318,17 @@ namespace StadNav
         //updates user's pushpin
         public void updateUserPushpin(Double Lat, Double Long)
         {
-            GeoCoordinate location = new GeoCoordinate(Lat, Long);
-            userPushpin.Location = location;
+            if (locations.Count() > 0)
+            {
+                GeoCoordinate location = new GeoCoordinate(Lat, Long);
+                locations.ElementAt(0).Latitude = Lat;
+                locations.ElementAt(0).Longitude = Long;
+                userPushpin.Location = location;
+            }
+            if (locations.Count() > 1)
+            {
+                CalculateRoute(locations);
+            }
         }
 
         public void HandleGeoPositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
