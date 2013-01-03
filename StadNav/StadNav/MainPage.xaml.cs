@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using Microsoft.Phone.Shell;
 using Microsoft.Phone.Controls.Maps;
 using System.Device.Location;
+using Microsoft.Phone.Tasks;
 
 namespace StadNav
 {
@@ -25,6 +26,7 @@ namespace StadNav
         static MapPolyline routePolyLine;
         MapLayer pushPinLayer;
         Database db = new Database();
+        GeoCoordinateWatcher coordinateWatcher;
         bool checker = false;
         static bool trigger = false;
 
@@ -54,6 +56,9 @@ namespace StadNav
             map1.Children.Add(routePolyLine);
             pushPinLayer = new MapLayer();
             map1.Children.Add(pushPinLayer);
+            coordinateWatcher = new GeoCoordinateWatcher(GeoPositionAccuracy.High);
+            coordinateWatcher.PositionChanged += HandleGeoPositionChanged;
+            coordinateWatcher.Start();
             if (trigger == true)
                 refreshMap();
            
@@ -164,6 +169,17 @@ namespace StadNav
             st.CenterY = (pushpin as FrameworkElement).Height / 2;
             pushpin.Background = new SolidColorBrush(Colors.Orange);
             pushpin.RenderTransform = st;
+        }
+
+        public void HandleGeoPositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
+        {
+            if (!e.Position.Location.IsUnknown)
+            {
+                Double Latitude = e.Position.Location.Latitude;
+                Double Longitude = e.Position.Location.Longitude;
+                map1.Center = new GeoCoordinate(Latitude, Longitude);
+            }
+            
         }
 
         internal static void triggerMapRefresh()
