@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace StadNavDesktopTool
 {
-    class JSON_Management
+    class JSONManagement
     {
         public static string RoutesToJSON()
         {

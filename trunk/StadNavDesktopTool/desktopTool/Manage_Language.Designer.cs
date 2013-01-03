@@ -202,7 +202,6 @@
             this.afsluitenToolStripMenuItem.Name = "afsluitenToolStripMenuItem";
             this.afsluitenToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.afsluitenToolStripMenuItem.Text = "Bestand";
-            this.afsluitenToolStripMenuItem.Click += new System.EventHandler(this.afsluitenToolStripMenuItem_Click);
             // 
             // afsluitenToolStripMenuItem1
             // 
@@ -210,6 +209,7 @@
             this.afsluitenToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
             this.afsluitenToolStripMenuItem1.Size = new System.Drawing.Size(163, 22);
             this.afsluitenToolStripMenuItem1.Text = "Afsluiten";
+            this.afsluitenToolStripMenuItem1.Click += new System.EventHandler(this.afsluitenToolStripMenuItem1_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -232,7 +232,6 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Manage_Language";
             this.Text = "Talen beheren";
-            this.Load += new System.EventHandler(this.Manage_Language_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

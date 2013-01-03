@@ -121,6 +121,9 @@
     <EmbeddedResource Include="Help_Tool.resx">
       <DependentUpon>Help_Tool.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Main_Tool.nl-NL.resx">
+      <DependentUpon>Main_Tool.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main_Tool.resx">
       <DependentUpon>Main_Tool.cs</DependentUpon>
     </EmbeddedResource>

@@ -24,10 +24,10 @@ namespace StadNavDesktopTool
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox2.CheckState == CheckState.Checked)
+            if (cbSchrijven.CheckState == CheckState.Checked)
             {
-                if (checkBox3.CheckState == CheckState.Checked)
-                    checkBox3.CheckState = CheckState.Unchecked;
+                if (cbKopieren.CheckState == CheckState.Checked)
+                    cbKopieren.CheckState = CheckState.Unchecked;
 
                 lblAlert.Visible = true;
             }
@@ -37,10 +37,10 @@ namespace StadNavDesktopTool
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox3.CheckState == CheckState.Checked)
+            if (cbKopieren.CheckState == CheckState.Checked)
             {
-                if (checkBox2.CheckState == CheckState.Checked)
-                    checkBox2.CheckState = CheckState.Unchecked;
+                if (cbSchrijven.CheckState == CheckState.Checked)
+                    cbSchrijven.CheckState = CheckState.Unchecked;
 
                 lblAlert.Visible = false;
             }
@@ -48,22 +48,22 @@ namespace StadNavDesktopTool
 
         private void textBox1_Enter(object sender, EventArgs e)
         {
-            if (textBox1.Text == "vul hier de product ID in")
+            if (tbProductID.Text == "vul hier de product ID in")
             {
-                textBox1.Text = "";
+                tbProductID.Text = "";
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            richTextBox1.Clear();
-            richTextBox1.Text = "...";
-            string productID = " " + textBox1.Text;
+            rtbOutput.Clear();
+            rtbOutput.Text = "...";
+            string productID = " " + tbProductID.Text;
             string actie;
             string emu;
-            path = " " + BrowseText.Text;
+            path = " " + tbBrowseURL.Text;
            
-            if (checkBox4.CheckState == CheckState.Checked)
+            if (cbGebruikEmulator.CheckState == CheckState.Checked)
             {
                 emu = " xd";
             }
@@ -72,7 +72,7 @@ namespace StadNavDesktopTool
                 emu = " ed";
             }
             
-            if (checkBox2.CheckState == CheckState.Checked)
+            if (cbSchrijven.CheckState == CheckState.Checked)
             {
                 actie = " rs";
             }
@@ -83,10 +83,7 @@ namespace StadNavDesktopTool
 
             
    
-            richTextBox1.Text = ExecuteCommandSync(actie, emu, productID, path);
-
-            
-
+            rtbOutput.Text = ExecuteCommandSync(actie, emu, productID, path);
         }
 
         private void BrowseBT_Click(object sender, EventArgs e)
@@ -100,8 +97,8 @@ namespace StadNavDesktopTool
             if (userClickedOK == System.Windows.Forms.DialogResult.OK)
             {
                 path = openFileDialog1.SelectedPath;
-                BrowseText.Text = path;
-                BrowseText.Select(BrowseText.Text.Length, 0);
+                tbBrowseURL.Text = path;
+                tbBrowseURL.Select(tbBrowseURL.Text.Length, 0);
             }    
         }
 
@@ -238,17 +235,17 @@ namespace StadNavDesktopTool
 
                 using (StreamWriter languagesWriter = new StreamWriter(path + @"\languages.json"))
                 {
-                    languagesWriter.WriteLine(JSON_Management.LanguagesToJSON());
+                    languagesWriter.WriteLine(JSONManagement.LanguagesToJSON());
                 }
 
                 using (StreamWriter waypointWriter = new StreamWriter(path + @"\waypoints.json"))
                 {
-                    waypointWriter.WriteLine(JSON_Management.WaypointsToJSON());
+                    waypointWriter.WriteLine(JSONManagement.WaypointsToJSON());
                 }
 
                 using (StreamWriter routesWriter = new StreamWriter(path + @"\routes.json"))
                 {
-                    routesWriter.WriteLine(JSON_Management.RoutesToJSON());
+                    routesWriter.WriteLine(JSONManagement.RoutesToJSON());
                 }
             }   
         }
@@ -271,28 +268,32 @@ namespace StadNavDesktopTool
                 using (StreamReader languagesReader = new StreamReader(path + @"\languages.json"))
                 {
                     string jsonLanguages = languagesReader.ReadToEnd();
-                    LanguageManagement.SetAllLanguages(JSON_Management.LanguagesFromJSON(jsonLanguages));
+                    LanguageManagement.SetAllLanguages(JSONManagement.LanguagesFromJSON(jsonLanguages));
                 }
 
                 using (StreamReader waypointReader = new StreamReader(path + @"\waypoints.json"))
                 {
                     string jsonWaypoints = waypointReader.ReadToEnd();
-                    WaypointManagement.SetAllWaypoints(JSON_Management.WaypointsFromJSON(jsonWaypoints));
+                    WaypointManagement.SetAllWaypoints(JSONManagement.WaypointsFromJSON(jsonWaypoints));
                 }
 
                 using (StreamReader routeReader = new StreamReader(path + @"\routes.json"))
                 {
                     string jsonRoutes = routeReader.ReadToEnd();
-                    RouteManagement.SetAllRoutes(JSON_Management.RoutesFromJSON(jsonRoutes));
+                    RouteManagement.SetAllRoutes(JSONManagement.RoutesFromJSON(jsonRoutes));
                 }
             }   
         }
 
         private void resetRouteDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LanguageManagement.ClearLanguages();
-            RouteManagement.ClearRoutes();
-            WaypointManagement.ClearWaypoints();
+            if (MessageBox.Show("Dit verwijdert alle lokale data uit de applicatie, \nhierdoor zal je opnieuw alle routegegevens moeten openen! \nWeet je het zeker?", "Bevestig reset", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                LanguageManagement.ClearLanguages();
+                RouteManagement.ClearRoutes();
+                WaypointManagement.ClearWaypoints();
+            }
+            
         }
     }
 }

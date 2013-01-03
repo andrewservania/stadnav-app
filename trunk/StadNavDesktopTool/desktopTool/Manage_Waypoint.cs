@@ -231,7 +231,7 @@ namespace StadNavDesktopTool
 
         private void afsluitenToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Environment.Exit(0);
+            this.Close();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
