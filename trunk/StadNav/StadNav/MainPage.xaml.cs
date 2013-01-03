@@ -38,6 +38,7 @@ namespace StadNav
        
         //list of locations, locations[0] should always be your own location
         List<GeoCoordinate> locations = new List<GeoCoordinate>();
+        MapPolyline routeLine = new MapPolyline();
 
         // Constructor
         public MainPage()
@@ -56,13 +57,16 @@ namespace StadNav
             }
             updateLanguage();
 
+            //route line holder(s)
+            //MapLayer of route lines
+            MapLayer myRouteLayer = new MapLayer();
+            // Add a map layer in which to draw the route.
+            map1.Children.Add(myRouteLayer);
+
+            // Add the route line to the new layer.
+            myRouteLayer.Children.Add(routeLine);
+
             // Draw  route line using its waypoints
-            routePolyLine = new MapPolyline();
-            routePolyLine.Stroke = new SolidColorBrush(Colors.Blue);
-            routePolyLine.StrokeThickness = 5;
-            routePolyLine.Opacity = 0.7;
-            routePolyLine.Locations = new LocationCollection();
-            map1.Children.Add(routePolyLine);
             pushPinLayer = new MapLayer();
             map1.Children.Add(pushPinLayer);
             map1.ZoomLevel = defaultZoom;
@@ -139,6 +143,7 @@ namespace StadNav
 
             // Return the route points so the route can be drawn.
             routeRequest.Options = new RouteService.RouteOptions();
+            routeRequest.Options.Mode = TravelMode.Walking;
             routeRequest.Options.RoutePathType = RouteService.RoutePathType.Points;
 
             // Set the waypoints of the route to be calculated using the Geocode Service results stored in the geocodeResults variable.
@@ -153,10 +158,6 @@ namespace StadNav
                         StadNav.RouteService.Waypoint wp = new StadNav.RouteService.Waypoint();
                         GeoCoordinate loc = new GeoCoordinate(result.Latitude, result.Longitude);
                         wp.Location = loc;
-
-                        String db;
-                        db = result.Latitude.ToString() + " " + result.Longitude.ToString();
-                        System.Diagnostics.Debug.WriteLine(db);
 
                         wp.Location.Latitude = result.Latitude;
                         wp.Location.Longitude = result.Longitude;
@@ -179,8 +180,12 @@ namespace StadNav
                 // Set properties of the route line you want to draw.
                 Color routeColor = Colors.Blue;
                 SolidColorBrush routeBrush = new SolidColorBrush(routeColor);
-                MapPolyline routeLine = new MapPolyline();
+
                 routeLine.Locations = new LocationCollection();
+                if (routeLine.Locations.Count > 0)
+                {
+                    routeLine.Locations.Clear();
+                }
                 routeLine.Stroke = routeBrush;
                 routeLine.Opacity = 0.65;
                 routeLine.StrokeThickness = 5.0;
@@ -191,36 +196,7 @@ namespace StadNav
                     routeLine.Locations.Add(new GeoCoordinate(p.Latitude, p.Longitude));
                 }
 
-                // Add a map layer in which to draw the route.
-                MapLayer myRouteLayer = new MapLayer();
-                map1.Children.Add(myRouteLayer);
-
-                // Add the route line to the new layer.
-                myRouteLayer.Children.Add(routeLine);
-
-                // Figure the rectangle which encompasses the route. This is used later to set the map view.
-                //LocationRect rect = new LocationRect(routeLine.Locations[0], routeLine.Locations[routeLine.Locations.Count - 1]);
-
-                // For each geocode result (which are the waypoints of the route), draw a dot on the map.
                 
-                //foreach (GeocodeService.GeocodeResult gr in geocodeResults)
-                foreach (GeoCoordinate gr in locations)
-                {
-                    Ellipse point = new Ellipse();
-                    point.Width = 10;
-                    point.Height = 10;
-                    point.Fill = new SolidColorBrush(Colors.Red);
-                    point.Opacity = 0.65;
-                    GeoCoordinate location = new GeoCoordinate(gr.Latitude, gr.Longitude);
-                    MapLayer.SetPosition(point, location);
-                    MapLayer.SetPositionOrigin(point, PositionOrigin.Center);
-
-                    // Add the drawn point to the route layer.                    
-                    myRouteLayer.Children.Add(point);
-                }
-
-                // Set the map view using the rectangle which bounds the rendered route.
-                //map1.SetView(rect);
             }
         }
 
@@ -242,6 +218,10 @@ namespace StadNav
                 
                 foreach (Waypoint wp in currentRoute.Waypoints)
                 {
+                    String db;
+                    db = wp.ID.ToString();
+                    System.Diagnostics.Debug.WriteLine(db);
+
                     //routePolyLine.Locations.Add(new GeoCoordinate(wp.Latitude, wp.Longitude));
                     Pushpin pin = new Pushpin();
                     pin.Content = wp.ID + "";
