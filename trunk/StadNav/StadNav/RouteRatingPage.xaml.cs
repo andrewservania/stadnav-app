@@ -10,6 +10,8 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+using Microsoft.Phone.Shell;
+using System.Windows.Media.Imaging;
 
 namespace StadNav
 {
@@ -18,6 +20,8 @@ namespace StadNav
         public RouteRatingPage()
         {
             InitializeComponent();
+       
+            
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -51,6 +55,23 @@ namespace StadNav
             textBlock2.Text = "5";
         }
 
+        private void updateLanguage()
+        {
+            if (!(bool)PhoneApplicationService.Current.State["language"])
+            {
+                ((Image)button7.Content).Source = new BitmapImage(new Uri("images/eng.jpg", UriKind.Relative));
+                PageTitle.Text = "Rate Route";
+                textBlock1.Text = "Star route";
+                button1.Content = "Rate!";
+            }
+            else
+            {
+                ((Image)button7.Content).Source = new BitmapImage(new Uri("images/ned.jpg", UriKind.Relative));
+                PageTitle.Text = "Route beoordelen";
+                textBlock1.Text = "Ster route";
+                button1.Content = "Beoordelen!";
+            }
+        }
         #region Button images exception catching methods
         private void Image_ImageFailed(object sender, ExceptionRoutedEventArgs e)
         {
@@ -77,6 +98,12 @@ namespace StadNav
 
         }
         #endregion
+
+        private void button7_Click(object sender, RoutedEventArgs e)
+        {
+            PhoneApplicationService.Current.State["language"] = !(bool)PhoneApplicationService.Current.State["language"];
+            updateLanguage();
+        }
 
     }
 }

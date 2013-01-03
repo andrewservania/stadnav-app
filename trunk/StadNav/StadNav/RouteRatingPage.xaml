@@ -23,29 +23,32 @@
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
             <TextBlock x:Name="ApplicationTitle" Text="StadNav" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Text="Rate Route" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock x:Name="PageTitle" Text="Rate Route" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}" Width="444" FontSize="55" />
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Button Content="Rate!" Height="100" HorizontalAlignment="Left" Margin="102,402,0,0" Name="button1" VerticalAlignment="Top" Width="271" Click="button1_Click" />
-            <Button BorderBrush="Black" HorizontalAlignment="Right" Margin="0,126,351,373" Name="button2" Width="111" Click="button2_Click">
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,11,12,0">
+            <Button Content="Rate!" Height="100" HorizontalAlignment="Left" Margin="101,435,0,0" Name="button1" VerticalAlignment="Top" Width="271" Click="button1_Click" />
+            <Button BorderBrush="Black" HorizontalAlignment="Right" Margin="0,159,352,353" Name="button2" Width="111" Click="button2_Click">
                 <Image ImageFailed="Image_ImageFailed" Source="images\RouteRatingStar.jpg" />
             </Button>
-            <Button BorderBrush="Black" Height="107" HorizontalAlignment="Right" Margin="0,126,260,0" Name="button3" VerticalAlignment="Top" Width="109" Click="button3_Click">
+            <Button BorderBrush="Black" Height="107" HorizontalAlignment="Right" Margin="0,159,261,0" Name="button3" VerticalAlignment="Top" Width="109" Click="button3_Click">
                 <Image Source="images\RouteRatingStar.jpg" ImageFailed="Image_ImageFailed_1" />
             </Button>
-            <Button BorderBrush="Black" Height="107" HorizontalAlignment="Right" Margin="0,126,170,0" Name="button4" VerticalAlignment="Top" Width="109" Click="button4_Click">
+            <Button BorderBrush="Black" Height="107" HorizontalAlignment="Right" Margin="0,159,171,0" Name="button4" VerticalAlignment="Top" Width="109" Click="button4_Click">
                 <Image Source="images\RouteRatingStar.jpg" ImageFailed="Image_ImageFailed_2" />
             </Button>
-            <Button BorderBrush="Black" Height="106" HorizontalAlignment="Right" Margin="0,126,80,0" Name="button5" VerticalAlignment="Top" Width="109" Click="button5_Click">
+            <Button BorderBrush="Black" Height="106" HorizontalAlignment="Right" Margin="0,159,81,0" Name="button5" VerticalAlignment="Top" Width="109" Click="button5_Click">
                 <Image Source="images\RouteRatingStar.jpg" ImageFailed="Image_ImageFailed_3" />
             </Button>
-            <Button BorderBrush="Black" Height="106" HorizontalAlignment="Right" Margin="0,126,-7,0" Name="button6" VerticalAlignment="Top" Width="108" Click="button6_Click">
+            <Button BorderBrush="Black" Height="106" HorizontalAlignment="Right" Margin="0,159,-6,0" Name="button6" VerticalAlignment="Top" Width="108" Click="button6_Click">
                 <Image Source="images\RouteRatingStar.jpg" ImageFailed="Image_ImageFailed_4" />
             </Button>
-            <TextBlock FontSize="25.333" FontWeight="Bold" Height="46" HorizontalAlignment="Left" Margin="176,297,0,0" Name="textBlock1" Text="Star route" VerticalAlignment="Top" Width="131" />
-            <TextBlock FontSize="25.333" FontWeight="Bold" Height="46" HorizontalAlignment="Left" Margin="153,297,0,0" Name="textBlock2" Text="" VerticalAlignment="Top" Width="20" />
+            <TextBlock FontSize="25.333" FontWeight="Bold" Height="46" HorizontalAlignment="Left" Margin="175,330,0,0" Name="textBlock1" Text="Star route" VerticalAlignment="Top" Width="131" />
+            <TextBlock FontSize="25.333" FontWeight="Bold" Height="46" HorizontalAlignment="Left" Margin="152,330,0,0" Name="textBlock2" Text="" VerticalAlignment="Top" Width="20" />
+            <Button Height="72" Name="button7" Width="82" Margin="373,33,1,502" Click="button7_Click">
+                <Image Source="images\ned.jpg" />
+            </Button>
         </Grid>
     </Grid>
  
