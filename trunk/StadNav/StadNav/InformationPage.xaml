@@ -11,9 +11,9 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
-    shell:SystemTray.IsVisible="True" d:DesignHeight="768" d:DesignWidth="480">
+    shell:SystemTray.IsVisible="True" d:DesignHeight="768" d:DesignWidth="480" Loaded="PhoneApplicationPage_Loaded">
+        <!--LayoutRoot is the root grid where all page content is placed-->
 
-    <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -27,13 +27,17 @@
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,24,12,0">
             <Button Height="72" HorizontalAlignment="Right" Margin="0,6,6,0" Name="button5" VerticalAlignment="Top" Width="82" Click="button5_Click">
                 <Image Source="images\ned.jpg" />
             </Button>
-            <TextBlock Height="243" HorizontalAlignment="Left" Margin="12,83,0,0" Name="textBlock1" Text="TextBlock" VerticalAlignment="Top" Width="438" />
-            <Image Height="269" HorizontalAlignment="Left" Margin="12,332,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="438" ImageFailed="image1_ImageFailed" />
+            <ScrollViewer Margin="0,359,0,0">
+                <TextBlock Height="223" HorizontalAlignment="Left" Margin="12,2,0,0" Name="textBlock1" Text="TextBlock" VerticalAlignment="Top" Width="429" TextTrimming="None" />
+            </ScrollViewer>
+    <Image Height="269" HorizontalAlignment="Left" Margin="12,84,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="438" ImageFailed="image1_ImageFailed" />
+           
         </Grid>
     </Grid>
+    
 
 </phone:PhoneApplicationPage>

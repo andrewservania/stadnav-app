@@ -44,24 +44,34 @@ namespace StadNav
         {
             if ((bool)PhoneApplicationService.Current.State["language"])
             {
-                ((Image)button5.Content).Source = new BitmapImage(new Uri("images/eng.jpg", UriKind.Relative));
+                ((Image)button5.Content).Source = new BitmapImage(new Uri("images/ned.jpg", UriKind.Relative));
                 title.Text = "Informatie";
+                textBlock1.Height = selectedWaypoint.InformationNL.Count();
+                textBlock1.TextWrapping = TextWrapping.Wrap; 
                 textBlock1.Text = "Naam: " + selectedWaypoint.Name + "\n" +
                                   "Toelichting: " + selectedWaypoint.Description + "\n" +
-                                  "Informatie: " + selectedWaypoint.InformationNL + " \n";                            
+                                  "Informatie: " + selectedWaypoint.InformationNL + " \n";
+                       
             }
             else
             {
-                ((Image)button5.Content).Source = new BitmapImage(new Uri("images/ned.jpg", UriKind.Relative));
+                ((Image)button5.Content).Source = new BitmapImage(new Uri("images/eng.jpg", UriKind.Relative));
                 title.Text = "Information";
+                textBlock1.Height = selectedWaypoint.InformationEN.Count();
+                textBlock1.TextWrapping = TextWrapping.Wrap;
                 textBlock1.Text = "Name: " + selectedWaypoint.Name + "\n" +
                                   "Description: " + selectedWaypoint.Description + "\n" +
-                                  "Information: " + selectedWaypoint.InformationNL + "\n";
+                                  "Information: " + selectedWaypoint.InformationEN + "\n";
                                    
             }            
         }
 
         private void image1_ImageFailed(object sender, ExceptionRoutedEventArgs e)
+        {
+
+        }
+
+        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
         {
 
         }

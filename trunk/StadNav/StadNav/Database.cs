@@ -18,6 +18,7 @@ using System.Device.Location;
 using System.Windows.Media.Imaging;
 using System.IO;
 using System.Windows.Resources;
+using System.Reflection;
 
 namespace StadNav
 {
@@ -102,7 +103,8 @@ namespace StadNav
             w1.Images.Add(new BitmapImage(new Uri("images/Image2.jpg", UriKind.Relative)));
             w1.Description = "Beginpunt";
             w1.InformationNL = "";
-
+            w1.InformationEN = "";
+           
             w2.ID = 2;
             w2.Name = "Liefdeszuster";
             w2.Latitude = 51.59307;
@@ -110,6 +112,7 @@ namespace StadNav
             w2.Images.Add(new BitmapImage(new Uri("images/Image3.jpg", UriKind.Relative)));
             w2.Description = "";
             w2.InformationNL = "";
+            w2.InformationEN = "";
 
             w3.ID = 3;
             w3.Name = "Valkenberg";
@@ -118,6 +121,7 @@ namespace StadNav
             w3.Images.Add(new BitmapImage(new Uri("images/Image4.jpg", UriKind.Relative)));
             w3.Description = "";
             w3.InformationNL = "";
+            w3.InformationEN = "";
 
             w4.ID = 4;
             w4.Name = "Nassau Baronie Monument";
@@ -125,7 +129,8 @@ namespace StadNav
             w4.Longitude = 4.77969;
             w4.Images.Add(null);
             w4.Description = "";
-            w4.InformationNL = "";
+            w4.InformationNL = getText("texts/T4NassauMonumentNL.txt"); 
+            w4.InformationEN = getText("texts/T4NassauMonumentENG.txt");
 
             w5.ID = 5;
             w5.Name = "The Light House";
@@ -133,7 +138,10 @@ namespace StadNav
             w5.Longitude = 4.77889;
             w5.Images.Add(new BitmapImage(new Uri("images/Image5.jpg", UriKind.Relative)));
             w5.Description = "";
+            w5.InformationNL = getText("texts/T5ValkenbergNL.txt");
+            w5.InformationEN = getText("texts/T5ValkenbergENG.txt");
             w5.InformationNL = "";
+            w5.InformationEN = "";
 
             w6.ID = 6;
             w6.Name = "";
@@ -141,7 +149,8 @@ namespace StadNav
             w6.Longitude = 4.77844;
             w6.Images.Add(null);
             w6.Description = "1e bocht Valkenberg";
-            w6.InformationNL = "";
+            w6.InformationNL = getText("texts/T6kasteelNL.txt");
+            w6.InformationEN = getText("texts/T6kasteelENG.txt");
 
             w7.ID = 7;
             w7.Name = "";
@@ -150,6 +159,7 @@ namespace StadNav
             w7.Images.Add(null);
             w7.Description = "2e bocht Valkenberg";
             w7.InformationNL = "";
+            w7.InformationEN = "";
 
             w8.ID = 8;
             w8.Name = "";
@@ -158,6 +168,7 @@ namespace StadNav
             w8.Images.Add(new BitmapImage(new Uri("images/Image9.jpg", UriKind.Relative)));
             w8.Description = "Einde Park";
             w8.InformationNL = "";
+            w8.InformationEN = "";
 
             w9.ID = 9;
             w9.Name = "Kasteel van Breda";
@@ -166,14 +177,15 @@ namespace StadNav
             w9.Images.Add(new BitmapImage(new Uri("images/Image11.jpg", UriKind.Relative)));
             w9.Description = "";
             w9.InformationNL = "";
+            w9.InformationEN = "";
 
             w10.ID = 10;
             w10.Name = "Stadhouderspoort";
             w10.Latitude = 51.58992;
             w10.Longitude = 4.77634;
             w10.Images.Add(new BitmapImage(new Uri("images/Image12.jpg", UriKind.Relative)));
-            w10.Description = "";
-            w10.InformationNL = "";
+            w10.InformationNL = getText("texts/T10vishalNL.txt");
+            w10.InformationEN = getText("texts/T10vishalENG.txt");
 
             w11.ID = 11;
             w11.Name = "";
@@ -181,7 +193,8 @@ namespace StadNav
             w11.Longitude = 4.77623;
             w11.Images.Add(new BitmapImage(new Uri("images/Image8.jpg", UriKind.Relative)));
             w11.Description = "Kruising Kasteelplein/Cingelstraat";
-            w11.InformationNL = "";
+            w11.InformationNL = getText("texts/T11TorenstraatNL.txt");
+            w11.InformationEN = getText("texts/T11TorenstraatENG.txt");
 
             w12.ID = 12;
             w12.Name = "Huis van Brecht (rechter zijde)";
@@ -190,34 +203,38 @@ namespace StadNav
             w12.Images.Add(new BitmapImage(new Uri("images/Image7.jpg", UriKind.Relative)));
             w12.Description = "1e bocht Cingelstraat";
             w12.InformationNL = "";
+            w12.InformationEN = "";
 
             w13.ID = 13;
             w13.Name = "";
             w13.Latitude = 51.59000;
             w13.Longitude = 4.77429;
-            w12.Images.Add(new BitmapImage(new Uri("images/Image6.jpg", UriKind.Relative)));
-            w12.Images.Add(new BitmapImage(new Uri("images/Image14.jpg", UriKind.Relative)));
-            w12.Images.Add(new BitmapImage(new Uri("images/Image22.jpg", UriKind.Relative)));
-            w12.Images.Add(new BitmapImage(new Uri("images/Image21.jpg", UriKind.Relative)));
+            w13.Images.Add(new BitmapImage(new Uri("images/Image6.jpg", UriKind.Relative)));
+            w13.Images.Add(new BitmapImage(new Uri("images/Image14.jpg", UriKind.Relative)));
+            w13.Images.Add(new BitmapImage(new Uri("images/Image22.jpg", UriKind.Relative)));
+            w13.Images.Add(new BitmapImage(new Uri("images/Image21.jpg", UriKind.Relative)));
             w13.Description = "2e bocht Cingelstraat";
             w13.InformationNL = "";
+            w13.InformationEN = "";
 
             w14.ID = 14;
             w14.Name = "Spanjaardsgat (rechter zijde)";
             w14.Latitude = 51.59010;
             w14.Longitude = 4.77336;
-            w12.Images.Add(new BitmapImage(new Uri("images/Image20.jpg", UriKind.Relative)));
+            w14.Images.Add(new BitmapImage(new Uri("images/Image20.jpg", UriKind.Relative)));
             w14.Description = "";
             w14.InformationNL = "";
+            w14.InformationEN = "";
 
             w15.ID = 15;
             w15.Name = "Begin Vismarkt";
             w15.Latitude = 51.58982;
             w15.Longitude = 4.77321;
-            w12.Images.Add(new BitmapImage(new Uri("images/Image19.jpg", UriKind.Relative)));
+            w15.Images.Add(new BitmapImage(new Uri("images/Image19.jpg", UriKind.Relative)));
             w15.Description = "";
             w15.InformationNL = "";
-
+            w15.InformationEN = "";
+           
             w16.ID = 16;
             w16.Name = "Begin Havermarkt";
             w16.Latitude = 51.58932;
@@ -225,14 +242,16 @@ namespace StadNav
             w16.Images.Add(null);
             w16.Description = "";
             w16.InformationNL = "";
+            w17.InformationEN = "";
 
             w17.ID = 17;
             w17.Name = "";
             w17.Latitude = 51.58872;
             w17.Longitude = 4.77501;
-            w12.Images.Add(new BitmapImage(new Uri("images/Image10.jpg", UriKind.Relative)));
+            w17.Images.Add(new BitmapImage(new Uri("images/Image10.jpg", UriKind.Relative)));
             w17.Description = "Driehoek Kerkplein 1";
-            w17.InformationNL = "";
+            w17.InformationNL = getText("texts/T17stadhuisNL.txt");
+            w17.InformationEN = getText("texts/T17stadhuisENG.txt");
 
             w18.ID = 18;
             w18.Name = "Grote Kerk";
@@ -240,7 +259,8 @@ namespace StadNav
             w18.Longitude = 4.77549;
             w18.Images.Add(null);
             w18.Description = "Driehoek Kerkplein 2";
-            w18.InformationNL = "";
+            w18.InformationNL = getText("texts/T18AntoniusKerkNL.txt");
+            w18.InformationEN = getText("texts/T18AntoniusKerkENG.txt");
 
             w19.ID = 19;
             w19.Name = "";
@@ -248,7 +268,8 @@ namespace StadNav
             w19.Longitude = 4.77501;
             w19.Images.Add(null);
             w19.Description = "Driehoek Kerkplein 3";
-            w19.InformationNL = "";
+            w19.InformationNL = getText("texts/T19BibliotheekNL.txt");
+            w19.InformationEN = getText("texts/T19BibliotheekENG.txt");
 
             w20.ID = 20;
             w20.Name = "Het poortje";
@@ -256,24 +277,27 @@ namespace StadNav
             w20.Longitude = 4.77525;
             w20.Images.Add(null);
             w20.Description = "";
-            w20.InformationNL = "";
+            w20.InformationNL = getText("texts/T20kloosterkazerneNL.txt");
+            w20.InformationEN = getText("texts/T20kloosterkazerneENG.txt");
 
             w21.ID = 21;
             w21.Name = "Ridderstraat";
             w21.Latitude = 51.58716;
             w21.Longitude = 4.77582;
-            w12.Images.Add(new BitmapImage(new Uri("images/Image17.jpg", UriKind.Relative)));
+            w21.Images.Add(new BitmapImage(new Uri("images/Image17.jpg", UriKind.Relative)));
             w21.Description = "";
             w21.InformationNL = "";
+            w21.InformationEN = "";
 
             w22.ID = 22;
             w22.Name = "Grote Markt";
             w22.Latitude = 51.58747;
             w22.Longitude = 4.77662;
-            w12.Images.Add(new BitmapImage(new Uri("images/Image24.jpg", UriKind.Relative)));
-            w12.Images.Add(new BitmapImage(new Uri("images/Image25.jpg", UriKind.Relative)));
+            w22.Images.Add(new BitmapImage(new Uri("images/Image24.jpg", UriKind.Relative)));
+            w22.Images.Add(new BitmapImage(new Uri("images/Image25.jpg", UriKind.Relative)));
             w22.Description = "";
-            w22.InformationNL = "";
+            w23.InformationNL = "";
+            w23.InformationEN = "";
 
             w23.ID = 23;
             w23.Name = "Het Wit Lam";
@@ -282,6 +306,7 @@ namespace StadNav
             w23.Images.Add(null);
             w23.Description = "";
             w23.InformationNL = "";
+            w23.InformationEN = "";
 
             w24.ID = 24;
             w24.Name = "Bevrijdingsmonument";
@@ -290,6 +315,7 @@ namespace StadNav
             w24.Images.Add(null);
             w24.Description = "";
             w24.InformationNL = "";
+            w24.InformationEN = "";
 
             w25.ID = 25;
             w25.Name = "";
@@ -298,6 +324,7 @@ namespace StadNav
             w25.Images.Add(null);
             w25.Description = "";
             w25.InformationNL = "";
+            w25.InformationEN = "";
 
             w26.ID = 26;
             w26.Name = "";
@@ -306,6 +333,7 @@ namespace StadNav
             w26.Images.Add(null);
             w26.Description = "Kruising Grote Markt/Stadserf";
             w26.InformationNL = "";
+            w26.InformationEN = "";
 
             w27.ID = 27;
             w27.Name = "";
@@ -314,6 +342,7 @@ namespace StadNav
             w27.Images.Add(null);
             w27.Description = "Achterkant stadshuis";
             w27.InformationNL = "";
+            w27.InformationEN = "";
 
             w28.ID = 28;
             w28.Name = "";
@@ -322,6 +351,7 @@ namespace StadNav
             w28.Images.Add(null);
             w28.Description = "Kruising Grote Markt/Stadserf(je gaat weer terug)";
             w28.InformationNL = "";
+            w28.InformationEN = "";
 
             w29.ID = 29;
             w29.Name = "";
@@ -330,6 +360,7 @@ namespace StadNav
             w29.Images.Add(null);
             w29.Description = "terug naar begin Grote Markt";
             w29.InformationNL = "";
+            w29.InformationEN = "";
 
             w30.ID = 30;
             w30.Name = "Antonius van Paduakerk";
@@ -338,6 +369,7 @@ namespace StadNav
             w30.Images.Add(null);
             w30.Description = "";
             w30.InformationNL = "";
+            w30.InformationEN = "";
 
             w31.ID = 31;
             w31.Name = "";           
@@ -346,6 +378,7 @@ namespace StadNav
             w31.Images.Add(null);
             w31.Description = "Kruising St. Jansstraat / Molenstraat";
             w31.InformationNL = "";
+            w31.InformationEN = "";
 
             w32.ID = 32;
             w32.Name = "Bibliotheek";
@@ -354,6 +387,7 @@ namespace StadNav
             w32.Images.Add(null);
             w32.Description = "";
             w32.InformationNL = "";
+            w32.InformationEN = "";
 
             w33.ID = 33;
             w33.Name = "";
@@ -362,6 +396,7 @@ namespace StadNav
             w33.Images.Add(null);
             w33.Description = "Kruising Molenstraat / Kloosterplein";
             w33.InformationNL = "";
+            w33.InformationEN = "";
 
             w34.ID = 34;
             w34.Name = "Kloosterkazerne";
@@ -370,6 +405,7 @@ namespace StadNav
             w34.Images.Add(null);
             w34.Description = "1e bocht Kloosterplein";
             w34.InformationNL = "";
+            w34.InformationEN = "";
 
             w35.ID = 35;
             w35.Name = "Chasse theater";
@@ -378,6 +414,7 @@ namespace StadNav
             w35.Images.Add(null);
             w35.Description = "2e bocht Kloosterplein";
             w35.InformationNL = "";
+            w35.InformationEN = "";
 
             w36.ID = 36;
             w36.Name = "";
@@ -386,7 +423,8 @@ namespace StadNav
             w36.Images.Add(null);
             w36.Description = "1e bocht Kloosterplein/ Begin Vlaszak";
             w36.InformationNL = "";
-
+            w36.InformationEN = "";
+            
             w37.ID = 37;
             w37.Name = "Binding van Isaäc";
             w37.Latitude = 51.58862;
@@ -394,6 +432,7 @@ namespace StadNav
             w37.Images.Add(null);
             w37.Description = "";
             w37.InformationNL = "";
+            w38.InformationEN = "";
 
             w38.ID = 38;
             w38.Name = "";
@@ -402,6 +441,7 @@ namespace StadNav
             w38.Images.Add(null);
             w38.Description = "Einde Vlaszak / Begin Boschstraat";
             w38.InformationNL = "";
+            w38.InformationEN = "";
 
             w39.ID = 39;
             w39.Name = "Beyerd";
@@ -409,7 +449,8 @@ namespace StadNav
             w39.Longitude = 4.78076;
             w39.Images.Add(null);
             w39.Description = "";
-            w40.InformationNL = "";
+            w39.InformationNL = "";
+            w39.InformationEN = "";
 
             w40.ID = 40;
             w40.Name = "Gasthuispoort";
@@ -418,6 +459,7 @@ namespace StadNav
             w40.Images.Add(null);
             w40.Description = "1e bocht Catharinastraat / Veemarktstraat";
             w40.InformationNL = "";
+            w40.InformationEN = "";
 
             w41.ID = 41;
             w41.Name = "";            
@@ -426,6 +468,7 @@ namespace StadNav
             w41.Images.Add(null);
             w41.Description = "2e bocht Veemarktstraat";
             w41.InformationNL = "";
+            w41.InformationEN = "";
 
             w42.ID = 42;
             w42.Name = "";
@@ -434,6 +477,7 @@ namespace StadNav
             w42.Images.Add(null);
             w42.Description = "Kruising St. Annastraat / Veemarktstraat";
             w42.InformationNL = "";
+            w42.InformationEN = "";
 
             w43.ID = 43;
             w43.Name = "Willem Merkxtuin";
@@ -441,7 +485,8 @@ namespace StadNav
             w43.Longitude = 4.77801;
             w43.Images.Add(null);
             w43.Description = "De ingang";
-            w44.InformationNL = "";
+            w43.InformationNL = "";
+            w43.InformationEN = "";
 
             w44.ID = 44;
             w44.Name = "";
@@ -450,6 +495,7 @@ namespace StadNav
             w44.Images.Add(null);
             w44.Description = "Binnen Willem Merkxtuin";
             w44.InformationNL = "";
+            w44.InformationEN = "";
 
             w45.ID = 45;
             w45.Name = "";
@@ -458,6 +504,7 @@ namespace StadNav
             w45.Images.Add(null);
             w45.Description = "Uitgang Willem Merkxtuin";
             w45.InformationNL = "";
+            w45.InformationEN = "";
 
             w46.ID = 46;
             w46.Name = "";
@@ -466,6 +513,7 @@ namespace StadNav
             w46.Images.Add(null);
             w46.Description = "Kruising Catharinastraat / St. Annastraat";
             w46.InformationNL = "";
+            w46.InformationEN = "";
 
             w47.ID = 47;
             w47.Name = "";
@@ -474,6 +522,7 @@ namespace StadNav
             w47.Images.Add(null);
             w47.Description = "De ingang";
             w47.InformationNL = "";
+            w48.InformationEN = "";
 
             w48.ID = 48;
             w48.Name = "";
@@ -482,6 +531,7 @@ namespace StadNav
             w48.Images.Add(null);
             w48.Description = "Binnen Begijnenhof";
             w48.InformationNL = "";
+            w48.InformationEN = "";
 
             w49.ID = 49;
             w49.Name = "";
@@ -490,6 +540,7 @@ namespace StadNav
             w49.Images.Add(null);
             w49.Description = "Uitgang Begijnenhof";
             w49.InformationNL = "";
+            w49.InformationEN = "";
 
             w50.ID = 50;
             w50.Name = "Eindpunt stadswandeling";
@@ -498,6 +549,7 @@ namespace StadNav
             w50.Images.Add(null);
             w50.Description = "Eindpunt";
             w50.InformationNL = "";
+            w50.InformationEN = "";
 
             #endregion
 
@@ -631,6 +683,24 @@ namespace StadNav
             #endregion
 
             routeDB.Add(standardVVVRoute);
+        }
+
+        internal static string getText(string path)
+        {
+            var ResrouceStream = Application.GetResourceStream(new Uri(path, UriKind.Relative));
+            if (ResrouceStream != null)
+            {
+                using (Stream myFileStream = ResrouceStream.Stream)
+                {
+                    if (myFileStream.CanRead)
+                    {
+                        StreamReader myStreamReader = new StreamReader(myFileStream);
+                        //read the content here
+                        return myStreamReader.ReadToEnd();
+                    }
+                }
+            }
+            return string.Empty;
         }
 
         public static Route getRouteByID(int routeID)

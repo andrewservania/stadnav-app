@@ -20,8 +20,8 @@ namespace StadNav
         int idValue;
         string nameValue;
         string descriptionValue;
-        string informationNLValue;
-        string informationENValue;
+        string informationNLValue ="";
+        string informationENValue ="";
 
         double latitudeValue;
         double longitudeValue;
