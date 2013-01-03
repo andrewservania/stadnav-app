@@ -80,6 +80,16 @@
     <Compile Include="RouteSelectionPage.xaml.cs">
       <DependentUpon>RouteSelectionPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Service References\GeocodeService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\RouteService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="StadNavPage.xaml.cs">
       <DependentUpon>StadNavPage.xaml</DependentUpon>
     </Compile>
@@ -115,6 +125,53 @@
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
+    <None Include="Service References\GeocodeService\GeocodeService.wsdl" />
+    <None Include="Service References\GeocodeService\GeocodeService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GeocodeService\GeocodeService1.wsdl" />
+    <None Include="Service References\GeocodeService\GeocodeService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GeocodeService\GeocodeService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GeocodeService\GeocodeService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GeocodeService\GeocodeService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\GeocodeService\StadNav.GeocodeService.GeocodeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RouteService\configuration91.svcinfo" />
+    <None Include="Service References\RouteService\configuration.svcinfo" />
+    <None Include="Service References\RouteService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="ServiceReferences.ClientConfig" />
+    <None Include="Service References\RouteService\RouteService.wsdl" />
+    <None Include="Service References\RouteService\routeservice.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RouteService\routeservice1.wsdl" />
+    <None Include="Service References\RouteService\routeservice1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RouteService\routeservice2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RouteService\routeservice3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RouteService\StadNav.RouteService.MajorRoutesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RouteService\StadNav.RouteService.RouteResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="ApplicationIcon.png">
@@ -170,9 +227,21 @@
     <Content Include="images\Image7.jpg" />
     <Content Include="images\Image8.jpg" />
     <Content Include="images\Image9.jpg" />
+    <None Include="Service References\GeocodeService\configuration91.svcinfo" />
+    <None Include="Service References\GeocodeService\configuration.svcinfo" />
+    <None Include="Service References\GeocodeService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\GeocodeService\" />
+    <WCFMetadataStorage Include="Service References\RouteService\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
