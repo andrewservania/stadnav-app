@@ -24,8 +24,19 @@ namespace StadNav
 
         private void addWaypointImage()
         {
-            if(selectedWaypoint.Images.Count >= 1)
-            image1.Source = selectedWaypoint.Images.First() as BitmapImage;
+
+            Console.WriteLine(selectedWaypoint.Images.Count);
+            for (int i = 0; i < selectedWaypoint.Images.Count ; i++)
+            {
+                switch (i)
+                {
+                    case 0: image1.Source = selectedWaypoint.Images[0] as BitmapImage; break;
+                    case 1: image2.Source = selectedWaypoint.Images[1] as BitmapImage; break;
+                    case 2: image3.Source = selectedWaypoint.Images[2] as BitmapImage; break;
+                    case 3: image4.Source = selectedWaypoint.Images[3] as BitmapImage; break;
+                }
+            }
+                
         }
 
         private void button5_Click(object sender, RoutedEventArgs e)
@@ -64,16 +75,6 @@ namespace StadNav
                                   "Information: " + selectedWaypoint.InformationEN + "\n";
                                    
             }            
-        }
-
-        private void image1_ImageFailed(object sender, ExceptionRoutedEventArgs e)
-        {
-
-        }
-
-        private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
+        }    
     }
 }
