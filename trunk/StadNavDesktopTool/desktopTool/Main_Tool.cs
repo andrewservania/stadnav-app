@@ -46,24 +46,6 @@ namespace StadNavDesktopTool
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            string routes = JSON_Management.RoutesToJSON();
-            Console.WriteLine("Routes in json!");
-            Console.WriteLine(routes);
-            Console.WriteLine("@@@@@@@@@@@@EINDE ROUTES@@@@@@@@@@@@@@@@");
-
-            Console.WriteLine("Nu parsen:");
-            BindingList<Route> routelist = JSON_Management.RoutesFromJSON(routes);
-
-
-            foreach (Route route in routelist)
-            {
-                Console.WriteLine(route.ToString());
-            }
-            Console.WriteLine("@@@ EINDE PARSE ROUTES @@@");
-        }
-
         private void textBox1_Enter(object sender, EventArgs e)
         {
             if (textBox1.Text == "vul hier de product ID in")
