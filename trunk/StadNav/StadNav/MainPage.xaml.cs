@@ -34,6 +34,7 @@ namespace StadNav
         static bool trigger = false;
         Pushpin userPushpin = new Pushpin();
         int defaultZoom = 15;
+        List<GeoCoordinate> locations = new List<GeoCoordinate>();
 
         internal GeocodeService.GeocodeResult[] geocodeResults;
 
@@ -133,7 +134,15 @@ namespace StadNav
             foreach (GeoCoordinate result in locations)
             {
                 StadNav.RouteService.Waypoint wp = new StadNav.RouteService.Waypoint();
-                wp.Location = new GeoCoordinate(result.Latitude, result.Longitude);
+                GeoCoordinate loc = new GeoCoordinate(result.Latitude, result.Longitude);
+                wp.Location = loc;
+
+                String db;
+                db = result.Latitude.ToString() + " " + result.Longitude.ToString();
+                System.Diagnostics.Debug.WriteLine(db);
+                
+                wp.Location.Latitude = result.Latitude;
+                wp.Location.Longitude = result.Longitude;
                 routeRequest.Waypoints.Add(wp);
             }
 
@@ -173,14 +182,16 @@ namespace StadNav
                 //LocationRect rect = new LocationRect(routeLine.Locations[0], routeLine.Locations[routeLine.Locations.Count - 1]);
 
                 // For each geocode result (which are the waypoints of the route), draw a dot on the map.
-                foreach (GeocodeService.GeocodeResult gr in geocodeResults)
+                
+                //foreach (GeocodeService.GeocodeResult gr in geocodeResults)
+                foreach (GeoCoordinate gr in locations)
                 {
                     Ellipse point = new Ellipse();
                     point.Width = 10;
                     point.Height = 10;
                     point.Fill = new SolidColorBrush(Colors.Red);
                     point.Opacity = 0.65;
-                    GeoCoordinate location = new GeoCoordinate(gr.Locations[0].Latitude, gr.Locations[0].Longitude);
+                    GeoCoordinate location = new GeoCoordinate(gr.Latitude, gr.Longitude);
                     MapLayer.SetPosition(point, location);
                     MapLayer.SetPositionOrigin(point, PositionOrigin.Center);
 
@@ -207,9 +218,8 @@ namespace StadNav
         {
             if (checker == false) // To avoid redrawing the routeline and for performance improvement
             {
-                List<GeoCoordinate> locations = new List<GeoCoordinate>();
-                locations.Add(userPushpin.Location);
-                bool nextLocation = false;
+                //locations.Add(userPushpin.Location);
+                int nextLocation = 0;
                 
                 foreach (Waypoint wp in currentRoute.Waypoints)
                 {
@@ -222,11 +232,11 @@ namespace StadNav
                     pin.MouseLeave += OnTapLeave;
                     GeoCoordinate waypointCoords = new GeoCoordinate(wp.Latitude, wp.Longitude);
                     pushPinLayer.AddChild(pin, waypointCoords);
-                    if (!nextLocation)
+                    if (nextLocation < 3)
                     {
-                        nextLocation = true;
                         locations.Add(waypointCoords);
                     }
+                    nextLocation++;
                 }
                 CalculateRoute(locations);
 
