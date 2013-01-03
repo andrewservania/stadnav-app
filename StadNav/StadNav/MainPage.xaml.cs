@@ -23,7 +23,7 @@ namespace StadNav
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        //private Route selectedRoute;
+
 
         static Route currentRoute = new Route();
         static MapPolyline routePolyLine;
@@ -33,8 +33,9 @@ namespace StadNav
         bool checker = false;
         static bool trigger = false;
         Pushpin userPushpin = new Pushpin();
-        int defaultZoom = 15;
-
+        int defaultZoom = 17;
+        
+       
         //list of locations, locations[0] should always be your own location
         List<GeoCoordinate> locations = new List<GeoCoordinate>();
 
@@ -42,7 +43,7 @@ namespace StadNav
         public MainPage()
         {
             InitializeComponent();          
-
+            
             //Voorkomt dat de taal weer op nederlands wordt gezet na terug navigeren naar deze pagina.
             try
             {
@@ -69,7 +70,15 @@ namespace StadNav
             //init user's pushpin
             userPushpin.Name = "User";
             userPushpin.Background = new SolidColorBrush(Colors.Blue);
-            userPushpin.Content = "User";
+            userPushpin.Content = "Ik";
+            
+            //Set size of User Pushpin
+            ScaleTransform st = new ScaleTransform();
+            st.ScaleX = 1.8;
+            st.ScaleY = 1.8;
+            st.CenterY = 60;
+            userPushpin.RenderTransform = st; 
+
             pushPinLayer.AddChild(userPushpin, new GeoCoordinate(0,0));
 
             coordinateWatcher = new GeoCoordinateWatcher(GeoPositionAccuracy.High);
@@ -77,7 +86,8 @@ namespace StadNav
             coordinateWatcher.Start();
             if (trigger == true)
                 refreshMap();
-           
+
+         
         }
 
         private void button5_Click(object sender, RoutedEventArgs e)
@@ -106,11 +116,13 @@ namespace StadNav
         {
             if (!(bool)PhoneApplicationService.Current.State["language"])
             {
-                ((Image)button5.Content).Source = new BitmapImage(new Uri("images/eng.jpg", UriKind.Relative));               
+                ((Image)button5.Content).Source = new BitmapImage(new Uri("images/eng.jpg", UriKind.Relative));
+                userPushpin.Content = "Me";
             }
             else
             {
-                ((Image)button5.Content).Source = new BitmapImage(new Uri("images/ned.jpg", UriKind.Relative));               
+                ((Image)button5.Content).Source = new BitmapImage(new Uri("images/ned.jpg", UriKind.Relative));
+                userPushpin.Content = "Ik";
             }
         }
 
@@ -247,8 +259,15 @@ namespace StadNav
                 //map1.Center = new GeoCoordinate(currentRoute.Waypoints.First().Latitude, currentRoute.Waypoints.First().Longitude);
                 map1.ZoomLevel = defaultZoom;
                 checker = true;
+                makeRatingButtonVisible();
             }           
         }
+
+        private void makeRatingButtonVisible()
+        {
+            button3.Visibility = Visibility.Visible;
+        }
+
         private void OnTapEnter(object sender, MouseEventArgs e)
         {
             Pushpin pushpin = sender as Pushpin;
@@ -345,5 +364,15 @@ namespace StadNav
 
         internal static void triggerMapRefresh()
         { trigger = true; }
+
+        private void Image_ImageFailed(object sender, ExceptionRoutedEventArgs e)
+        {
+
+        }
+
+        private void routeRatingButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/RouteRatingPage.xaml", UriKind.Relative));
+        }
     }
 }

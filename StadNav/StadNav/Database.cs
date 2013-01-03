@@ -554,7 +554,7 @@ namespace StadNav
             #endregion
 
             standardVVVRoute.ID = 0;
-            standardVVVRoute.Name = "Standaard VVV Route";
+            standardVVVRoute.Name = "VVV Route";
 
             #region Add all waypoints to standard VVVroute
 
