@@ -46,7 +46,6 @@ namespace StadNavDesktopTool
             this.EmulatorClick = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.ActiesClick = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.ProductIDClick = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.RouteTab = new System.Windows.Forms.TabPage();
             this.RoutesUitlegGroupBox = new System.Windows.Forms.GroupBox();
             this.lblUileg = new System.Windows.Forms.Label();
@@ -60,7 +59,6 @@ namespace StadNavDesktopTool
             this.BewerkenClickRoute = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.ToevoegenClickRoute = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.MenuBarClickRoute = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.TalenTab = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblInfoIntoTalen = new System.Windows.Forms.Label();
@@ -71,7 +69,6 @@ namespace StadNavDesktopTool
             this.BewerkenTalenClick = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.ToevoegenTalenClick = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.MenuBarTalenClick = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.TalenPic = new System.Windows.Forms.PictureBox();
             this.TalenUitlegGroupBox = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -85,32 +82,35 @@ namespace StadNavDesktopTool
             this.WaypointsBewerkenClick = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.WaypointsToevoegenClick = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.WaypointsMenuBarClick = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.Label6 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.TalenPic = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.MainTab.SuspendLayout();
             this.InfoGroupBox.SuspendLayout();
             this.UitlegGroupBox.SuspendLayout();
             this.FotoGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.RouteTab.SuspendLayout();
             this.RoutesUitlegGroupBox.SuspendLayout();
             this.RoutesInfoGroupBox.SuspendLayout();
             this.RoutesFotoGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.TalenTab.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.TalenFotoGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.TalenPic)).BeginInit();
             this.TalenUitlegGroupBox.SuspendLayout();
             this.WayPointsTab.SuspendLayout();
             this.TalenInfoGroupBox.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TalenPic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -299,16 +299,6 @@ namespace StadNavDesktopTool
             this.ProductIDClick.Size = new System.Drawing.Size(268, 49);
             this.ProductIDClick.MouseEnter += new System.EventHandler(this.ProductIDClick_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::StadNavDesktopTool.Properties.Resources.Main_uitleg;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 17);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(606, 276);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // RouteTab
             // 
             this.RouteTab.Controls.Add(this.RoutesUitlegGroupBox);
@@ -453,16 +443,6 @@ namespace StadNavDesktopTool
             this.MenuBarClickRoute.Size = new System.Drawing.Size(67, 13);
             this.MenuBarClickRoute.MouseEnter += new System.EventHandler(this.MenuBarClickRoute_Click);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::StadNavDesktopTool.Properties.Resources.Routes_uitleg;
-            this.pictureBox2.Location = new System.Drawing.Point(6, 22);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(604, 272);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
             // TalenTab
             // 
             this.TalenTab.Controls.Add(this.groupBox1);
@@ -575,16 +555,6 @@ namespace StadNavDesktopTool
             this.MenuBarTalenClick.Size = new System.Drawing.Size(74, 19);
             this.MenuBarTalenClick.MouseEnter += new System.EventHandler(this.MenuBarTalenClick_Click);
             // 
-            // TalenPic
-            // 
-            this.TalenPic.Image = global::StadNavDesktopTool.Properties.Resources.Talen_uitleg;
-            this.TalenPic.Location = new System.Drawing.Point(6, 22);
-            this.TalenPic.Name = "TalenPic";
-            this.TalenPic.Size = new System.Drawing.Size(604, 275);
-            this.TalenPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.TalenPic.TabIndex = 0;
-            this.TalenPic.TabStop = false;
-            // 
             // TalenUitlegGroupBox
             // 
             this.TalenUitlegGroupBox.Controls.Add(this.label3);
@@ -619,8 +589,8 @@ namespace StadNavDesktopTool
             // WayPointsTab
             // 
             this.WayPointsTab.Controls.Add(this.TalenInfoGroupBox);
-            this.WayPointsTab.Controls.Add(this.groupBox3);
             this.WayPointsTab.Controls.Add(this.groupBox4);
+            this.WayPointsTab.Controls.Add(this.groupBox3);
             this.WayPointsTab.Location = new System.Drawing.Point(4, 24);
             this.WayPointsTab.Name = "WayPointsTab";
             this.WayPointsTab.Size = new System.Drawing.Size(836, 473);
@@ -693,9 +663,9 @@ namespace StadNavDesktopTool
             this.WaypointsWaypointsClick.BorderColor = System.Drawing.Color.DeepPink;
             this.WaypointsWaypointsClick.BorderWidth = 4;
             this.WaypointsWaypointsClick.Cursor = System.Windows.Forms.Cursors.Help;
-            this.WaypointsWaypointsClick.Location = new System.Drawing.Point(451, 53);
+            this.WaypointsWaypointsClick.Location = new System.Drawing.Point(355, 25);
             this.WaypointsWaypointsClick.Name = "WaypointsWaypointsClick";
-            this.WaypointsWaypointsClick.Size = new System.Drawing.Size(146, 194);
+            this.WaypointsWaypointsClick.Size = new System.Drawing.Size(242, 230);
             this.WaypointsWaypointsClick.MouseEnter += new System.EventHandler(this.WaypointsWaypointsClick_Click);
             // 
             // WaypointsBewerkenClick
@@ -703,9 +673,9 @@ namespace StadNavDesktopTool
             this.WaypointsBewerkenClick.BorderColor = System.Drawing.Color.Lime;
             this.WaypointsBewerkenClick.BorderWidth = 4;
             this.WaypointsBewerkenClick.Cursor = System.Windows.Forms.Cursors.Help;
-            this.WaypointsBewerkenClick.Location = new System.Drawing.Point(12, 157);
+            this.WaypointsBewerkenClick.Location = new System.Drawing.Point(12, 152);
             this.WaypointsBewerkenClick.Name = "WaypointsBewerkenClick";
-            this.WaypointsBewerkenClick.Size = new System.Drawing.Size(435, 110);
+            this.WaypointsBewerkenClick.Size = new System.Drawing.Size(336, 121);
             this.WaypointsBewerkenClick.MouseEnter += new System.EventHandler(this.WaypointsBewerkenClick_Click);
             // 
             // WaypointsToevoegenClick
@@ -713,9 +683,9 @@ namespace StadNavDesktopTool
             this.WaypointsToevoegenClick.BorderColor = System.Drawing.Color.Blue;
             this.WaypointsToevoegenClick.BorderWidth = 4;
             this.WaypointsToevoegenClick.Cursor = System.Windows.Forms.Cursors.Help;
-            this.WaypointsToevoegenClick.Location = new System.Drawing.Point(13, 45);
+            this.WaypointsToevoegenClick.Location = new System.Drawing.Point(10, 27);
             this.WaypointsToevoegenClick.Name = "WaypointsToevoegenClick";
-            this.WaypointsToevoegenClick.Size = new System.Drawing.Size(435, 108);
+            this.WaypointsToevoegenClick.Size = new System.Drawing.Size(341, 121);
             this.WaypointsToevoegenClick.MouseEnter += new System.EventHandler(this.WaypointsToevoegenClick_Click);
             // 
             // WaypointsMenuBarClick
@@ -723,20 +693,10 @@ namespace StadNavDesktopTool
             this.WaypointsMenuBarClick.BorderColor = System.Drawing.Color.Red;
             this.WaypointsMenuBarClick.BorderWidth = 4;
             this.WaypointsMenuBarClick.Cursor = System.Windows.Forms.Cursors.Help;
-            this.WaypointsMenuBarClick.Location = new System.Drawing.Point(13, 26);
+            this.WaypointsMenuBarClick.Location = new System.Drawing.Point(11, 16);
             this.WaypointsMenuBarClick.Name = "WaypointsMenuBarClick";
-            this.WaypointsMenuBarClick.Size = new System.Drawing.Size(79, 14);
+            this.WaypointsMenuBarClick.Size = new System.Drawing.Size(79, 9);
             this.WaypointsMenuBarClick.MouseEnter += new System.EventHandler(this.WaypointsMenuBarClick_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::StadNavDesktopTool.Properties.Resources.Waypoints_uitleg;
-            this.pictureBox3.Location = new System.Drawing.Point(6, 22);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(604, 275);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
             // 
             // groupBox4
             // 
@@ -769,6 +729,46 @@ namespace StadNavDesktopTool
             this.Label6.TabIndex = 0;
             this.Label6.Text = "Waypoints";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::StadNavDesktopTool.Properties.Resources.Main_uitleg;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 17);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(606, 276);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::StadNavDesktopTool.Properties.Resources.Routes_uitleg;
+            this.pictureBox2.Location = new System.Drawing.Point(6, 22);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(604, 272);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // TalenPic
+            // 
+            this.TalenPic.Image = global::StadNavDesktopTool.Properties.Resources.Talen_uitleg;
+            this.TalenPic.Location = new System.Drawing.Point(6, 22);
+            this.TalenPic.Name = "TalenPic";
+            this.TalenPic.Size = new System.Drawing.Size(604, 275);
+            this.TalenPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.TalenPic.TabIndex = 0;
+            this.TalenPic.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::StadNavDesktopTool.Properties.Resources.Waypoints_uitleg;
+            this.pictureBox3.Location = new System.Drawing.Point(6, 22);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(604, 275);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            // 
             // Help_Tool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -794,28 +794,28 @@ namespace StadNavDesktopTool
             this.UitlegGroupBox.PerformLayout();
             this.FotoGroupBox.ResumeLayout(false);
             this.FotoGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.RouteTab.ResumeLayout(false);
             this.RoutesUitlegGroupBox.ResumeLayout(false);
             this.RoutesUitlegGroupBox.PerformLayout();
             this.RoutesInfoGroupBox.ResumeLayout(false);
             this.RoutesInfoGroupBox.PerformLayout();
             this.RoutesFotoGroupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.TalenTab.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.TalenFotoGroupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.TalenPic)).EndInit();
             this.TalenUitlegGroupBox.ResumeLayout(false);
             this.TalenUitlegGroupBox.PerformLayout();
             this.WayPointsTab.ResumeLayout(false);
             this.TalenInfoGroupBox.ResumeLayout(false);
             this.TalenInfoGroupBox.PerformLayout();
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TalenPic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
