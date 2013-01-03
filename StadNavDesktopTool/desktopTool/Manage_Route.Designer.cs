@@ -53,7 +53,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lbBevatBewerken = new System.Windows.Forms.ListBox();
             this.lbBeschikbaarBewerken = new System.Windows.Forms.ListBox();
-            this.btnToevoegenBewerken = new System.Windows.Forms.Button();
+            this.btnBewerken = new System.Windows.Forms.Button();
             this.tbNaamBewerken = new System.Windows.Forms.TextBox();
             this.lblNaamBewerken = new System.Windows.Forms.Label();
             this.lblIDBewerken = new System.Windows.Forms.Label();
@@ -78,6 +78,7 @@
             this.afsluitenToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
             this.afsluitenToolStripMenuItem1.Size = new System.Drawing.Size(163, 22);
             this.afsluitenToolStripMenuItem1.Text = "Afsluiten";
+            this.afsluitenToolStripMenuItem1.Click += new System.EventHandler(this.afsluitenToolStripMenuItem1_Click);
             // 
             // btnVerwijderen
             // 
@@ -213,7 +214,6 @@
             this.lbBeschikbaarToevoegen.Name = "lbBeschikbaarToevoegen";
             this.lbBeschikbaarToevoegen.Size = new System.Drawing.Size(198, 134);
             this.lbBeschikbaarToevoegen.TabIndex = 5;
-            this.lbBeschikbaarToevoegen.SelectedIndexChanged += new System.EventHandler(this.lbBeschikbaarToevoegen_SelectedIndexChanged);
             // 
             // menuStrip1
             // 
@@ -241,7 +241,7 @@
             this.gbBewerken.Controls.Add(this.label5);
             this.gbBewerken.Controls.Add(this.lbBevatBewerken);
             this.gbBewerken.Controls.Add(this.lbBeschikbaarBewerken);
-            this.gbBewerken.Controls.Add(this.btnToevoegenBewerken);
+            this.gbBewerken.Controls.Add(this.btnBewerken);
             this.gbBewerken.Controls.Add(this.tbNaamBewerken);
             this.gbBewerken.Controls.Add(this.lblNaamBewerken);
             this.gbBewerken.Controls.Add(this.lblIDBewerken);
@@ -307,15 +307,15 @@
             this.lbBeschikbaarBewerken.Size = new System.Drawing.Size(198, 134);
             this.lbBeschikbaarBewerken.TabIndex = 5;
             // 
-            // btnToevoegenBewerken
+            // btnBewerken
             // 
-            this.btnToevoegenBewerken.Location = new System.Drawing.Point(11, 134);
-            this.btnToevoegenBewerken.Name = "btnToevoegenBewerken";
-            this.btnToevoegenBewerken.Size = new System.Drawing.Size(189, 29);
-            this.btnToevoegenBewerken.TabIndex = 4;
-            this.btnToevoegenBewerken.Text = "Bewerken";
-            this.btnToevoegenBewerken.UseVisualStyleBackColor = true;
-            this.btnToevoegenBewerken.Click += new System.EventHandler(this.btnToevoegenBewerken_Click);
+            this.btnBewerken.Location = new System.Drawing.Point(11, 134);
+            this.btnBewerken.Name = "btnBewerken";
+            this.btnBewerken.Size = new System.Drawing.Size(189, 29);
+            this.btnBewerken.TabIndex = 4;
+            this.btnBewerken.Text = "Bewerken";
+            this.btnBewerken.UseVisualStyleBackColor = true;
+            this.btnBewerken.Click += new System.EventHandler(this.btnToevoegenBewerken_Click);
             // 
             // tbNaamBewerken
             // 
@@ -362,7 +362,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Manage_Route";
             this.Text = "Route Beheren";
-            this.Load += new System.EventHandler(this.Manage_Route_Load);
             this.gbToevoegen.ResumeLayout(false);
             this.gbToevoegen.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -399,7 +398,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox lbBevatBewerken;
         private System.Windows.Forms.ListBox lbBeschikbaarBewerken;
-        private System.Windows.Forms.Button btnToevoegenBewerken;
+        private System.Windows.Forms.Button btnBewerken;
         private System.Windows.Forms.TextBox tbNaamBewerken;
         private System.Windows.Forms.Label lblNaamBewerken;
         private System.Windows.Forms.Label lblIDBewerken;

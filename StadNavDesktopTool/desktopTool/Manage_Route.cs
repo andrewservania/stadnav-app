@@ -16,6 +16,9 @@ namespace StadNavDesktopTool
         BindingList<Waypoint> addingWaypoints;
         BindingList<Waypoint> editingWaypoints;
 
+        /// <summary>
+        /// Constructor for the Manage Route form
+        /// </summary>
         public Manage_Route(Main_Tool main_Tool)
         {
             this.main_Tool = main_Tool;
@@ -30,6 +33,12 @@ namespace StadNavDesktopTool
             lbAlleRoutes.DataSource = RouteManagement.GetAllRoutes();
         }
 
+        /// <summary>
+        /// Method that handles the 'Click' on the help toolstrip-item
+        /// Used for displaying the help menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!main_Tool.getHulp())
@@ -45,6 +54,12 @@ namespace StadNavDesktopTool
             }
         }
 
+        /// <summary>
+        /// Method that handles the 'Click' on 'btnToevoegenToevoegen'
+        /// Used for adding new routes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnToevoegenToevoegen_Click(object sender, EventArgs e)
         {
             Route route = new Route();
@@ -64,16 +79,17 @@ namespace StadNavDesktopTool
             }
 
             route.Name = tbNaamToevoegen.Text;
-            route.ID = Convert.ToInt32(tbIDToevoegen.Text);
+            route.ID = newId;
             route.Waypoints = addingWaypoints;
 
             RouteManagement.AddRoute(route);
         }
 
-        private void lbBeschikbaarToevoegen_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
+        /// <summary>
+        /// method that handles index changes on 'lbAlleRoutes' which displays all routes currently available
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lbAlleRoutes_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lbAlleRoutes.Items.Count > 0)
@@ -91,26 +107,55 @@ namespace StadNavDesktopTool
             }
         }
 
+        /// <summary>
+        /// Method that handles the 'Click' on 'btnWaypointToevoegenToevoegen'
+        /// Used for adding waypoints to the 'adding' part of the routemanagement
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnWaypointToevoegenToevoegen_Click(object sender, EventArgs e)
         {
-            addingWaypoints.Add((Waypoint) lbBeschikbaarToevoegen.SelectedItem);
+            Waypoint selectedWaypoint = lbBeschikbaarToevoegen.SelectedItem as Waypoint;
+
+            if (selectedWaypoint != null)
+                addingWaypoints.Add(selectedWaypoint);
+            else
+                MessageBox.Show("Er is een fout opgetreden tijdens het verwijderen");
         }
 
+        /// <summary>
+        /// Method that handles the 'Click' on 'btnWaypointVerwijderenToevoegen'
+        /// Used for removing waypoints from the 'adding' part of the routemanagement.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnWaypointVerwijderenToevoegen_Click(object sender, EventArgs e)
         {
-            addingWaypoints.Remove((Waypoint)lbBevatToevoegen.SelectedItem);
+            Waypoint selectedWaypoint = lbBevatToevoegen.SelectedItem as Waypoint;
+
+            if (selectedWaypoint != null)
+                addingWaypoints.Remove(selectedWaypoint);
+            else
+                MessageBox.Show("Er is een fout opgetreden tijdens het verwijderen");
         }
 
-        private void Manage_Route_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Method that handles the 'Click' on 'btnVerwijderen'
+        /// Used for entirely removing routes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnVerwijderen_Click(object sender, EventArgs e)
         {
             RouteManagement.RemoveRoute(selectedRoute);
         }
 
+        /// <summary>
+        /// Method that handles the 'Click' on 'btnBewerken'
+        /// Used for editing an entire waypoint (saving all the changes to the management)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnToevoegenBewerken_Click(object sender, EventArgs e)
         {
             int newId = 0;
@@ -137,38 +182,46 @@ namespace StadNavDesktopTool
             selectedRoute = (Route) lbAlleRoutes.Items[0];
         }
 
+        /// <summary>
+        /// Method that handles the 'Click' on 'btnWaypointToevoegenBewerken'
+        /// Used for adding waypoints to the 'editing' part of the route'
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnWaypointToevoegenBewerken_Click(object sender, EventArgs e)
         {
-            editingWaypoints.Add((Waypoint)lbBeschikbaarBewerken.SelectedItem);
+            Waypoint selectedWaypoint = lbBeschikbaarBewerken.SelectedItem as Waypoint;
+
+            if (selectedWaypoint != null)
+                editingWaypoints.Add(selectedWaypoint);
+            else
+                MessageBox.Show("Er is een fout opgetreden tijdens het toevoegen");
         }
 
+        /// <summary>
+        /// Method that handles the 'Click' on 'btnVerwijderenBewerken'
+        /// Used for removing waypoints from the 'editing' part of the route.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnWaypointVerwijderenBewerken_Click(object sender, EventArgs e)
         {
-            editingWaypoints.Remove((Waypoint)lbBevatBewerken.SelectedItem);
+            Waypoint selectedWaypoint = lbBevatBewerken.SelectedItem as Waypoint;
+
+            if (selectedWaypoint != null)
+                editingWaypoints.Remove(selectedWaypoint);
+            else
+                MessageBox.Show("Er is een fout opgetreden tijdens het verwijderen");
         }
 
-        private void opslaanToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Method that handles the 'Click' on the afsluiten toolstrip-item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void afsluitenToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "DAT files (*.dat)|*.dat";
-
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                RouteManagement.SaveToFile(saveFileDialog.FileName);
-            }
-        }
-
-        private void bewerkenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "DAT files (*.dat)|*.dat";
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                RouteManagement.loadFromFile(openFileDialog.FileName);
-            }
-
-            lbAlleRoutes.DataSource = RouteManagement.GetAllRoutes();
+            this.Close();
         }
     }
 }

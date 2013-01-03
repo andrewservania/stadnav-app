@@ -14,6 +14,10 @@ namespace StadNavDesktopTool
         Main_Tool main_Tool;
         Language selectedLanguage;
 
+        /// <summary>
+        /// Constructor for the 'Manage Language' form.
+        /// </summary>
+        /// <param name="main_Tool"></param>
         public Manage_Language(Main_Tool main_Tool)
         {
             InitializeComponent();
@@ -23,15 +27,11 @@ namespace StadNavDesktopTool
             lbAlleTalen.DataSource = LanguageManagement.GetAllLanguages();
         }
 
-        private void afsluitenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void Manage_Language_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// Method that handles the 'Click' on the help toolstrip-item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!main_Tool.getHulp())
@@ -47,11 +47,24 @@ namespace StadNavDesktopTool
             }
         }
 
+        /// <summary>
+        /// Method that handles the 'Click' on 'btnToevoegen'
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnToevoegen_Click(object sender, EventArgs e)
         {
             try
             {
-                bool addedLanguage = LanguageManagement.AddLanguage(Convert.ToInt32(tbIDToevoegen.Text), tbNaamToevoegen.Text);
+                int newId;
+
+                if(!int.TryParse(tbIDToevoegen.Text, out newId))
+                {
+                    MessageBox.Show("Er is een foutieve invoer bij de ID van de nieuwe taal");
+                    return;
+                }
+
+                bool addedLanguage = LanguageManagement.AddLanguage(newId, tbNaamToevoegen.Text);
 
                 if (!addedLanguage)
                     MessageBox.Show("Er bestaat al een taal met dit ID!");
@@ -59,51 +72,50 @@ namespace StadNavDesktopTool
             catch (Exception) { MessageBox.Show("Foutieve invoer tijdens het aanmaken van de taal"); }
         }
 
+        /// <summary>
+        /// Method that handles index changes on the listbox that contains all the languages.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lbAlleTalen.Items.Count > 0)
             {
-                selectedLanguage = (Language)lbAlleTalen.SelectedItem;
+                selectedLanguage = (Language) lbAlleTalen.SelectedItem;
                 tbIDBewerken.Text = "" + selectedLanguage.ID;
                 tbNaamBewerken.Text = selectedLanguage.Name;
             }
         }
 
+        /// <summary>
+        /// Method that handles the 'Click' on 'btnBewerken'.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBewerken_Click(object sender, EventArgs e)
         {
             selectedLanguage.Name = tbNaamBewerken.Text;
+            int newId;
 
-            try
+            if (!int.TryParse(tbIDBewerken.Text, out newId))
             {
-                selectedLanguage.ID = Convert.ToInt32(tbIDBewerken.Text);
+                MessageBox.Show("Er is een foutieve invoer bij de ID van de bewerkte taal");
+                return;
             }
-            catch (Exception) { MessageBox.Show("Foutieve invoer tijdens het bewerken van de taal"); }
+
+            selectedLanguage.ID = newId;
 
             LanguageManagement.UpdateLanguage(selectedLanguage);
         }
 
-        private void opslaanToolStripMenuItem_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Method that handles the 'Click' on the 'Afsluiten' toolstrip-item.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void afsluitenToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "DAT files (*.dat)|*.dat";
-
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                LanguageManagement.SaveToFile(saveFileDialog.FileName);
-            }
-        }
-
-        private void openenToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "DAT files (*.dat)|*.dat";
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                LanguageManagement.LoadFromFile(openFileDialog.FileName);
-            }
-
-            lbAlleTalen.DataSource = LanguageManagement.GetAllLanguages();
+            this.Close();
         }
     }
 }
