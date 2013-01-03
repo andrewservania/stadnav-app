@@ -147,14 +147,14 @@ namespace StadNav
                     "Bestemmingspunt", MessageBoxButton.OKCancel);
                 if (m == MessageBoxResult.OK)
                 {
-                    if (!w.InformationNL.Equals(""))
-                    {
-                        NavigationService.Navigate(new Uri("/InformationPage.xaml", UriKind.Relative));
-                        PhoneApplicationService.Current.State["selectedWaypoint"] = w;
-                    }
-                    else
+                    if (w.InformationNL.Equals("") && w.Images[0] == null)
                     {
                         MessageBox.Show("Er is geen informatie beschikbaar voor dit bestemmingspunt.");
+                    }
+                    else
+                    {                     
+                        NavigationService.Navigate(new Uri("/InformationPage.xaml", UriKind.Relative));
+                        PhoneApplicationService.Current.State["selectedWaypoint"] = w;
                     }
                 }
             }
