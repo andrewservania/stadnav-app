@@ -147,8 +147,15 @@ namespace StadNav
                     "Bestemmingspunt", MessageBoxButton.OKCancel);
                 if (m == MessageBoxResult.OK)
                 {
-                    NavigationService.Navigate(new Uri("/InformationPage.xaml", UriKind.Relative));
-                    PhoneApplicationService.Current.State["selectedWaypoint"] = w;
+                    if (!w.InformationNL.Equals(""))
+                    {
+                        NavigationService.Navigate(new Uri("/InformationPage.xaml", UriKind.Relative));
+                        PhoneApplicationService.Current.State["selectedWaypoint"] = w;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Er is geen informatie beschikbaar voor dit bestemmingspunt.");
+                    }
                 }
             }
             else
@@ -158,8 +165,15 @@ namespace StadNav
                     "Waypoint", MessageBoxButton.OKCancel);
                 if (m == MessageBoxResult.OK)
                 {
-                    NavigationService.Navigate(new Uri("/InformationPage.xaml", UriKind.Relative));
-                    PhoneApplicationService.Current.State["selectedWaypoint"] = w;
+                    if (!w.InformationEN.Equals(""))
+                    {
+                        NavigationService.Navigate(new Uri("/InformationPage.xaml", UriKind.Relative));
+                        PhoneApplicationService.Current.State["selectedWaypoint"] = w;
+                    }
+                    else
+                    {
+                        MessageBox.Show("There is no information available for this waypoint.");
+                    }
                 }
             }
             
