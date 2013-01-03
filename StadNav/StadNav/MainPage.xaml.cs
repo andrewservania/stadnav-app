@@ -151,7 +151,7 @@ namespace StadNav
             int i = 0;
             foreach (GeoCoordinate result in locations)
             {
-                if (i < 20)
+                if (i < 2)
                 {
                     if (result.Latitude != 0 && result.Longitude != 0)
                     {
@@ -162,9 +162,9 @@ namespace StadNav
                         wp.Location.Latitude = result.Latitude;
                         wp.Location.Longitude = result.Longitude;
                         routeRequest.Waypoints.Add(wp);
+                        i++;
                     }
                 }
-                i++;
             }
 
             // Make the CalculateRoute asnychronous request.
@@ -218,10 +218,6 @@ namespace StadNav
                 
                 foreach (Waypoint wp in currentRoute.Waypoints)
                 {
-                    String db;
-                    db = wp.ID.ToString();
-                    System.Diagnostics.Debug.WriteLine(db);
-
                     //routePolyLine.Locations.Add(new GeoCoordinate(wp.Latitude, wp.Longitude));
                     Pushpin pin = new Pushpin();
                     pin.Content = wp.ID + "";
@@ -231,7 +227,10 @@ namespace StadNav
                     pin.MouseLeave += OnTapLeave;
                     GeoCoordinate waypointCoords = new GeoCoordinate(wp.Latitude, wp.Longitude);
                     pushPinLayer.AddChild(pin, waypointCoords);
-                    locations.Add(waypointCoords);
+                    if (waypointCoords.Latitude != 0 && waypointCoords.Longitude != 0)
+                    {
+                        locations.Add(waypointCoords);
+                    }
                 }
 
                 map1.SetView(LocationRect.CreateLocationRect(locations));
@@ -314,9 +313,15 @@ namespace StadNav
             pushpin.RenderTransform = st;
         }
 
+        private void atNextWaypoint()
+        {
+            locations.RemoveAt(1);
+        }
+
         //updates user's pushpin
         public void updateUserPushpin(Double Lat, Double Long)
         {
+            GeoCoordinate userLocation = new GeoCoordinate(Lat, Long);
             if (locations.Count() > 0)
             {
                 GeoCoordinate location = new GeoCoordinate(Lat, Long);
@@ -326,6 +331,15 @@ namespace StadNav
             }
             if (locations.Count() > 1)
             {
+                Double nextWayPointLat = locations.ElementAt(1).Latitude;
+                Double nextWayPointLong = locations.ElementAt(1).Longitude;
+                GeoCoordinate nextWaypointLocation = new GeoCoordinate(nextWayPointLat, nextWayPointLong);
+                Double distanceNextWaypoint = userLocation.GetDistanceTo(nextWaypointLocation);
+                System.Diagnostics.Debug.WriteLine(distanceNextWaypoint.ToString()); 
+                if (distanceNextWaypoint < 15)
+                {
+                    atNextWaypoint();
+                }
                 CalculateRoute(locations);
             }
         }
