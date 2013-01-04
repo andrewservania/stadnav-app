@@ -45,7 +45,10 @@ namespace StadNav
                     "You can now follow the route on the map. If you would like to change the language of the application, press the flag in the top right corner."+
                     "\n \n If you tap on the button with a star on it you will be able to rate the route you are currently following." +
                     "\n You do this by clicking on the stars that appear. After pressing a star the amount of stars you have rated the route with will  be displayed."+
-                    "\n When you are done with rating the route, tap on the 'Rate' button in order to save your rating and go back to the map.";
+                    "\n When you are done with rating the route, tap on the 'Rate' button in order to save your rating and go back to the map." +
+                    "\n \n Route: De map indicates your current location with a blue pin. Sightseeing points are indicated in orange." +
+                    "\n In case you get lost or have walked away from most points of interest,  "+
+                    " the application calculates dynamically and automatically additional routes you can take to get back to the touring area.";
                 textBlock1.Height = textBlock1.Text.Count();
             }
             else
@@ -60,7 +63,10 @@ namespace StadNav
                     " U kunt nu de route volgen met de kaart. Als u de taal van de applicatie wilt veranderen klikt u op het vlaggetje in de rechterboven hoek." +
                     " \n \n Als je op de knop met een ster drukt wordt je naar een beoordelingspagina toeverwezen. Op dezepagina kun je de gekozen route beoordelen." +
                     " Dit doe je met het drukken op de sterren die aanwezig zijn op de pagina. Bij het drukken van een ster wordt aangegeven hoeveel sterren je aan,"+
-                    " een route geeft. Wanneer je klaar bent druk je op Beoordelen om je beoordeling op te slaan en terug te gaan naar de kaart.";
+                    " een route geeft. Wanneer je klaar bent druk je op Beoordelen om je beoordeling op te slaan en terug te gaan naar de kaart." + 
+                    " \n \n Route: De kaart duidt je huidige locatie met een blauwe pin. Andere bezienswaardigheid punten zijn aangegeven in oranje." +
+                    " In het geval dat je de weg kwijt ben of ben je verder dan dan de routepunten gelopen," +
+                    " de applicatie berekent automatisch en dynamisch extra route vanaf je huidige positie zodat je de weg terug kan vinden naar de bezienswaardigheid punten.";
                textBlock1.Height = textBlock1.Text.Count();
             }
         }
