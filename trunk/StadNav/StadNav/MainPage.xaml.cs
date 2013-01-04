@@ -126,6 +126,11 @@ namespace StadNav
             currentRoute = selectedRoute;
         }
 
+        public static Route getCurrentRoute()
+        {
+            return currentRoute;
+        }
+
         private void updateLanguage()
         {
             if (!(bool)PhoneApplicationService.Current.State["language"])
@@ -206,17 +211,6 @@ namespace StadNav
                     routeLine.Locations.Add(new GeoCoordinate(p.Latitude, p.Longitude));
                 }
 
-                // Add a map layer in which to draw the route.
-            //    MapLayer myRouteLayer = new MapLayer();
-                
-                // Add the route line to the new layer.
-            //    myRouteLayer.Children.Add(routeLine);
-            //   map1.Children.Add(myRouteLayer);
-
-                // Figure the rectangle which encompasses the route. This is used later to set the map view.
-                //LocationRect rect = new LocationRect(routeLine.Locations[0], routeLine.Locations[routeLine.Locations.Count - 1]);
-
-                // For each geocode result (which are the waypoints of the route), draw a dot on the map.
                 
             }
         }
@@ -256,8 +250,6 @@ namespace StadNav
                 }
 
                 map1.SetView(LocationRect.CreateLocationRect(locations));
-
-                //map1.Center = new GeoCoordinate(currentRoute.Waypoints.First().Latitude, currentRoute.Waypoints.First().Longitude);
                 map1.ZoomLevel = defaultZoom;
                 checker = true;
                 makeRatingButtonVisible();
@@ -374,13 +366,7 @@ namespace StadNav
                 Double Longitude = e.Position.Location.Longitude;
                 map1.Center = new GeoCoordinate(Latitude, Longitude);
                 updateUserPushpin(Latitude, Longitude);
-                suggestRouteToUser(e);
             }
-            
-        }
-
-        private void suggestRouteToUser(GeoPositionChangedEventArgs<GeoCoordinate> e)
-        {
             
         }
 
