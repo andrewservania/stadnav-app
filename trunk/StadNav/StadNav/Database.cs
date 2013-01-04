@@ -101,6 +101,7 @@ namespace StadNav
             w1.Longitude = 4.77963;
             w1.Images.Add(new BitmapImage(new Uri("images/Image1.jpg", UriKind.Relative)));
             w1.Images.Add(new BitmapImage(new Uri("images/Image2.jpg", UriKind.Relative)));
+            w1.Images.Add(new BitmapImage(new Uri("images/Image3.jpg", UriKind.Relative)));
             w1.Description = "Beginpunt";
             w1.InformationNL = "";
             w1.InformationEN = "";
@@ -109,7 +110,7 @@ namespace StadNav
             w2.Name = "Liefdeszuster";
             w2.Latitude = 51.59307;
             w2.Longitude = 4.77969;
-            w2.Images.Add(new BitmapImage(new Uri("images/Image3.jpg", UriKind.Relative)));
+            w2.Images.Add(new BitmapImage(new Uri("images/Image4.jpg", UriKind.Relative)));
             w2.Description = "";
             w2.InformationNL = "";
             w2.InformationEN = "";
@@ -118,7 +119,7 @@ namespace StadNav
             w3.Name = "Valkenberg";
             w3.Latitude = 51.59250;
             w3.Longitude = 4.77969;
-            w3.Images.Add(new BitmapImage(new Uri("images/Image4.jpg", UriKind.Relative)));
+            w3.Images.Add(new BitmapImage(new Uri("images/Image5.jpg", UriKind.Relative)));
             w3.Description = "";
             w3.InformationNL = "";
             w3.InformationEN = "";
@@ -136,7 +137,7 @@ namespace StadNav
             w5.Name = "The Light House";
             w5.Latitude = 51.59256;
             w5.Longitude = 4.77889;
-            w5.Images.Add(new BitmapImage(new Uri("images/Image5.jpg", UriKind.Relative)));
+            w5.Images.Add(new BitmapImage(new Uri("images/Image6.jpg", UriKind.Relative)));
             w5.Description = "";
             w5.InformationNL = getText("texts/T5ValkenbergNL.txt");
             w5.InformationEN = getText("texts/T5ValkenbergENG.txt");
@@ -174,7 +175,7 @@ namespace StadNav
             w9.Name = "Kasteel van Breda";
             w9.Latitude = 51.59061;
             w9.Longitude = 4.77624;
-            w9.Images.Add(new BitmapImage(new Uri("images/Image11.jpg", UriKind.Relative)));
+            w9.Images.Add(new BitmapImage(new Uri("images/Image12.jpg", UriKind.Relative)));
             w9.Description = "";
             w9.InformationNL = "";
             w9.InformationEN = "";
@@ -183,7 +184,7 @@ namespace StadNav
             w10.Name = "Stadhouderspoort";
             w10.Latitude = 51.58992;
             w10.Longitude = 4.77634;
-            w10.Images.Add(new BitmapImage(new Uri("images/Image12.jpg", UriKind.Relative)));
+            w10.Images.Add(new BitmapImage(new Uri("images/Image13.jpg", UriKind.Relative)));
             w10.InformationNL = getText("texts/T10vishalNL.txt");
             w10.InformationEN = getText("texts/T10vishalENG.txt");
 

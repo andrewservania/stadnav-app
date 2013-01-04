@@ -33,7 +33,7 @@ namespace StadNav
         bool checker = false;
         static bool trigger = false;
         Pushpin userPushpin = new Pushpin();
-        int defaultZoom = 17;
+        int defaultZoom = 20;
         
        
         //list of locations, locations[0] should always be your own location
@@ -57,18 +57,28 @@ namespace StadNav
             }
             updateLanguage();
 
+            // Draw  route line using its waypoints
+            routePolyLine = new MapPolyline();
+            routePolyLine.Stroke = new SolidColorBrush(Colors.Blue);
+            routePolyLine.StrokeThickness = 17;
+            routePolyLine.Opacity = 0.7;
+            routePolyLine.Locations = new LocationCollection();
+            map1.Children.Add(routePolyLine);
+            pushPinLayer = new MapLayer();
+            map1.Children.Add(pushPinLayer);
+
             //route line holder(s)
             //MapLayer of route lines
             MapLayer myRouteLayer = new MapLayer();
-            // Add a map layer in which to draw the route.
-            map1.Children.Add(myRouteLayer);
+
 
             // Add the route line to the new layer.
             myRouteLayer.Children.Add(routeLine);
 
-            // Draw  route line using its waypoints
-            pushPinLayer = new MapLayer();
-            map1.Children.Add(pushPinLayer);
+            // Add a map layer in which to draw the route.
+            map1.Children.Add(myRouteLayer);
+
+
             map1.ZoomLevel = defaultZoom;
 
             //init user's pushpin
@@ -196,6 +206,17 @@ namespace StadNav
                     routeLine.Locations.Add(new GeoCoordinate(p.Latitude, p.Longitude));
                 }
 
+                // Add a map layer in which to draw the route.
+            //    MapLayer myRouteLayer = new MapLayer();
+                
+                // Add the route line to the new layer.
+            //    myRouteLayer.Children.Add(routeLine);
+            //   map1.Children.Add(myRouteLayer);
+
+                // Figure the rectangle which encompasses the route. This is used later to set the map view.
+                //LocationRect rect = new LocationRect(routeLine.Locations[0], routeLine.Locations[routeLine.Locations.Count - 1]);
+
+                // For each geocode result (which are the waypoints of the route), draw a dot on the map.
                 
             }
         }
@@ -231,6 +252,7 @@ namespace StadNav
                     {
                         locations.Add(waypointCoords);
                     }
+                    routePolyLine.Locations.Add(new GeoCoordinate(wp.Latitude, wp.Longitude));
                 }
 
                 map1.SetView(LocationRect.CreateLocationRect(locations));
@@ -352,7 +374,13 @@ namespace StadNav
                 Double Longitude = e.Position.Location.Longitude;
                 map1.Center = new GeoCoordinate(Latitude, Longitude);
                 updateUserPushpin(Latitude, Longitude);
+                suggestRouteToUser(e);
             }
+            
+        }
+
+        private void suggestRouteToUser(GeoPositionChangedEventArgs<GeoCoordinate> e)
+        {
             
         }
 
