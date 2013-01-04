@@ -190,60 +190,156 @@
     <Content Include="Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\dummy.jpg" />
-    <Resource Include="images\RouteRatingStar.jpg" />
+    <Content Include="images\dummy.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\RouteRatingStar.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Service References\GeocodeService\configuration91.svcinfo" />
     <None Include="Service References\GeocodeService\configuration.svcinfo" />
     <None Include="Service References\GeocodeService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="texts\T10vishalENG.txt" />
-    <Content Include="texts\T10vishalNL.txt" />
-    <Content Include="texts\T11TorenstraatENG.txt" />
-    <Content Include="texts\T11TorenstraatNL.txt" />
-    <Content Include="texts\T17stadhuisENG.txt" />
-    <Content Include="texts\T17stadhuisNL.txt" />
-    <Content Include="texts\T18AntoniusKerkENG.txt" />
-    <Content Include="texts\T18AntoniusKerkNL.txt" />
-    <Content Include="texts\T19BibliotheekENG.txt" />
-    <Content Include="texts\T19BibliotheekNL.txt" />
-    <Content Include="texts\T20kloosterkazerneENG.txt" />
-    <Content Include="texts\T20kloosterkazerneNL.txt" />
-    <Content Include="texts\T4NassauMonumentENG.txt" />
-    <Content Include="texts\T4NassauMonumentNL.txt" />
-    <Content Include="texts\T5ValkenbergENG.txt" />
-    <Content Include="texts\T5ValkenbergNL.txt" />
-    <Content Include="texts\T6kasteelENG.txt" />
-    <Content Include="texts\T6kasteelNL.txt" />
-    <Resource Include="images\eng.jpg" />
-    <Resource Include="images\ned.jpg" />
-    <Content Include="images\Image1.jpg" />
-    <Content Include="images\Image10.jpg" />
-    <Content Include="images\Image11.jpg" />
-    <Content Include="images\Image12.jpg" />
-    <Content Include="images\Image13.jpg" />
-    <Content Include="images\Image14.jpg" />
-    <Content Include="images\Image15.jpg" />
-    <Content Include="images\Image16.jpg" />
-    <Content Include="images\Image17.jpg" />
-    <Content Include="images\Image18.jpg" />
-    <Content Include="images\Image19.jpg" />
-    <Content Include="images\Image2.jpg" />
-    <Content Include="images\Image20.jpg" />
-    <Content Include="images\Image21.jpg" />
-    <Content Include="images\Image22.jpg" />
-    <Content Include="images\Image23.jpg" />
-    <Content Include="images\Image24.jpg" />
-    <Content Include="images\Image25.jpg" />
-    <Content Include="images\Image26.jpg" />
-    <Content Include="images\Image3.jpg" />
-    <Content Include="images\Image4.jpg" />
-    <Content Include="images\Image5.jpg" />
-    <Content Include="images\Image6.jpg" />
-    <Content Include="images\Image7.jpg" />
-    <Content Include="images\Image8.jpg" />
-    <Content Include="images\Image9.jpg" />
+    <Content Include="texts\T10vishalENG.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="texts\T10vishalNL.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="texts\T11TorenstraatENG.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="texts\T11TorenstraatNL.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="texts\T17stadhuisENG.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="texts\T17stadhuisNL.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="texts\T18AntoniusKerkENG.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="texts\T18AntoniusKerkNL.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="texts\T19BibliotheekENG.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="texts\T19BibliotheekNL.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="texts\T20kloosterkazerneENG.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="texts\T20kloosterkazerneNL.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="texts\T4NassauMonumentENG.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="texts\T4NassauMonumentNL.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="texts\T5ValkenbergENG.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="texts\T5ValkenbergNL.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="texts\T6kasteelENG.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="texts\T6kasteelNL.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\eng.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\ned.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image10.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image11.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image12.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image13.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image14.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image15.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image16.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image17.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image18.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image19.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image20.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image21.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image22.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image23.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image24.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image25.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image26.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image4.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image5.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image6.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image7.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image8.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\Image9.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup>

@@ -19,6 +19,7 @@ using System.Windows.Media.Imaging;
 using System.IO;
 using System.Windows.Resources;
 using System.Reflection;
+using System.IO.IsolatedStorage;
 
 namespace StadNav
 {
@@ -684,6 +685,7 @@ namespace StadNav
             #endregion
 
             routeDB.Add(standardVVVRoute);
+            saveToIsolatedStorage("StadnavDB.sdb", routeDB);
         }
 
         internal static string getText(string path)
@@ -696,7 +698,6 @@ namespace StadNav
                     if (myFileStream.CanRead)
                     {
                         StreamReader myStreamReader = new StreamReader(myFileStream);
-                        //read the content here
                         return myStreamReader.ReadToEnd();
                     }
                 }
@@ -761,6 +762,19 @@ namespace StadNav
             }
 
             return waypointCoordinates;
+        }
+
+        internal static void saveToIsolatedStorage(string filename, ObservableCollection<Route> databaseObject)
+        {
+            using (IsolatedStorageFile isf = IsolatedStorageFile.GetUserStoreForApplication())
+            {
+                using
+                (IsolatedStorageFileStream rawStream = isf.CreateFile(filename))
+                {
+                    StreamWriter writer = new StreamWriter(rawStream);
+                    writer.Write(databaseObject); writer.Close();
+                }
+            }
         }
 
         private void NotifyPropertyChanged(string propertyName)

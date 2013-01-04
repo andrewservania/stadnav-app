@@ -12,6 +12,8 @@ using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.Windows.Media.Imaging;
+using System.IO.IsolatedStorage;
+using System.IO;
 
 namespace StadNav
 {
@@ -20,14 +22,56 @@ namespace StadNav
         public RouteRatingPage()
         {
             InitializeComponent();
-       
-            
+            textBlock4.Text = MainPage.getCurrentRoute().Name;
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-
+            saveRating("routeRating.txt", " \n Route Name:" + MainPage.getCurrentRoute().Name + " \n Route Rating:" + textBlock2.Text + " Stars");
             NavigationService.Navigate(new Uri("/MainPage.XAML", UriKind.Relative));
+        }
+
+        private void saveRating(string filename, string text)
+        {
+            using (IsolatedStorageFile isf = IsolatedStorageFile.GetUserStoreForApplication()) 
+            { 
+                using 
+                (IsolatedStorageFileStream rawStream = isf.CreateFile(filename)) 
+                { StreamWriter writer = new StreamWriter(rawStream); 
+                writer.Write(text); writer.Close(); 
+                } 
+            }
+        }
+
+        private bool loadRatingFile(string filename, out string result)
+        {
+            result = "";
+            using (IsolatedStorageFile isf =
+                IsolatedStorageFile.GetUserStoreForApplication())
+            {
+                if (isf.FileExists(filename))
+                {
+                    try
+                    {
+                        using (IsolatedStorageFileStream rawStream =
+                            isf.OpenFile(filename, System.IO.FileMode.Open))
+                        {
+                            StreamReader reader = new StreamReader(rawStream);
+                            result = reader.ReadToEnd();
+                            reader.Close();
+                        }
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)
@@ -60,9 +104,10 @@ namespace StadNav
             if (!(bool)PhoneApplicationService.Current.State["language"])
             {
                 ((Image)button7.Content).Source = new BitmapImage(new Uri("images/eng.jpg", UriKind.Relative));
-                PageTitle.Text = "Rate Route";
+                PageTitle.Text = "Rate route";
                 textBlock1.Text = "Star route";
                 button1.Content = "Rate!";
+                textBlock3.Text = "Route Name:";
             }
             else
             {
@@ -70,8 +115,10 @@ namespace StadNav
                 PageTitle.Text = "Route beoordelen";
                 textBlock1.Text = "Ster route";
                 button1.Content = "Beoordelen!";
+                textBlock3.Text = "Route Naam:";
             }
         }
+
         #region Button images exception catching methods
         private void Image_ImageFailed(object sender, ExceptionRoutedEventArgs e)
         {
