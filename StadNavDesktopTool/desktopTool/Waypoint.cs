@@ -14,12 +14,12 @@ namespace StadNavDesktopTool
         string nameValue;
         double latitudeValue;
         double longitudeValue;
-        BindingList<string> imagesValue;
+        BindingList<string> mediaValue;
         Dictionary<int, string> descriptionsValue;
 
         public Waypoint()
         {
-            imagesValue = new BindingList<string>();
+            mediaValue = new BindingList<string>();
             descriptionsValue = new Dictionary<int, string>();
         }
 
@@ -37,10 +37,10 @@ namespace StadNavDesktopTool
         /// <summary>
         /// IMPORTANT: THIS LIST USES 'PATHS' or 'FILENAMES'
         /// </summary>
-        public BindingList<string> Images
+        public BindingList<string> Media
         {
-            get { return imagesValue; }
-            set { imagesValue = value; } 
+            get { return mediaValue; }
+            set { mediaValue = value; } 
         }
 
         public int ID 
