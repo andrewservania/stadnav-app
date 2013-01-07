@@ -75,6 +75,11 @@ namespace StadNav
                                   "Information: " + selectedWaypoint.InformationEN + "\n";
                                    
             }            
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri(string.Format("/HelpPage.xaml"), UriKind.Relative));
         }    
     }
 }

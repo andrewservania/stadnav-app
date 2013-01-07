@@ -11,7 +11,7 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
-    shell:SystemTray.IsVisible="True"  xmlns:my2="clr-namespace:System.Windows.Controls;assembly=RatingControlSample" xmlns:my3="clr-namespace:System;assembly=mscorlib">
+    shell:SystemTray.IsVisible="True"  xmlns:my3="clr-namespace:System;assembly=mscorlib">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -46,11 +46,12 @@
             </Button>
             <TextBlock FontSize="25.333" FontWeight="Bold" Height="46" HorizontalAlignment="Left" Margin="175,330,0,0" Name="textBlock1" Text="Ster route" VerticalAlignment="Top" Width="131" />
             <TextBlock FontSize="25.333" FontWeight="Bold" Height="46" HorizontalAlignment="Left" Margin="152,330,0,0" Name="textBlock2" Text="" VerticalAlignment="Top" Width="20" />
-            <Button Height="72" Name="button7" Width="82" Margin="373,33,1,502" Click="button7_Click">
+            <Button Height="72" Name="button7" Width="82" Margin="374,6,0,540" Click="button7_Click">
                 <Image Source="images\ned.jpg" />
             </Button>
             <TextBlock Height="44" HorizontalAlignment="Left" Margin="6,40,0,0" Name="textBlock3" Text="Route Naam:" VerticalAlignment="Top" Width="123" />
             <TextBlock Height="44" HorizontalAlignment="Left" Margin="6,85,0,0" Name="textBlock4" Text="" VerticalAlignment="Top" Width="344" />
+            <Button Height="72" Margin="293,6,81,540" Name="button8" Width="82" Content="?" Click="button8_Click"></Button>
         </Grid>
     </Grid>
  
