@@ -144,7 +144,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="tbProductID.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 46</value>
@@ -165,10 +165,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tbProductID.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="cbSchrijven.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 39</value>
+    <value>8, 45</value>
   </data>
   <data name="cbSchrijven.Size" type="System.Drawing.Size, System.Drawing">
     <value>104, 24</value>
@@ -192,10 +192,10 @@
     <value>2</value>
   </data>
   <data name="cbKopieren.Location" type="System.Drawing.Point, System.Drawing">
-    <value>182, 39</value>
+    <value>182, 48</value>
   </data>
   <data name="cbKopieren.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 24</value>
+    <value>75, 24</value>
   </data>
   <data name="cbKopieren.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -237,7 +237,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;cbGebruikEmulator.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="rtbOutput.Location" type="System.Drawing.Point, System.Drawing">
     <value>278, 30</value>
@@ -261,7 +261,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;rtbOutput.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="tbBrowseURL.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 19</value>
@@ -311,78 +311,11 @@
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="routeDataOpslaanToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 22</value>
-  </data>
-  <data name="routeDataOpslaanToolStripMenuItem.Text" xml:space="preserve">
-    <value>Opslaan..</value>
-  </data>
-  <data name="routeDataOpenenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 22</value>
-  </data>
-  <data name="routeDataOpenenToolStripMenuItem.Text" xml:space="preserve">
-    <value>Openen..</value>
-  </data>
-  <data name="resetRouteDataToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 22</value>
-  </data>
-  <data name="resetRouteDataToolStripMenuItem.Text" xml:space="preserve">
-    <value>Reset</value>
-  </data>
-  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>160, 6</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="afsluitenToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Alt+F4</value>
-  </data>
-  <data name="afsluitenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 22</value>
-  </data>
-  <data name="afsluitenToolStripMenuItem.Text" xml:space="preserve">
-    <value>Afsluiten</value>
-  </data>
   <data name="beherenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 20</value>
   </data>
   <data name="beherenToolStripMenuItem.Text" xml:space="preserve">
     <value>File</value>
-  </data>
-  <data name="aanpassenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 22</value>
-  </data>
-  <data name="aanpassenToolStripMenuItem.Text" xml:space="preserve">
-    <value>Beheren..</value>
-  </data>
-  <data name="routeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 22</value>
-  </data>
-  <data name="routeToolStripMenuItem.Text" xml:space="preserve">
-    <value>Route's</value>
-  </data>
-  <data name="bewerkenToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 22</value>
-  </data>
-  <data name="bewerkenToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Beheren..</value>
-  </data>
-  <data name="talenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 22</value>
-  </data>
-  <data name="talenToolStripMenuItem.Text" xml:space="preserve">
-    <value>Talen</value>
-  </data>
-  <data name="bewerkenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 22</value>
-  </data>
-  <data name="bewerkenToolStripMenuItem.Text" xml:space="preserve">
-    <value>Beheren..</value>
-  </data>
-  <data name="waypointsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>130, 22</value>
-  </data>
-  <data name="waypointsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Waypoints</value>
   </data>
   <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>62, 20</value>
@@ -418,13 +351,80 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
+  </data>
+  <data name="routeDataOpslaanToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 22</value>
+  </data>
+  <data name="routeDataOpslaanToolStripMenuItem.Text" xml:space="preserve">
+    <value>Opslaan..</value>
+  </data>
+  <data name="routeDataOpenenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 22</value>
+  </data>
+  <data name="routeDataOpenenToolStripMenuItem.Text" xml:space="preserve">
+    <value>Openen..</value>
+  </data>
+  <data name="resetRouteDataToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 22</value>
+  </data>
+  <data name="resetRouteDataToolStripMenuItem.Text" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 6</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="afsluitenToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Alt+F4</value>
+  </data>
+  <data name="afsluitenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>163, 22</value>
+  </data>
+  <data name="afsluitenToolStripMenuItem.Text" xml:space="preserve">
+    <value>Afsluiten</value>
+  </data>
+  <data name="routeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="routeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Route's</value>
+  </data>
+  <data name="aanpassenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 22</value>
+  </data>
+  <data name="aanpassenToolStripMenuItem.Text" xml:space="preserve">
+    <value>Beheren..</value>
+  </data>
+  <data name="talenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="talenToolStripMenuItem.Text" xml:space="preserve">
+    <value>Talen</value>
+  </data>
+  <data name="bewerkenToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 22</value>
+  </data>
+  <data name="bewerkenToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Beheren..</value>
+  </data>
+  <data name="waypointsToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
+  </data>
+  <data name="waypointsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Waypoints</value>
+  </data>
+  <data name="bewerkenToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 22</value>
+  </data>
+  <data name="bewerkenToolStripMenuItem.Text" xml:space="preserve">
+    <value>Beheren..</value>
   </data>
   <data name="lblAlert.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="lblAlert.Location" type="System.Drawing.Point, System.Drawing">
-    <value>5, 64</value>
+    <value>5, 75</value>
   </data>
   <data name="lblAlert.Size" type="System.Drawing.Size, System.Drawing">
     <value>243, 13</value>
@@ -454,7 +454,7 @@
     <value>9, 72</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>263, 229</value>
+    <value>263, 235</value>
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -472,10 +472,10 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="btnUitvoeren.Location" type="System.Drawing.Point, System.Drawing">
-    <value>194, 307</value>
+    <value>197, 314</value>
   </data>
   <data name="btnUitvoeren.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -496,7 +496,19 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnUitvoeren.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
+  </data>
+  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>132, 17</value>
+  </metadata>
+  <data name="contextMenuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 4</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip1.Name" xml:space="preserve">
+    <value>contextMenuStrip1</value>
+  </data>
+  <data name="&gt;&gt;contextMenuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

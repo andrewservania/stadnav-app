@@ -18,12 +18,12 @@ namespace StadNavDesktopTool
         Waypoint selectedWaypoint;
         Waypoint addingWaypoint;
 
-        BindingList<string> selectedImages;
-        BindingList<string> addingImages;
+        BindingList<string> selectedMedia;
+        BindingList<string> addingMedia;
 
         public Manage_Waypoint(Main_Tool main_Tool)
         {
-            addingImages = selectedImages =  new BindingList<string>();
+            addingMedia = selectedMedia =  new BindingList<string>();
             selectedWaypoint = addingWaypoint = new Waypoint();
 
             this.main_Tool = main_Tool;
@@ -33,8 +33,8 @@ namespace StadNavDesktopTool
             lbWaypoints.DataSource = WaypointManagement.GetAllWaypoints();
             cbTaalBewerken.DataSource = LanguageManagement.GetAllLanguages();
             cbTaalToevoegen.DataSource = LanguageManagement.GetAllLanguages();
-            lbMediaToevoegen.DataSource = addingImages;
-            lbMediaBewerken.DataSource = selectedImages;
+            lbMediaToevoegen.DataSource = addingMedia;
+            lbMediaBewerken.DataSource = selectedMedia;
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -54,21 +54,40 @@ namespace StadNavDesktopTool
             addingWaypoint.Name = tbNaamToevoegen.Text;
             addingWaypoint.Descriptions[((Language) cbTaalToevoegen.SelectedItem).ID] = rtbBeschrijvingToevoegen.Text;
 
-            try
-            {
-                addingWaypoint.ID = Convert.ToInt32(tbIDToevoegen.Text, CultureInfo.InvariantCulture);
-                addingWaypoint.Longitude = Convert.ToDouble(tbLongToevoegen.Text, CultureInfo.InvariantCulture);
-                addingWaypoint.Latitude = Convert.ToDouble(tbLatToevoegen.Text, CultureInfo.InvariantCulture);
-            }
-            catch (Exception) { MessageBox.Show("Foutieve invoer tijdens het aanmaken van de taal"); }
+            int newId;
+            double newLongitude;
+            double newLatitude;
 
-            addingWaypoint.Images = addingImages;
+            if(!int.TryParse(tbIDToevoegen.Text, out newId))
+            {
+                MessageBox.Show("Er is een fout opgetreden tijdens het omzetten van ID");
+                return;
+            }
+
+            addingWaypoint.ID = newId;
+
+            if (!double.TryParse(tbLongToevoegen.Text, out newLongitude))
+            {
+                MessageBox.Show("Er is een fout opgetreden tijdens het omzetten van Longitude");
+                return;
+            }
+
+            addingWaypoint.Longitude = newLongitude;
+
+            if (!double.TryParse(tbLatToevoegen.Text, out newLatitude))
+            {
+                MessageBox.Show("Er is een fout opgetreden tijdens het omzetten van Latitude");
+                return;
+            }
+
+            addingWaypoint.Latitude = newLatitude;
+
+            addingWaypoint.Media = addingMedia;
 
             if (!WaypointManagement.AddWaypoint(addingWaypoint))
                 MessageBox.Show("Waypoint bestaat al, of er is een fout opgetreden tijdens het toevoegen");
 
-
-            addingImages.Clear();
+            addingMedia.Clear();
         }
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
@@ -91,7 +110,7 @@ namespace StadNavDesktopTool
             if (lbWaypoints.Items.Count > 0 && lbWaypoints.SelectedItem != null)
             {
                 selectedWaypoint = (Waypoint)lbWaypoints.SelectedItem;
-                selectedImages = selectedWaypoint.Images;
+                selectedMedia = selectedWaypoint.Media;
 
                 tbIDBewerken.Text = "" + selectedWaypoint.ID;
                 tbNaamBewerken.Text = selectedWaypoint.Name;
@@ -101,7 +120,7 @@ namespace StadNavDesktopTool
                 if (cbTaalBewerken.SelectedItem != null && selectedWaypoint.Descriptions.ContainsKey(((Language)cbTaalBewerken.SelectedItem).ID) && selectedWaypoint.Descriptions[((Language)cbTaalBewerken.SelectedItem).ID] != null)
                     rtbBeschrijvingBewerken.Text = selectedWaypoint.Descriptions[((Language)cbTaalBewerken.SelectedItem).ID];
 
-                lbMediaBewerken.DataSource = selectedImages;
+                lbMediaBewerken.DataSource = selectedMedia;
             }
         }
 
@@ -120,15 +139,35 @@ namespace StadNavDesktopTool
             selectedWaypoint.Name = tbNaamBewerken.Text;
             selectedWaypoint.Descriptions[((Language) cbTaalBewerken.SelectedItem).ID] = rtbBeschrijvingBewerken.Text;
 
-            try
-            {
-                selectedWaypoint.ID = Convert.ToInt32(tbIDBewerken.Text, CultureInfo.InvariantCulture);
-                selectedWaypoint.Longitude = Convert.ToDouble(tbLongBewerken.Text, CultureInfo.InvariantCulture);
-                selectedWaypoint.Latitude = Convert.ToDouble(tbLatBewerken.Text, CultureInfo.InvariantCulture);
-            }
-            catch (Exception) { MessageBox.Show("Foutieve invoer tijdens het bewerken van de taal"); }
+            int newId;
+            double newLongitude;
+            double newLatitude;
 
-            selectedWaypoint.Images = selectedImages;
+            if (!int.TryParse(tbIDToevoegen.Text, out newId))
+            {
+                MessageBox.Show("Er is een fout opgetreden tijdens het omzetten van ID");
+                return;
+            }
+
+            selectedWaypoint.ID = newId;
+
+            if (!double.TryParse(tbLongToevoegen.Text, out newLongitude))
+            {
+                MessageBox.Show("Er is een fout opgetreden tijdens het omzetten van Longitude");
+                return;
+            }
+
+            selectedWaypoint.Longitude = newLongitude;
+
+            if (!double.TryParse(tbLatToevoegen.Text, out newLatitude))
+            {
+                MessageBox.Show("Er is een fout opgetreden tijdens het omzetten van Latitude");
+                return;
+            }
+
+            selectedWaypoint.Latitude = newLatitude;
+            selectedWaypoint.Media = selectedMedia;
+
             WaypointManagement.UpdateWaypoint(selectedWaypoint);
         }
 
@@ -149,12 +188,11 @@ namespace StadNavDesktopTool
 
         private void btnToevoegenMediaToevoegen_Click(object sender, EventArgs e)
         {
-            try
+            if (tbBrowseMediaToevoegen.Text != string.Empty && tbBrowseMediaToevoegen.Text != "Mediabestand")
             {
-                addingImages.Add(tbBrowseMediaToevoegen.Text);
+                addingMedia.Add(tbBrowseMediaToevoegen.Text);
                 tbBrowseMediaToevoegen.Text = "";
             }
-            catch (Exception) { MessageBox.Show("Er is een fout opgetreden tijdens het toevoegen van media"); }
         }
 
         private void lbMediaToevoegen_SelectedIndexChanged(object sender, EventArgs e)
@@ -165,13 +203,13 @@ namespace StadNavDesktopTool
         private void btnVerwijderenMediaToevoegen_Click(object sender, EventArgs e)
         {
             if(lbMediaToevoegen.SelectedItem != null && lbMediaToevoegen.Items.Count > 0)
-                addingImages.Remove((string) lbMediaToevoegen.SelectedItem);
+                addingMedia.Remove((string) lbMediaToevoegen.SelectedItem);
         }
 
         private void btnVerwijderenMediaBewerken_Click(object sender, EventArgs e)
         {
             if (lbMediaBewerken.SelectedItem != null && lbMediaBewerken.Items.Count > 0)
-                selectedImages.Remove((string) lbMediaBewerken.SelectedItem);
+                selectedMedia.Remove((string) lbMediaBewerken.SelectedItem);
         }
 
         private void btnBrowseMediaBewerken_Click(object sender, EventArgs e)
@@ -186,41 +224,16 @@ namespace StadNavDesktopTool
 
         private void btnToevoegenMediaBewerken_Click(object sender, EventArgs e)
         {
-            try
+            if (tbBrowseMediaBewerken.Text != string.Empty && tbBrowseMediaBewerken.Text != "Mediabestand")
             {
-                selectedImages.Add(tbBrowseMediaBewerken.Text);
+                selectedMedia.Add(tbBrowseMediaBewerken.Text);
                 tbBrowseMediaBewerken.Text = "";
             }
-            catch (Exception) { MessageBox.Show("An error occured while loading the page"); }
         }
 
         private void afsluitenToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "DAT files (*.dat)|*.dat";
-
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                WaypointManagement.SaveToFile(saveFileDialog.FileName);
-            }
-        }
-
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "DAT files (*.dat)|*.dat";
-
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                WaypointManagement.loadFromFile(openFileDialog.FileName);
-            }
-
-            lbWaypoints.DataSource = WaypointManagement.GetAllWaypoints();
         }
 
         private void clearToolStripMenuItem_Click(object sender, EventArgs e)

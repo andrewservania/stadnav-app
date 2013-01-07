@@ -34,7 +34,7 @@ namespace StadNavDesktopTool
 
         public static void AddWaypointImage(Waypoint waypoint, string image)
         {
-            waypoint.Images.Add(image);
+            waypoint.Media.Add(image);
         }
 
         public static void RemoveWaypoint(Waypoint wayPoint)

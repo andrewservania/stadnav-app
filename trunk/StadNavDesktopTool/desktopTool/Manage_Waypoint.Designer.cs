@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbTaalToevoegen = new System.Windows.Forms.ComboBox();
             this.btnVerwijderenMediaToevoegen = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.lblBeschrijvingToevoegen = new System.Windows.Forms.Label();
@@ -50,6 +51,7 @@
             this.btnVerwijderen = new System.Windows.Forms.Button();
             this.lbWaypoints = new System.Windows.Forms.ListBox();
             this.lblMediaBewerken = new System.Windows.Forms.GroupBox();
+            this.cbTaalBewerken = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnVerwijderenMediaBewerken = new System.Windows.Forms.Button();
             this.btnToevoegenMediaBewerken = new System.Windows.Forms.Button();
@@ -72,8 +74,6 @@
             this.afsluitenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.cbTaalToevoegen = new System.Windows.Forms.ComboBox();
-            this.cbTaalBewerken = new System.Windows.Forms.ComboBox();
             this.groupBox2.SuspendLayout();
             this.lblMediaBewerken.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -106,6 +106,15 @@
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Toevoegen";
+            // 
+            // cbTaalToevoegen
+            // 
+            this.cbTaalToevoegen.FormattingEnabled = true;
+            this.cbTaalToevoegen.Location = new System.Drawing.Point(324, 8);
+            this.cbTaalToevoegen.Name = "cbTaalToevoegen";
+            this.cbTaalToevoegen.Size = new System.Drawing.Size(121, 21);
+            this.cbTaalToevoegen.TabIndex = 22;
+            this.cbTaalToevoegen.SelectedIndexChanged += new System.EventHandler(this.cbTaalToevoegen_SelectedIndexChanged);
             // 
             // btnVerwijderenMediaToevoegen
             // 
@@ -167,7 +176,7 @@
             this.tbBrowseMediaToevoegen.Name = "tbBrowseMediaToevoegen";
             this.tbBrowseMediaToevoegen.Size = new System.Drawing.Size(189, 20);
             this.tbBrowseMediaToevoegen.TabIndex = 12;
-            this.tbBrowseMediaToevoegen.Text = "Mediabestand..";
+            this.tbBrowseMediaToevoegen.Text = "Mediabestand";
             // 
             // lblLongToevoegen
             // 
@@ -247,7 +256,7 @@
             // 
             // btnToevoegen
             // 
-            this.btnToevoegen.Location = new System.Drawing.Point(265, 7);
+            this.btnToevoegen.Location = new System.Drawing.Point(265, 5);
             this.btnToevoegen.Name = "btnToevoegen";
             this.btnToevoegen.Size = new System.Drawing.Size(180, 29);
             this.btnToevoegen.TabIndex = 4;
@@ -311,6 +320,15 @@
             this.lblMediaBewerken.Text = "Bewerken";
             this.lblMediaBewerken.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // cbTaalBewerken
+            // 
+            this.cbTaalBewerken.FormattingEnabled = true;
+            this.cbTaalBewerken.Location = new System.Drawing.Point(324, 8);
+            this.cbTaalBewerken.Name = "cbTaalBewerken";
+            this.cbTaalBewerken.Size = new System.Drawing.Size(121, 21);
+            this.cbTaalBewerken.TabIndex = 23;
+            this.cbTaalBewerken.SelectedIndexChanged += new System.EventHandler(this.cbTaalBewerken_SelectedIndexChanged);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -351,7 +369,7 @@
             // 
             // tbBewerken
             // 
-            this.tbBewerken.Location = new System.Drawing.Point(265, 6);
+            this.tbBewerken.Location = new System.Drawing.Point(265, 5);
             this.tbBewerken.Name = "tbBewerken";
             this.tbBewerken.Size = new System.Drawing.Size(180, 30);
             this.tbBewerken.TabIndex = 4;
@@ -366,7 +384,7 @@
             this.tbBrowseMediaBewerken.Name = "tbBrowseMediaBewerken";
             this.tbBrowseMediaBewerken.Size = new System.Drawing.Size(189, 20);
             this.tbBrowseMediaBewerken.TabIndex = 17;
-            this.tbBrowseMediaBewerken.Text = "Mediabestand..";
+            this.tbBrowseMediaBewerken.Text = "Mediabestand";
             // 
             // btnBrowseMediaBewerken
             // 
@@ -504,24 +522,6 @@
             this.panel2.Size = new System.Drawing.Size(455, 39);
             this.panel2.TabIndex = 22;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
-            // 
-            // cbTaalToevoegen
-            // 
-            this.cbTaalToevoegen.FormattingEnabled = true;
-            this.cbTaalToevoegen.Location = new System.Drawing.Point(324, 8);
-            this.cbTaalToevoegen.Name = "cbTaalToevoegen";
-            this.cbTaalToevoegen.Size = new System.Drawing.Size(121, 21);
-            this.cbTaalToevoegen.TabIndex = 22;
-            this.cbTaalToevoegen.SelectedIndexChanged += new System.EventHandler(this.cbTaalToevoegen_SelectedIndexChanged);
-            // 
-            // cbTaalBewerken
-            // 
-            this.cbTaalBewerken.FormattingEnabled = true;
-            this.cbTaalBewerken.Location = new System.Drawing.Point(324, 8);
-            this.cbTaalBewerken.Name = "cbTaalBewerken";
-            this.cbTaalBewerken.Size = new System.Drawing.Size(121, 21);
-            this.cbTaalBewerken.TabIndex = 23;
-            this.cbTaalBewerken.SelectedIndexChanged += new System.EventHandler(this.cbTaalBewerken_SelectedIndexChanged);
             // 
             // Manage_Waypoint
             // 

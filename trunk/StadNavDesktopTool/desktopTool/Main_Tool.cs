@@ -54,38 +54,6 @@ namespace StadNavDesktopTool
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            rtbOutput.Clear();
-            rtbOutput.Text = "...";
-            string productID = " " + tbProductID.Text;
-            string actie;
-            string emu;
-            path = " " + tbBrowseURL.Text;
-           
-            if (cbGebruikEmulator.CheckState == CheckState.Checked)
-            {
-                emu = " xd";
-            }
-            else
-            {
-                emu = " ed";
-            }
-            
-            if (cbSchrijven.CheckState == CheckState.Checked)
-            {
-                actie = " rs";
-            }
-            else
-            {
-                actie = " ts";
-            }
-
-            
-   
-            rtbOutput.Text = ExecuteCommandSync(actie, emu, productID, path);
-        }
-
         private void BrowseBT_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog openFileDialog1 = new FolderBrowserDialog();
@@ -112,6 +80,7 @@ namespace StadNavDesktopTool
                 // and then exit.
 
                 System.Diagnostics.ProcessStartInfo procStartInfo = new System.Diagnostics.ProcessStartInfo();
+
                 if (path == ";")
                 {
                     procStartInfo = new System.Diagnostics.ProcessStartInfo(@"Resources\ISETool.exe", actie + emu + productID);
@@ -294,6 +263,37 @@ namespace StadNavDesktopTool
                 WaypointManagement.ClearWaypoints();
             }
             
+        }
+
+        private void btnUitvoeren_Click(object sender, EventArgs e)
+        {
+            rtbOutput.Clear();
+            rtbOutput.Text = "...";
+
+            string productID = " " + tbProductID.Text;
+            string actie;
+            string emu;
+            path = " " + tbBrowseURL.Text;
+
+            if (cbGebruikEmulator.CheckState == CheckState.Checked)
+            {
+                emu = " xd";
+            }
+            else
+            {
+                emu = " ed";
+            }
+
+            if (cbSchrijven.CheckState == CheckState.Checked)
+            {
+                actie = " rs";
+            }
+            else
+            {
+                actie = " ts";
+            }
+
+            rtbOutput.Text = ExecuteCommandSync(actie, emu, productID, path);
         }
     }
 }

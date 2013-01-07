@@ -85,7 +85,7 @@
     <Compile Include="Help_Tool.Designer.cs">
       <DependentUpon>Help_Tool.cs</DependentUpon>
     </Compile>
-    <Compile Include="JSON_Management.cs" />
+    <Compile Include="JSONManagement.cs" />
     <Compile Include="Language.cs" />
     <Compile Include="LanguageManagement.cs" />
     <Compile Include="Main_Tool.cs">
