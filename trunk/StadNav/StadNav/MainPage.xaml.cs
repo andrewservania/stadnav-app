@@ -33,7 +33,7 @@ namespace StadNav
         bool checker = false;
         static bool trigger = false;
         Pushpin userPushpin = new Pushpin();
-        int defaultZoom = 20;
+        int defaultZoom = 15;
         
        
         //list of locations, locations[0] should always be your own location
@@ -234,6 +234,8 @@ namespace StadNav
                     pin.Content = wp.ID + "";
                     pin.Name = wp.ID.ToString();
                     pin.Background = new SolidColorBrush(Colors.Yellow);
+                               
+
                     pin.MouseEnter += OnTapEnter;
                     pin.MouseLeave += OnTapLeave;
                     GeoCoordinate waypointCoords = new GeoCoordinate(wp.Latitude, wp.Longitude);
