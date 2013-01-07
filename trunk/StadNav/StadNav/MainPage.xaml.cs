@@ -38,6 +38,7 @@ namespace StadNav
        
         //list of locations, locations[0] should always be your own location
         List<GeoCoordinate> locations = new List<GeoCoordinate>();
+        List<Pushpin> pushpins = new List<Pushpin>();
         MapPolyline routeLine = new MapPolyline();
 
         // Constructor
@@ -223,6 +224,9 @@ namespace StadNav
             if (checker == false) // To avoid redrawing the routeline and for performance improvement
             {
                 locations.Add(userPushpin.Location);
+
+                Pushpin userpin = new Pushpin();
+                pushpins.Add(userpin);
                 
                 foreach (Waypoint wp in currentRoute.Waypoints)
                 {
@@ -234,6 +238,7 @@ namespace StadNav
                     pin.MouseLeave += OnTapLeave;
                     GeoCoordinate waypointCoords = new GeoCoordinate(wp.Latitude, wp.Longitude);
                     pushPinLayer.AddChild(pin, waypointCoords);
+                    pushpins.Add(pin);
                     if (waypointCoords.Latitude != 0 && waypointCoords.Longitude != 0)
                     {
                         locations.Add(waypointCoords);
@@ -314,12 +319,29 @@ namespace StadNav
             st.ScaleY = 1.0;
             st.CenterX = (pushpin as FrameworkElement).Height / 2;
             st.CenterY = (pushpin as FrameworkElement).Height / 2;
-            pushpin.Background = new SolidColorBrush(Colors.Orange);
+            pushpin.Background = new SolidColorBrush(Colors.Yellow);
             pushpin.RenderTransform = st;
         }
 
         private void atNextWaypoint()
         {
+            int locationID = Convert.ToInt32(pushpins.ElementAt(1).Content.ToString());
+            Pushpin pushpin = pushpins.ElementAt(1);
+            Waypoint w = Database.getWaypointByID(locationID);
+            pushpin.Background = new SolidColorBrush(Colors.Black);
+            if ((bool)PhoneApplicationService.Current.State["language"])
+            {
+                MessageBoxResult m = MessageBox.Show("Bestemmingspunt " + pushpin.Name + " is bereikt." +
+                        "\n" + w.Name + "\n" + w.Description + "\nInformatie over dit bestemmingspunt tonen?",
+                        "Bestemmingspunt", MessageBoxButton.OKCancel);
+            }
+            else
+            {
+                MessageBoxResult m = MessageBox.Show("Waypoint " + pushpin.Name + " has been reached." +
+                        "\n" + w.Name + "\n" + w.Description + "\nShow information about this waypoint?",
+                        "Waypoint", MessageBoxButton.OKCancel);
+            }
+            pushpins.RemoveAt(1);
             locations.RemoveAt(1);
         }
 
