@@ -152,5 +152,10 @@ namespace StadNav
             updateLanguage();
         }
 
+        private void button8_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/HelpPage.xaml", UriKind.Relative));
+        }
+
     }
 }

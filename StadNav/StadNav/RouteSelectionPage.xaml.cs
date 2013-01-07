@@ -60,9 +60,9 @@ namespace StadNav
             MainPage.triggerMapRefresh();
         }
 
-        private void Image_ImageFailed(object sender, ExceptionRoutedEventArgs e)
+        private void button1_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new Uri(string.Format("/HelpPage.xaml"), UriKind.Relative));
         }
 
 

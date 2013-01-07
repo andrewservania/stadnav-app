@@ -51,9 +51,6 @@
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Controls.Maps, Version=7.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e" />
     <Reference Include="Microsoft.Phone.Interop" />
-    <Reference Include="RatingControlSample">
-      <HintPath>..\..\..\..\..\Documents\GitHub\WP7Samples\RatingControlSample\RatingControlSample\Bin\Debug\RatingControlSample.dll</HintPath>
-    </Reference>
     <Reference Include="system.data.linq" />
     <Reference Include="System.Device" />
     <Reference Include="System.Runtime.Serialization" />

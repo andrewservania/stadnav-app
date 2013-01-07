@@ -43,8 +43,8 @@ namespace StadNav
         // Constructor
         public MainPage()
         {
-            InitializeComponent();          
-            
+            InitializeComponent();
+            map1.ZoomBarVisibility = Visibility.Visible;
             //Voorkomt dat de taal weer op nederlands wordt gezet na terug navigeren naar deze pagina.
             try
             {
@@ -57,13 +57,6 @@ namespace StadNav
             }
             updateLanguage();
 
-            // Draw  route line using its waypoints
-            routePolyLine = new MapPolyline();
-            routePolyLine.Stroke = new SolidColorBrush(Colors.Blue);
-            routePolyLine.StrokeThickness = 17;
-            routePolyLine.Opacity = 0.7;
-            routePolyLine.Locations = new LocationCollection();
-            map1.Children.Add(routePolyLine);
             pushPinLayer = new MapLayer();
             map1.Children.Add(pushPinLayer);
 
@@ -71,13 +64,11 @@ namespace StadNav
             //MapLayer of route lines
             MapLayer myRouteLayer = new MapLayer();
 
-
             // Add the route line to the new layer.
             myRouteLayer.Children.Add(routeLine);
 
             // Add a map layer in which to draw the route.
             map1.Children.Add(myRouteLayer);
-
 
             map1.ZoomLevel = defaultZoom;
 
@@ -147,6 +138,7 @@ namespace StadNav
 
         private void CalculateRoute(List<GeoCoordinate> locations)
         {
+
             // Create the service variable and set the callback method using the CalculateRouteCompleted property.
             RouteService.RouteServiceClient routeService = new RouteService.RouteServiceClient("BasicHttpBinding_IRouteService");
             routeService.CalculateRouteCompleted += new EventHandler<RouteService.CalculateRouteCompletedEventArgs>(routeService_CalculateRouteCompleted);
@@ -183,6 +175,7 @@ namespace StadNav
             }
 
             // Make the CalculateRoute asnychronous request.
+
             routeService.CalculateRouteAsync(routeRequest);
         }
 
@@ -193,7 +186,7 @@ namespace StadNav
             if ((e.Result.ResponseSummary.StatusCode == RouteService.ResponseStatusCode.Success) & (e.Result.Result.Legs.Count != 0))
             {
                 // Set properties of the route line you want to draw.
-                Color routeColor = Colors.Blue;
+                Color routeColor = Colors.Red;
                 SolidColorBrush routeBrush = new SolidColorBrush(routeColor);
 
                 routeLine.Locations = new LocationCollection();
@@ -233,11 +226,10 @@ namespace StadNav
                 
                 foreach (Waypoint wp in currentRoute.Waypoints)
                 {
-                    //routePolyLine.Locations.Add(new GeoCoordinate(wp.Latitude, wp.Longitude));
                     Pushpin pin = new Pushpin();
                     pin.Content = wp.ID + "";
                     pin.Name = wp.ID.ToString();
-                    pin.Background = new SolidColorBrush(Colors.Orange);
+                    pin.Background = new SolidColorBrush(Colors.Yellow);
                     pin.MouseEnter += OnTapEnter;
                     pin.MouseLeave += OnTapLeave;
                     GeoCoordinate waypointCoords = new GeoCoordinate(wp.Latitude, wp.Longitude);
@@ -246,7 +238,6 @@ namespace StadNav
                     {
                         locations.Add(waypointCoords);
                     }
-                    routePolyLine.Locations.Add(new GeoCoordinate(wp.Latitude, wp.Longitude));
                 }
 
                 map1.SetView(LocationRect.CreateLocationRect(locations));
@@ -372,11 +363,6 @@ namespace StadNav
 
         internal static void triggerMapRefresh()
         { trigger = true; }
-
-        private void Image_ImageFailed(object sender, ExceptionRoutedEventArgs e)
-        {
-
-        }
 
         private void routeRatingButton_Click(object sender, RoutedEventArgs e)
         {

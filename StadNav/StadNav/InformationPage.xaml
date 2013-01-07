@@ -40,7 +40,8 @@
                     <Image Name="image4" Stretch="Fill" Width="438" />
                 </StackPanel>
             </ScrollViewer>
-            </Grid>
+            <Button Content="?" HorizontalAlignment="Right" Margin="0,6,94,499" Name="button2" Width="90" Click="button2_Click" />
+        </Grid>
     </Grid>
     
 

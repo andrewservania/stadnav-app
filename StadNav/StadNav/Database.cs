@@ -131,7 +131,7 @@ namespace StadNav
             w4.Longitude = 4.77969;
             w4.Images.Add(null);
             w4.Description = "";
-            w4.InformationNL = getText("texts/T4NassauMonumentNL.txt"); 
+            w4.InformationNL = getText("texts/T4NassauMonumentNL.txt");
             w4.InformationEN = getText("texts/T4NassauMonumentENG.txt");
 
             w5.ID = 5;
@@ -556,7 +556,7 @@ namespace StadNav
             #endregion
 
             standardVVVRoute.ID = 0;
-            standardVVVRoute.Name = "VVV Route";
+            standardVVVRoute.Name = "Breda - VVV Route";
 
             #region Add all waypoints to standard VVVroute
 
